@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import base64
 import os
 import buycoins_sdk.commons.constants as constants
-from decimal import *
 
 load_dotenv()
 
@@ -51,10 +50,10 @@ class BuycoinsGraphqlClient:
     def get_bank_account(self, account_number: str) -> dict:
         return {}
 
-    def get_estimated_network_fee(self, amount: Decimal, cryptocurrency: str = constants.BITCOIN) -> dict:
+    def get_estimated_network_fee(self, amount: str, cryptocurrency: str = constants.BITCOIN) -> dict:
         return {}
 
-    def get_market_book(self, coin_amount: Decimal, cryptocurrency: str = constants.BITCOIN) -> dict:
+    def get_market_book(self, coin_amount: str, cryptocurrency: str = constants.BITCOIN) -> dict:
         return {}
 
     def get_orders(self, status: dict, side: dict, cryptocurrency: str = constants.BITCOIN) -> dict:
