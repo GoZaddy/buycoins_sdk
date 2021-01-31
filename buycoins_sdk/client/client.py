@@ -211,8 +211,48 @@ class BuycoinsGraphqlClient:
     def get_payments(self) -> dict:
         return {}
 
-    def get_prices(self, side: dict, cryptocurrency: str = constants.BITCOIN) -> dict:
-        return {}
+    def get_prices(self, cryptocurrency: str = constants.BITCOIN) -> dict:
+        """Executes the getPrices query
+
+        Args:
+            cryptocurrency: the type of cryptocurrency to query for
+
+        Returns:
+            A dict representing the GraphQL response
+        Raises:
+            BuycoinsException: An error occurred
+
+        """
+        query = """
+            query getPrices($cryptocurrency: Cryptocurrency){
+              getPrices(cryptocurrency: $cryptocurrency){
+                id
+                cryptocurrency
+                buyPricePerCoin
+                expiresAt
+                maxBuy
+                maxSell
+                minBuy
+                minCoinAmount
+                minSell
+                sellPricePerCoin
+                status 
+              }
+            }
+        """
+        variables = {'cryptocurrency': cryptocurrency}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['getPrices']}
+
+
 
     def node(self, id: str) -> dict:
         return {}
@@ -223,4 +263,4 @@ class BuycoinsGraphqlClient:
 
 bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
 
-pprint.pprint(bc.get_market_book(cryptocurrency=constants.BITCOIN, last=1))
+pprint.pprint(bc.get_prices(constants.USD_TETHER))
