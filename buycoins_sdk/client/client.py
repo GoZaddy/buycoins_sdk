@@ -21,7 +21,7 @@ class BuycoinsGraphqlClient:
         })
 
     def get_balances(self, cryptocurrency: str) -> dict:
-        """Retrieve supported cryptocurrencies account balance(s)
+        """Executes the getBalances query to retrieve supported cryptocurrencies account balance(s)
 
         Args:
             cryptocurrency: A string representing the cryptocurrency to query.
