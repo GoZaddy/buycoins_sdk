@@ -205,12 +205,15 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getMarketBook']}
 
+    # TODO:
     def get_orders(self, status: dict, side: dict, cryptocurrency: str = constants.BITCOIN) -> dict:
         return {}
 
+    # TODO:
     def get_payments(self) -> dict:
         return {}
 
+    # TODO:
     def get_prices(self, cryptocurrency: str = constants.BITCOIN) -> dict:
         """Executes the getPrices query
 
@@ -252,11 +255,22 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getPrices']}
 
+    # TODO:
+    def node(self, id: str, type: str) -> dict:
+        """Executes the node Graphql query
 
+        Args:
+            id: the Global object ID of the node
+            type: the type of the Graphql node
 
-    def node(self, id: str) -> dict:
-        return {}
+        Returns:
+            A dict representing the GraphQL response
+        Raises:
+            BuycoinsException: An error occurred
 
+        """
+
+    # TODO:
     def nodes(self, ids: [str]) -> dict:
         return {}
 

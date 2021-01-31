@@ -1,5 +1,5 @@
 LITECOIN = 'litecoin'
 BITCOIN = 'bitcoin'
-ETHEREUM='ethereum'
-USD_COIN='usd_coin'
-USD_TETHER='usd_tether'
+ETHEREUM = 'ethereum'
+USD_COIN = 'usd_coin'
+USD_TETHER = 'usd_tether'
