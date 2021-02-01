@@ -33,3 +33,22 @@ class InsufficientAmountToSellException(BuycoinsException):
         self.amount_to_sell = amount_to_sell
         super().__init__(f"Your balance is insufficient for this sale\nCryptocurrency: {cryptocurrency}, Amount to "
                          f"sell: {amount_to_sell}")
+
+
+class InvalidGraphQLNodeIDException(BuycoinsException):
+    """InvalidGraphQLNodeIDException is raised when a user tries to get a node with an invalid Global Object ID(one
+    that points to no node) or with a wrong GraphQL type
+
+    """
+
+    def __init__(self, node_id, gql_type, message="The ID or GraphQL type you passed in was invalid or wrong"):
+        """Create a new InvalidGraphQLNodeIDException
+
+        Args:
+            node_id: a string representing the Global Object ID that passed by the user
+            gql_type: a string representing the GraphQL type passed by the user
+        """
+
+        self.node_id = node_id
+        self.gql_type = gql_type
+        super().__init__(message)

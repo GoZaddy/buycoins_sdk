@@ -2,8 +2,7 @@ from python_graphql_client import GraphqlClient
 from dotenv import load_dotenv
 import base64
 import os
-import buycoins_sdk.commons.constants as constants
-from buycoins_sdk.commons.errors import BuycoinsException
+from buycoins_sdk.commons import constants, errors, gql_fields
 import pprint
 from typing import Union
 
@@ -53,10 +52,10 @@ class BuycoinsGraphqlClient:
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
-            raise BuycoinsException(str(err))
+            raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
-                raise BuycoinsException(data['errors'][0]['message'])
+                raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['getBalances']}
 
@@ -86,10 +85,10 @@ class BuycoinsGraphqlClient:
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
-            raise BuycoinsException(str(err))
+            raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
-                raise BuycoinsException(data['errors'][0]['message'])
+                raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['getBankAccounts']}
 
@@ -116,10 +115,10 @@ class BuycoinsGraphqlClient:
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
-            raise BuycoinsException(str(err))
+            raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
-                raise BuycoinsException(data['errors'][0]['message'])
+                raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['getEstimatedNetworkFee']}
 
@@ -198,10 +197,10 @@ class BuycoinsGraphqlClient:
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
-            raise BuycoinsException(str(err))
+            raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
-                raise BuycoinsException(data['errors'][0]['message'])
+                raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['getMarketBook']}
 
@@ -248,20 +247,19 @@ class BuycoinsGraphqlClient:
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
-            raise BuycoinsException(str(err))
+            raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
-                raise BuycoinsException(data['errors'][0]['message'])
+                raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['getPrices']}
 
-    # TODO:
-    def node(self, id: str, type: str) -> dict:
+    def node(self, node_id: str, gql_type: str) -> dict:
         """Executes the node Graphql query
 
         Args:
-            id: the Global object ID of the node
-            type: the type of the Graphql node
+            node_id: the Global object ID of the node
+            gql_type: the GraphQL type of the Graphql node
 
         Returns:
             A dict representing the GraphQL response
@@ -270,6 +268,36 @@ class BuycoinsGraphqlClient:
 
         """
 
+        try:
+            fields = gql_fields.type_to_field[gql_type]
+        except KeyError:
+            raise errors.InvalidGraphQLNodeIDException(gql_type=gql_type, node_id=node_id, message="The GraphQL type "
+                                                                                                   "passed is invalid")
+
+        query = """
+            query node($id: ID!){
+                node(id: $id){
+                     ... on """+gql_type+""" {
+                        """+fields+"""
+                    }
+                }
+            }
+        """
+        variables = {'id': node_id}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            elif data['data']['node'] == {}:
+                raise errors.InvalidGraphQLNodeIDException(gql_type=gql_type, node_id=node_id)
+            else:
+                return {'data': data['data']['node']}
+
+
     # TODO:
     def nodes(self, ids: [str]) -> dict:
         return {}
@@ -277,4 +305,4 @@ class BuycoinsGraphqlClient:
 
 bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
 
-pprint.pprint(bc.get_prices(constants.USD_TETHER))
+pprint.pprint(bc.node(node_id="QWRkcmVzcy0zMTI0ZTMwMi05ODMwLTQ3N2ItODdlNy05NjViMDE1ODE3Y2M", gql_type="Address"))
