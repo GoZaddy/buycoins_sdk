@@ -27,24 +27,23 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
         before: A string representing a cursor. Returns the elements in the list that come before the specified
                     cursor.
 
-    Returns: A dictionary with keys: orders_arg and arg, which represents the arguments for the Connection and the
+    Returns: A dictionary with keys: connection_arg and arg, which represents the arguments for the Connection and the
             GraphQL query.
     """
-    orders_arg = ""
+    connection_arg = ''
     arg_map = {'first': first, 'last': last, 'after': after, 'before': before}
     arg = ','
     for i in arg_map:
         if arg_map[i] is not None:
-            orders_arg = orders_arg + f"{i}:${i},"
+            connection_arg = connection_arg + f"{i}:${i},"
             if i == 'first' or i == 'last':
                 arg = arg + f"${i}: Int,"
             elif i == 'after' or i == 'before':
                 arg = arg + f"${i}: String,"
             variables[i] = arg_map[i]
-    if len(orders_arg) != 0:
-        if orders_arg[len(orders_arg) - 1] == ',':
-            orders_arg = orders_arg[:-1]
-            orders_arg = f"({orders_arg})"
+    if connection_arg != '':
+        connection_arg = connection_arg[:-1]
+        connection_arg = f"({connection_arg})"
 
     if arg == ',':
         arg = ''
@@ -52,7 +51,7 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
         arg = arg[:-1]
 
     return {
-        "orders_arg": orders_arg,
+        "connection_arg": connection_arg,
         "arg": arg,
     }
 
@@ -190,14 +189,14 @@ class BuycoinsGraphqlClient:
 
         # get arguments for the GraphQL query and that of the orders query
         arg_and_order_arg = _prepare_graphql_args(variables, first, last, after, before)
-        orders_arg = arg_and_order_arg['orders_arg']
+        connection_arg = arg_and_order_arg['connection_arg']
         arg = arg_and_order_arg['arg']
 
         query = """
             query getMarketBook($cryptocurrency: Cryptocurrency""" + arg + """){                           
               getMarketBook(cryptocurrency: $cryptocurrency){
                 dynamicPriceExpiry
-                orders""" + orders_arg + """{
+                orders""" + connection_arg + """{
                   pageInfo{
                     endCursor
                     hasNextPage
@@ -258,7 +257,7 @@ class BuycoinsGraphqlClient:
 
         # get arguments for the GraphQL query and that of the orders query
         arg_and_order_arg = _prepare_graphql_args(variables, first, last, after, before)
-        orders_arg = arg_and_order_arg['orders_arg']
+        connection_arg = arg_and_order_arg['connection_arg']
         arg = arg_and_order_arg['arg']
 
         # get the arguments for the getOrders query
@@ -271,7 +270,7 @@ class BuycoinsGraphqlClient:
             query getOrders($cryptocurrency: Cryptocurrency, $status: GetOrdersStatus!""" + arg + """){                           
               getOrders(cryptocurrency: $cryptocurrency, status: $status, """ + get_orders_args + """ ){
                 dynamicPriceExpiry
-                orders""" + orders_arg + """{
+                orders""" + connection_arg + """{
                   pageInfo{
                     endCursor
                     hasNextPage
@@ -308,8 +307,61 @@ class BuycoinsGraphqlClient:
                 return {'data': data['data']['getOrders']}
 
     # TODO:
-    def get_payments(self) -> dict:
-        return {}
+    def get_payments(self, after: str = None, before: str = None, first: int = None, last: int = None) -> dict:
+        """Executes the getPayments GraphQL query
+
+        Args:
+            first: For pagination. Returns the first n elements in a list.
+            last: For pagination. Returns the last n elements in a list.
+            after: A string representing a cursor. Returns the elements in the list that come after the specified
+                cursor.
+            before: A string representing a cursor. Returns the elements in the list that come before the specified
+                cursor.
+        Returns:
+            A dict representing the GraphQL response
+        Raises:
+            BuycoinsException: An error occurred
+
+        """
+        variables = {}
+        args_and_get_payments_args = _prepare_graphql_args(variables,first,last,after,before)
+        arg = args_and_get_payments_args['arg']
+        connection_arg = args_and_get_payments_args['connection_arg']
+
+        print("args", arg)
+        if arg != "":
+            arg = arg[1:]
+            arg = f"({arg})"
+
+        print(arg)
+
+        query = """
+            query getPayments""" + arg + """{                           
+              getPayments""" + connection_arg + """{
+                pageInfo{
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                }
+                edges{
+                    cursor
+                    node{
+                      """+gql_fields.type_to_field['Payment']+"""
+                    }
+                }
+              }
+            }
+        """
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['getPayments']}
 
     # TODO:
     def get_prices(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -403,4 +455,4 @@ class BuycoinsGraphqlClient:
 
 bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
 
-pprint.pprint(bc.get_orders(cryptocurrency=Cryptocurrency.BITCOIN, status=GetOrdersStatus.OPEN))
+pprint.pprint(bc.get_payments(last=1))
