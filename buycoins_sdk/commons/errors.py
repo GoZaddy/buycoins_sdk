@@ -22,6 +22,7 @@ class InsufficientAmountToSellException(BuycoinsException):
     """InsufficientAmountToSellException is raised when a user tries to sell more cryptocurrency than they have
 
     """
+
     def __init__(self, cryptocurrency: str, amount_to_sell: str):
         """Create a new InsufficientAmountToSellException
 
@@ -41,12 +42,13 @@ class InvalidGraphQLNodeIDException(BuycoinsException):
 
     """
 
-    def __init__(self, node_id, gql_type, message="The ID or GraphQL type you passed in was invalid or wrong"):
+    def __init__(self, node_id=None, gql_type=None,
+                 message="The ID or GraphQL type you passed in was invalid or wrong"):
         """Create a new InvalidGraphQLNodeIDException
 
         Args:
             node_id: a string representing the Global Object ID that passed by the user
-            gql_type: a string representing the GraphQL type passed by the user
+            gql_type: a BuycoinsType enum representing the GraphQL type passed by the user
         """
 
         self.node_id = node_id

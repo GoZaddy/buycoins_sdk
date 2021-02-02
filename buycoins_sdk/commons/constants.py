@@ -1,4 +1,23 @@
+"""This module contains various constants(mostly in the form of enums) that act as native python versions of similar
+constants in the GraphQL API """
+
 from enum import Enum
+
+
+class BuycoinsType(Enum):
+    """This contains enums for all the types in the Buycoins GraphQL API
+
+    """
+    ACCOUNT = 'Account'
+    BANK_ACCOUNT = 'BankAccount'
+    POST_ORDER = 'PostOrder'
+    PAYMENT = 'Payment'
+    BUYCOINS_PRICE = 'BuycoinsPrice'
+    ADDRESS = 'Address'
+    DEPOSIT_ACCOUNT = 'DepositAccount'
+    ORDER = 'Order'
+    ONCHAIN_TRANSFER_REQUEST = 'OnchainTransferRequest'
+    TRANSACTION = 'Transaction'
 
 
 class Cryptocurrency(Enum):

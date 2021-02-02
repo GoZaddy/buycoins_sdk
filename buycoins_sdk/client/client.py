@@ -6,7 +6,7 @@ from python_graphql_client import GraphqlClient
 from dotenv import load_dotenv
 import base64
 import os
-from buycoins_sdk.commons import errors, gql_fields, Cryptocurrency, GetOrdersStatus
+from buycoins_sdk.commons import errors, gql_fields, Cryptocurrency, GetOrdersStatus, BuycoinsType
 import pprint
 from typing import Union, Any
 
@@ -70,7 +70,6 @@ class BuycoinsGraphqlClient:
             secret_key: your BuyCoins secret key as a string
         """
         b64_key = base64.b64encode(f"{public_key}:{secret_key}".encode()).decode()
-        print(b64_key)
         self._client = GraphqlClient(os.getenv("BUYCOINS_GRAPHQL_ENDPOINT"), headers={
             'authorization': f"Basic {b64_key}"
         })
@@ -232,7 +231,6 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getMarketBook']}
 
-    # TODO:
     def get_orders(self, status: GetOrdersStatus, side: str = None, first: int = None, last: int = None,
                    after: str = None,
                    before: str = None, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -306,7 +304,6 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getOrders']}
 
-    # TODO:
     def get_payments(self, after: str = None, before: str = None, first: int = None, last: int = None) -> dict:
         """Executes the getPayments GraphQL query
 
@@ -324,16 +321,14 @@ class BuycoinsGraphqlClient:
 
         """
         variables = {}
-        args_and_get_payments_args = _prepare_graphql_args(variables,first,last,after,before)
+        args_and_get_payments_args = _prepare_graphql_args(variables, first, last, after, before)
         arg = args_and_get_payments_args['arg']
         connection_arg = args_and_get_payments_args['connection_arg']
 
-        print("args", arg)
         if arg != "":
             arg = arg[1:]
             arg = f"({arg})"
 
-        print(arg)
 
         query = """
             query getPayments""" + arg + """{                           
@@ -347,7 +342,7 @@ class BuycoinsGraphqlClient:
                 edges{
                     cursor
                     node{
-                      """+gql_fields.type_to_field['Payment']+"""
+                      """ + gql_fields.type_to_field[BuycoinsType.PAYMENT] + """
                     }
                 }
               }
@@ -363,7 +358,6 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getPayments']}
 
-    # TODO:
     def get_prices(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
         """Executes the getPrices query
 
@@ -405,7 +399,7 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getPrices']}
 
-    def node(self, node_id: str, gql_type: str) -> dict:
+    def node(self, node_id: str, gql_type: BuycoinsType) -> dict:
         """Executes the node Graphql query
 
         Args:
@@ -415,25 +409,25 @@ class BuycoinsGraphqlClient:
         Returns:
             A dict representing the GraphQL response
         Raises:
-            BuycoinsException: An error occurred
+            InvalidGraphQLNodeIDException: You tried to search for a node with the wrong ID or wrong GraphQL type
+            BuycoinsException: An unspecified error occurred
 
         """
 
-        try:
-            fields = gql_fields.type_to_field[gql_type]
-        except KeyError:
-            raise errors.InvalidGraphQLNodeIDException(gql_type=gql_type, node_id=node_id, message="The GraphQL type "
-                                                                                                   "passed is invalid")
+
+        fields = gql_fields.type_to_field[gql_type]
+
 
         query = """
             query node($id: ID!){
                 node(id: $id){
-                     ... on """ + gql_type + """ {
+                     ... on """ + gql_type.value + """ {
                         """ + fields + """
                     }
                 }
             }
         """
+
         variables = {'id': node_id}
 
         try:
@@ -449,10 +443,55 @@ class BuycoinsGraphqlClient:
                 return {'data': data['data']['node']}
 
     # TODO:
-    def nodes(self, ids: [str]) -> dict:
-        return {}
+    def nodes(self, ids: list[str], gql_types=list[BuycoinsType]) -> dict:
+        """Executes the nodes GraphQL query
+
+        Args:
+            ids: the list of node IDs
+            gql_types: the list of node types
+
+        Returns:
+            A dict representing the GraphQL response
+        Raises:
+            InvalidGraphQLNodeIDException: You tried to search for a node with the wrong ID or wrong GraphQL type
+            BuycoinsException: An unspecified error occurred
+
+        """
+        on_part_of_query = """"""
+        for i in gql_types:
+            on_part_of_query = on_part_of_query + "\n" + """
+                ... on """ + i.value + """{
+                    """ + gql_fields.type_to_field[i] + """
+                }
+            """
+        query = """
+            query nodes($ids: [ID!]!){
+                nodes(ids: $ids){
+                    """+on_part_of_query+"""
+                }
+            }
+        """
+
+        variables = {'ids': ids}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                if {} in data['data']['nodes']:
+                    raise errors.InvalidGraphQLNodeIDException(message="One of your nodes could not looked up. Please "
+                                                                       "check your Node IDs or GraphQL types")
+                else:
+                    return {'data': data['data']['nodes']}
 
 
-bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
+# bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
 
-pprint.pprint(bc.get_payments(last=1))
+# pprint.pprint( bc.nodes(gql_types=[BuycoinsType.PAYMENT, BuycoinsType.ADDRESS],
+# ids=["UGF5bWVudC1jYWQyOGU1MC04ZGZlLTQ2ZDMtOGNjMS0xNzM4N2YxNDM0ODI=",
+# "UGF5bWVudC1mOWFhMmE1Ni00MmYzLTQ1YTYtYThlYS0yZmQyMjZkZmY2NzY=",
+# "QWRkcmVzcy0yOTkwNWQzOC01NjhjLTQwOTMtYWNjOS1iZTc3YjNhZmZiN2M=" ]))

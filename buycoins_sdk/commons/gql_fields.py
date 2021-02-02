@@ -1,14 +1,17 @@
-"""This module contains a single dictionary which maps GraphQL types from the BuyCoins API to a multi-line string
+"""This module contains a single dictionary  which maps GraphQL types from the BuyCoins API to a multi-line string
 containing the fields of that type """
 
+from buycoins_sdk.commons.constants import *
+
+
 type_to_field = {
-    "Account": """
+    BuycoinsType.ACCOUNT: """
         id
         cryptocurrency
         confirmedBalance
     """,
 
-    "BankAccount": """
+    BuycoinsType.BANK_ACCOUNT: """
         id
         accountName
         accountNumber
@@ -17,7 +20,7 @@ type_to_field = {
         bankName
     """,
 
-    "PostOrder": """
+    BuycoinsType.POST_ORDER: """
         id
         coinAmount
         createdAt
@@ -30,7 +33,7 @@ type_to_field = {
         status
     """,
 
-    "Payment": """
+    BuycoinsType.PAYMENT: """
         id
         amount
         createdAt
@@ -41,7 +44,7 @@ type_to_field = {
         type
     """,
 
-    "BuycoinsPrice": """
+    BuycoinsType.BUYCOINS_PRICE: """
         id
         buyPricePerCoin
         cryptocurrency
@@ -55,14 +58,14 @@ type_to_field = {
         status
     """,
 
-    "Address": """
+    BuycoinsType.ADDRESS: """
         id
         address
         createdAt
         cryptocurrency
     """,
 
-    "DepositAccount": """
+    BuycoinsType.DEPOSIT_ACCOUNT: """
         id
         accountName
         accountNumber
@@ -71,7 +74,7 @@ type_to_field = {
         bankName
     """,
 
-    "Order": """
+    BuycoinsType.ORDER: """
         id
         createdAt
         cryptocurrency
@@ -82,7 +85,7 @@ type_to_field = {
         totalCoinAmount
     """,
 
-    "OnchainTransferRequest": """
+    BuycoinsType.ONCHAIN_TRANSFER_REQUEST: """
         id
         address
         amount
@@ -93,7 +96,7 @@ type_to_field = {
         transaction
     """,
 
-    "Transaction": """
+    BuycoinsType.TRANSACTION: """
         id
         address
         amount
