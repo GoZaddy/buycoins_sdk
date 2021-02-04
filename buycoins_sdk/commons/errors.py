@@ -54,3 +54,20 @@ class InvalidGraphQLNodeIDException(BuycoinsException):
         self.node_id = node_id
         self.gql_type = gql_type
         super().__init__(message)
+
+
+class InsufficientBalanceToBuyException(BuycoinsException):
+    """InsufficientBalanceToBuyException is raised when a user tries to buy cryptocurrency with insufficient balance
+
+        """
+
+    def __init__(self, amount_to_buy, cryptocurrency):
+        """Create a new InvalidGraphQLNodeIDException
+
+        Args:
+            amount_to_buy: amount of coins the user tried to buy
+            cryptocurrency: the type of the cryptocurrency the user tried to buy
+        """
+        self.cryptocurrency = cryptocurrency
+        self.amount_to_buy = amount_to_buy
+        super().__init__(f'Your balance is insufficient for this purchase\nCryptocurrency: {cryptocurrency}, Amount to buy: {amount_to_buy}')

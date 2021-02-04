@@ -6,7 +6,8 @@ from python_graphql_client import GraphqlClient
 from dotenv import load_dotenv
 import base64
 import os
-from buycoins_sdk.commons import errors, gql_fields, Cryptocurrency, GetOrdersStatus, BuycoinsType
+from buycoins_sdk.commons import errors, type_to_field, Cryptocurrency, GetOrdersStatus, BuycoinsType, OrderSide, \
+    PriceType
 import pprint
 from typing import Union, Any
 
@@ -56,7 +57,7 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
     }
 
 
-# TODO: write and documents BuycoinsGraphqlClient's methods
+
 class BuycoinsGraphqlClient:
     """The BuycoinsGraphqlClient is a wrapper around GraphqlClient which takes in the user's public and secret keys
     for making GraphQL queries.
@@ -87,9 +88,7 @@ class BuycoinsGraphqlClient:
         query = """
             query getBalances($cryptocurrency: Cryptocurrency){
                 getBalances(cryptocurrency: $cryptocurrency){
-                    id
-                    cryptocurrency
-                    confirmedBalance
+                    """ + type_to_field[BuycoinsType.ACCOUNT] + """
                 }
             }
         """
@@ -117,12 +116,7 @@ class BuycoinsGraphqlClient:
         query = """
             query getBankAccounts($accountNumber: String){
                 getBankAccounts(accountNumber: $accountNumber){
-                    accountName
-                    accountNumber
-                    accountReference
-                    accountType
-                    bankName
-                    id
+                    """ + type_to_field[BuycoinsType.BANK_ACCOUNT] + """
                 }
             }
         """
@@ -205,16 +199,7 @@ class BuycoinsGraphqlClient:
                   edges{
                     cursor
                     node{
-                      id
-                      coinAmount
-                      createdAt
-                      cryptocurrency
-                      dynamicExchangeRate
-                      pricePerCoin
-                      priceType
-                      side
-                      staticPrice
-                      status
+                      """ + type_to_field[BuycoinsType.POST_ORDER] + """
                     }
                   }
                 }  
@@ -278,16 +263,7 @@ class BuycoinsGraphqlClient:
                   edges{
                     cursor
                     node{
-                      id
-                      coinAmount
-                      createdAt
-                      cryptocurrency
-                      dynamicExchangeRate
-                      pricePerCoin
-                      priceType
-                      side
-                      staticPrice
-                      status
+                      """ + type_to_field[BuycoinsType.POST_ORDER] + """
                     }
                   }
                 }  
@@ -329,7 +305,6 @@ class BuycoinsGraphqlClient:
             arg = arg[1:]
             arg = f"({arg})"
 
-
         query = """
             query getPayments""" + arg + """{                           
               getPayments""" + connection_arg + """{
@@ -342,7 +317,7 @@ class BuycoinsGraphqlClient:
                 edges{
                     cursor
                     node{
-                      """ + gql_fields.type_to_field[BuycoinsType.PAYMENT] + """
+                      """ + type_to_field[BuycoinsType.PAYMENT] + """
                     }
                 }
               }
@@ -373,17 +348,7 @@ class BuycoinsGraphqlClient:
         query = """
             query getPrices($cryptocurrency: Cryptocurrency){
               getPrices(cryptocurrency: $cryptocurrency){
-                id
-                cryptocurrency
-                buyPricePerCoin
-                expiresAt
-                maxBuy
-                maxSell
-                minBuy
-                minCoinAmount
-                minSell
-                sellPricePerCoin
-                status 
+                """ + type_to_field[BuycoinsType.BUYCOINS_PRICE] + """ 
               }
             }
         """
@@ -414,9 +379,7 @@ class BuycoinsGraphqlClient:
 
         """
 
-
-        fields = gql_fields.type_to_field[gql_type]
-
+        fields = type_to_field[gql_type]
 
         query = """
             query node($id: ID!){
@@ -442,7 +405,6 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['node']}
 
-    # TODO:
     def nodes(self, ids: list[str], gql_types=list[BuycoinsType]) -> dict:
         """Executes the nodes GraphQL query
 
@@ -461,13 +423,13 @@ class BuycoinsGraphqlClient:
         for i in gql_types:
             on_part_of_query = on_part_of_query + "\n" + """
                 ... on """ + i.value + """{
-                    """ + gql_fields.type_to_field[i] + """
+                    """ + type_to_field[i] + """
                 }
             """
         query = """
             query nodes($ids: [ID!]!){
                 nodes(ids: $ids){
-                    """+on_part_of_query+"""
+                    """ + on_part_of_query + """
                 }
             }
         """
@@ -488,9 +450,379 @@ class BuycoinsGraphqlClient:
                 else:
                     return {'data': data['data']['nodes']}
 
+    def buy(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Execute the buy mutation
 
-# bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
+        Args:
+            price_id: Global ID of a retrieved price
+            coin_amount: Amount of coins to buy
+            cryptocurrency: type of cryptocurrency
 
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            InsufficientBalanceToBuyException: raised when user has insufficient balance to buy cryptocurrency
+            BuycoinsException: An error occurred
+
+        """
+
+        query = """
+            mutation buy($cryptocurrency: Cryptocurrency, $price: ID!, $coin_amount: BigDecimal!){
+                buy(cryptocurrency: $cryptocurrency, price: $price, coin_amount: $coin_amount){
+                   """ + type_to_field[BuycoinsType.ORDER] + """
+                }
+            }
+        """
+        variables = {'cryptocurrency': cryptocurrency.value, 'price': price_id, 'coin_amount': coin_amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                if data['errors'][0]['message'] == 'Your balance is insufficient for this purchase':
+                    raise errors.InsufficientBalanceToBuyException(cryptocurrency=cryptocurrency.value,
+                                                                   amount_to_buy=coin_amount)
+                else:
+                    raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['buy']}
+
+    def cancel_withdrawal(self, payment_id: str) -> dict:
+        """Executes the cancelWithdrawal mutation
+
+        Args:
+            payment_id: the ID of the Payment node for the withdrawal
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation cancelWithdrawal($payment: ID!){
+                cancelWithdrawal(payment: $payment){
+                   """ + type_to_field[BuycoinsType.PAYMENT] + """
+                }
+            }
+        """
+        variables = {'payment': payment_id}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['cancelWithdrawal']}
+
+    def create_address(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Executes the createAddress mutation
+
+        Args:
+            cryptocurrency: cryptocurrency of address to create
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation createAddress($cryptocurrency: Cryptocurrency){
+                createAddress(cryptocurrency: $cryptocurrency){
+                    """ + type_to_field[BuycoinsType.ADDRESS] + """
+                }
+            }
+        """
+        variables = {'cryptocurrency': cryptocurrency.value}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['createAddress']}
+
+    def create_deposit_account(self, account_name: str) -> dict:
+        """Executes the createDepositAccount mutation
+
+        Args:
+            account_name: name of the account
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation createDepositAccount($account_name: String!){
+                createDepositAccount(accountName: $account_name){
+                   """ + type_to_field[BuycoinsType.DEPOSIT_ACCOUNT] + """
+                }
+            }
+        """
+        variables = {'account_name': account_name}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['createDepositAccount']}
+
+    def create_withdrawal(self, bank_account_id: str, amount: str):
+        """Executes the createWithdrawal mutation
+
+        Args:
+            bank_account_id: Global object ID of bank account node to withdraw to
+            amount: amount to withdraw in naira
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation createWithdrawal($bank_account: ID!, $amount: BigDecimal!){
+                createWithdrawal(bankAccount: $bank_account, amount: $amount){
+                   """ + type_to_field[BuycoinsType.PAYMENT] + """
+                }
+            }
+        """
+        variables = {'bank_account': bank_account_id, 'amount': amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['createWithdrawal']}
+
+    def post_limit_order(self, order_side: OrderSide, coin_amount: str, static_price: str, price_type: PriceType,
+                         dynamic_exchange_rate: str = None,
+                         cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Execute the postLimitOrder mutation
+
+        Args:
+            order_side: The order side either buy or sell
+            coin_amount: Amount of coins the user wants to trade
+            static_price: The static price in naira
+            price_type: The type of the price either dynamic or static
+            dynamic_exchange_rate: The dynamic exchange rate in naira
+            cryptocurrency: type of cryptocurrency
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+
+        """
+        dynamic_exchange_rate_query_slices = ["", ""]
+        if dynamic_exchange_rate is not None:
+            dynamic_exchange_rate_query_slices = [", $dynamic_exchange_rate: BigDecimal", ", dynamicExchangeRate: "
+                                                                                          "$dynamic_exchange_rate"]
+        static_price_query_slices = ["", ""]
+        if static_price_query_slices is not None:
+            static_price_query_slices = [", $static_price: BigDecimal", ", staticPrice: $static_price"]
+        query = """
+            mutation postLimitOrder($cryptocurrency: Cryptocurrency, $order_side: OrderSide!, $coin_amount: BigDecimal!,
+            $price_type: PriceType!""" + dynamic_exchange_rate_query_slices[0] + static_price_query_slices[0] + """){
+                postLimitOrder(cryptocurrency: $cryptocurrency, orderSide: $order_side, coinAmount: $coin_amount, 
+                priceType: $price_type""" + dynamic_exchange_rate_query_slices[1] + \
+                static_price_query_slices[1] + """){
+                   """ + type_to_field[BuycoinsType.POST_ORDER] + """
+                }
+            }
+        """
+        variables = {'cryptocurrency': cryptocurrency.value, 'order_side': order_side.value, 'coin_amount': coin_amount,
+                     'static_price': static_price, 'price_type': price_type.value,
+                     'dynamic_exchange_rate': dynamic_exchange_rate}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['postLimitOrder']}
+
+    def post_market_order(self, order_side: OrderSide, coin_amount: str,
+                          cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Execute the postMarketOrder mutation
+
+        Args:
+            order_side: The order side either buy or sell
+            coin_amount: Amount of coins the user wants to trade
+            cryptocurrency: type of cryptocurrency
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+
+        """
+
+        query = """
+            mutation postMarketOrder($cryptocurrency: Cryptocurrency, $order_side: OrderSide!, $coin_amount: BigDecimal!){
+                postMarketOrder(cryptocurrency: $cryptocurrency, orderSide: $order_side, coinAmount: $coin_amount){
+                   """ + type_to_field[BuycoinsType.POST_ORDER] + """
+                }
+            }
+        """
+
+        print(query)
+        variables = {'cryptocurrency': cryptocurrency.value, 'order_side': order_side.value, 'coin_amount': coin_amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['postMarketOrder']}
+
+    def sell(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Execute the sell mutation
+
+        Args:
+            price_id: Global ID of a retrieved price
+            coin_amount: Amount of coins to sell
+            cryptocurrency: type of cryptocurrency
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            InsufficientAmountToSellException: raised when the user has insufficient amount of cryptocurrency to sell
+            BuycoinsException: An error occurred
+
+        """
+
+        query = """
+            mutation sell($cryptocurrency: Cryptocurrency, $price: ID!, $coin_amount: BigDecimal!){
+                sell(cryptocurrency: $cryptocurrency, price: $price, coin_amount: $coin_amount){
+                   """ + type_to_field[BuycoinsType.ORDER] + """
+                }
+            }
+        """
+
+        print(query)
+        variables = {'cryptocurrency': cryptocurrency.value, 'price': price_id, 'coin_amount': coin_amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                if data['errors'][0]['message'] == 'Your balance is insufficient for this sale':
+                    raise errors.InsufficientAmountToSellException(cryptocurrency=cryptocurrency.value, amount_to_sell=coin_amount)
+                else:
+                    raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['sell']}
+
+    def send(self, address: str, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Executes the send mutation
+
+        Args:
+            address: cryptocurrency address of recipient
+            amount: amount of cryptocurrency to send
+            cryptocurrency: cryptocurrency to send
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation send($cryptocurrency: Cryptocurrency, $address: String!, $amount: BigDecimal!){
+                send(cryptocurrency: $cryptocurrency, address: $address, amount: $amount){
+                   """ + type_to_field[BuycoinsType.ONCHAIN_TRANSFER_REQUEST] + """
+                }
+            }
+        """
+        print(query)
+        variables = {'cryptocurrency': cryptocurrency.value, 'address': address, 'amount': amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['send']}
+
+    def send_offchain(self, recipient: str, amount: str,
+                      cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+        """Executes the sendOffchain mutation
+
+        Args:
+            recipient: username of recipient
+            amount: amount of cryptocurrency to send
+            cryptocurrency: cryptocurrency to send
+
+        Returns:
+            A dict representing the GraphQL response
+
+        Raises:
+            BuycoinsException: An error occurred
+        """
+        query = """
+            mutation sendOffchain($cryptocurrency: Cryptocurrency, $recipient: String!, $amount: BigDecimal!){
+                sendOffchain(cryptocurrency: $cryptocurrency, recipient: $recipient, amount: $amount){
+                   initiated
+                }
+            }
+        """
+        variables = {'cryptocurrency': cryptocurrency.value, 'recipient': recipient, 'amount': amount}
+
+        try:
+            data = self._client.execute(query=query, variables=variables)
+        except Exception as err:
+            raise errors.BuycoinsException(str(err))
+        else:
+            if 'errors' in data:
+                raise errors.BuycoinsException(data['errors'][0]['message'])
+            else:
+                return {'data': data['data']['sendOffchain']}
+
+
+my_bank_account = "2119851388"
+bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
+my_bank_account_id = bc.get_bank_accounts(account_number=my_bank_account)['data'][0]['id']
+print(my_bank_account_id)
+my_price_id = bc.get_prices(cryptocurrency=Cryptocurrency.BITCOIN)['data'][0]['id']
+print(my_price_id)
+
+print(bc.buy(price_id=my_price_id, coin_amount='1'))
+#print(bc.create_withdrawal(bank_account_id=my_bank_account_id, amount="10"))
 # pprint.pprint( bc.nodes(gql_types=[BuycoinsType.PAYMENT, BuycoinsType.ADDRESS],
 # ids=["UGF5bWVudC1jYWQyOGU1MC04ZGZlLTQ2ZDMtOGNjMS0xNzM4N2YxNDM0ODI=",
 # "UGF5bWVudC1mOWFhMmE1Ni00MmYzLTQ1YTYtYThlYS0yZmQyMjZkZmY2NzY=",

@@ -79,7 +79,19 @@ type_to_field = {
         createdAt
         cryptocurrency
         filledCoinAmount
-        price
+        price {
+            id
+            buyPricePerCoin
+            cryptocurrency
+            expiresAt
+            maxBuy
+            maxSell
+            minBuy
+            minCoinAmount
+            minSell
+            sellPricePerCoin
+            status
+        }
         side
         status
         totalCoinAmount
@@ -87,24 +99,57 @@ type_to_field = {
 
     BuycoinsType.ONCHAIN_TRANSFER_REQUEST: """
         id
-        address
+        address 
         amount
         createdAt
         cryptocurrency
         fee
         status
-        transaction
+        transaction{
+            id
+            address {  
+                id
+                address
+                createdAt
+                cryptocurrency     
+            }
+            amount
+            confirmed
+            createdAt
+            cryptocurrency
+            direction
+            onchainTransferRequest{
+                id
+            }
+            txhash
+        }
     """,
 
     BuycoinsType.TRANSACTION: """
         id
-        address
+        address {
+            id
+            address
+            createdAt
+            cryptocurrency
+        }
         amount
         confirmed
         createdAt
         cryptocurrency
         direction
-        onchainTransferRequest
+        onchainTransferRequest{
+            id
+            address
+            amount
+            createdAt
+            cryptocurrency
+            fee
+            status
+            transaction{
+                id
+            }
+        }
         txhash
     """,
 
