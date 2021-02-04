@@ -8,9 +8,9 @@ import base64
 import os
 from buycoins_sdk.commons import errors, type_to_field, Cryptocurrency, GetOrdersStatus, BuycoinsType, OrderSide, \
     PriceType
-import pprint
-from typing import Union, Any
+from typing import Any
 
+# load environment variables
 load_dotenv()
 
 
@@ -55,7 +55,6 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
         "connection_arg": connection_arg,
         "arg": arg,
     }
-
 
 
 class BuycoinsGraphqlClient:
@@ -737,7 +736,8 @@ class BuycoinsGraphqlClient:
         else:
             if 'errors' in data:
                 if data['errors'][0]['message'] == 'Your balance is insufficient for this sale':
-                    raise errors.InsufficientAmountToSellException(cryptocurrency=cryptocurrency.value, amount_to_sell=coin_amount)
+                    raise errors.InsufficientAmountToSellException(cryptocurrency=cryptocurrency.value,
+                                                                   amount_to_sell=coin_amount)
                 else:
                     raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
@@ -809,18 +809,3 @@ class BuycoinsGraphqlClient:
                 raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['sendOffchain']}
-
-
-# my_bank_account = "2119851388"
-# bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
-# my_bank_account_id = bc.get_bank_accounts(account_number=my_bank_account)['data'][0]['id']
-# print(my_bank_account_id)
-# my_price_id = bc.get_prices(cryptocurrency=Cryptocurrency.BITCOIN)['data'][0]['id']
-# print(my_price_id)
-
-# print(bc.buy(price_id=my_price_id, coin_amount='1'))
-#print(bc.create_withdrawal(bank_account_id=my_bank_account_id, amount="10"))
-# pprint.pprint( bc.nodes(gql_types=[BuycoinsType.PAYMENT, BuycoinsType.ADDRESS],
-# ids=["UGF5bWVudC1jYWQyOGU1MC04ZGZlLTQ2ZDMtOGNjMS0xNzM4N2YxNDM0ODI=",
-# "UGF5bWVudC1mOWFhMmE1Ni00MmYzLTQ1YTYtYThlYS0yZmQyMjZkZmY2NzY=",
-# "QWRkcmVzcy0yOTkwNWQzOC01NjhjLTQwOTMtYWNjOS1iZTc3YjNhZmZiN2M=" ]))
