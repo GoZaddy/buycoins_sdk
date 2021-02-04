@@ -691,7 +691,6 @@ class BuycoinsGraphqlClient:
             }
         """
 
-        print(query)
         variables = {'cryptocurrency': cryptocurrency.value, 'order_side': order_side.value, 'coin_amount': coin_amount}
 
         try:
@@ -729,7 +728,6 @@ class BuycoinsGraphqlClient:
             }
         """
 
-        print(query)
         variables = {'cryptocurrency': cryptocurrency.value, 'price': price_id, 'coin_amount': coin_amount}
 
         try:
@@ -766,7 +764,6 @@ class BuycoinsGraphqlClient:
                 }
             }
         """
-        print(query)
         variables = {'cryptocurrency': cryptocurrency.value, 'address': address, 'amount': amount}
 
         try:
@@ -814,14 +811,14 @@ class BuycoinsGraphqlClient:
                 return {'data': data['data']['sendOffchain']}
 
 
-my_bank_account = "2119851388"
-bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
-my_bank_account_id = bc.get_bank_accounts(account_number=my_bank_account)['data'][0]['id']
-print(my_bank_account_id)
-my_price_id = bc.get_prices(cryptocurrency=Cryptocurrency.BITCOIN)['data'][0]['id']
-print(my_price_id)
+# my_bank_account = "2119851388"
+# bc = BuycoinsGraphqlClient(public_key=os.getenv("BUYCOINS_PUBLIC_KEY"), secret_key=os.getenv("BUYCOINS_SECRET_KEY"))
+# my_bank_account_id = bc.get_bank_accounts(account_number=my_bank_account)['data'][0]['id']
+# print(my_bank_account_id)
+# my_price_id = bc.get_prices(cryptocurrency=Cryptocurrency.BITCOIN)['data'][0]['id']
+# print(my_price_id)
 
-print(bc.buy(price_id=my_price_id, coin_amount='1'))
+# print(bc.buy(price_id=my_price_id, coin_amount='1'))
 #print(bc.create_withdrawal(bank_account_id=my_bank_account_id, amount="10"))
 # pprint.pprint( bc.nodes(gql_types=[BuycoinsType.PAYMENT, BuycoinsType.ADDRESS],
 # ids=["UGF5bWVudC1jYWQyOGU1MC04ZGZlLTQ2ZDMtOGNjMS0xNzM4N2YxNDM0ODI=",
