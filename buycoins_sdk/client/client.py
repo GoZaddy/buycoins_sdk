@@ -809,3 +809,8 @@ class BuycoinsGraphqlClient:
                 raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['sendOffchain']}
+
+
+
+bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
+print(bc.get_prices(Cryptocurrency.BITCOIN)['data'])

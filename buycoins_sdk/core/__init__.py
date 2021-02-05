@@ -1,1 +1,1 @@
-from buycoins_sdk.core.buycoins_sdk import BuycoinsSDK
+from buycoins_sdk.core.main_buycoins_sdk import BuycoinsSDK

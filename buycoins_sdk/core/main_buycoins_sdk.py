@@ -1,5 +1,5 @@
 from buycoins_sdk.client import BuycoinsGraphqlClient
-from buycoins_sdk.commons import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType
+from buycoins_sdk.commons import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
 
 
 class BuycoinsSDK:

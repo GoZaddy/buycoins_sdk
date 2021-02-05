@@ -44,7 +44,7 @@ class BuycoinsPriceStatus(Enum):
 
     """
     EXPIRED = 'expired'
-    ACTIVE = 'status'
+    ACTIVE = 'active'
 
 
 class GetOrdersStatus(Enum):
@@ -114,3 +114,21 @@ class OnchainTransferRequestStatus(Enum):
     PROCESSED = 'processed'
     READY_FOR_PROCESSING = 'ready_for_processing'
     PROCESSING = 'processing'
+
+
+class BankAccountTypes(Enum):
+    """The BankAccountTypes enum represents the BankAccountTypes enum in the GraphQL API
+
+    """
+    WITHDRAWAL = 'withdrawal'
+    DEPOSIT = 'deposit'
+
+
+class OrderStatus(Enum):
+    """The OrderStatus enum represents the OrderStatus enum in the GraphQL API
+
+    """
+    PENDING = 'pending'
+    CANCELED = 'canceled'
+    DONE = 'done'
+    FAILED = 'failed'
