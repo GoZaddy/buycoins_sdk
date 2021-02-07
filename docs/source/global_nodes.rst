@@ -1,0 +1,2 @@
+GraphQL Global object Nodes
+=============================

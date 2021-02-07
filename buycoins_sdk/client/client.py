@@ -19,7 +19,6 @@ __all__ = [
 load_dotenv()
 
 
-
 def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: int = None, after: str = None,
                           before: str = None) -> dict[str, Any]:
     """This function takes in common pagination args for the Connection and prepares them into two variables
