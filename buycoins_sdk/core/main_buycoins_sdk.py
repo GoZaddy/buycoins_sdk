@@ -1,5 +1,13 @@
 from buycoins_sdk.client import BuycoinsGraphqlClient
 from buycoins_sdk.commons import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
+from buycoins_sdk.core.bc_types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
+    BuycoinsPrice, Order, Payment, DepositAccount, PostOrder, OnchainTransferRequest, Address
+from typing import Union
+
+
+__all__ = [
+    'BuycoinsSDK'
+]
 
 
 class BuycoinsSDK:
@@ -7,6 +15,8 @@ class BuycoinsSDK:
 
     All calls to the Buycoins GraphQL API should be done using this class
 
+    Attributes:
+        client: A BuycoinsGraphqlClient object where the actual GraphQL queries and mutations are made
     """
 
     def __init__(self, public_key: str, secret_key: str):
@@ -15,45 +25,65 @@ class BuycoinsSDK:
         self._secret_key = secret_key
         self.client = BuycoinsGraphqlClient(public_key=public_key, secret_key=secret_key)
 
-    def get_balances(self, cryptocurrency: Cryptocurrency) -> dict:
-        """Executes the getBalances query
+    def get_balances(self, cryptocurrency: Cryptocurrency = None) -> Union[list[Account], Account]:
+        """Retrieve supported cryptocurrencies account balance(s)
 
         Args:
             cryptocurrency: A Cryptocurrency enum representing the cryptocurrency to query.
         Returns:
-            A dict representing the GraphQL response
+            An array of Account or a single Account object. An array of Accounts is returned when no cryptocurrency
+            is specified
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        balances = self.client.get_balances(cryptocurrency)['data']
+        if len(balances) > 1:
+            result = []
 
-    def get_bank_accounts(self, account_number: str) -> dict:
-        """Executes the getBankAccounts query
+            for balance in balances:
+                result.append(Account.from_dict(balance))
+            return result
+        else:
+            return Account.from_dict(balances[0])
+
+    def get_bank_accounts(self, account_number: str = None) -> Union[list[BankAccount], BankAccount]:
+        """Retrieve bank accounts
 
         Args:
             account_number: A string representing the account number to get.
         Returns:
-            A dict representing the GraphQL response
+            An array of BankAccount objects or a single BankAccount object. An array of BankAccount objects
+            is returned when no account number is specified
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        bank_accounts = self.client.get_bank_accounts(account_number)['data']
+        if len(bank_accounts) > 1:
+            result = []
 
-    def get_estimated_network_fee(self, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the getEstimatedNetworkFee query
+            for account in bank_accounts:
+                result.append(BankAccount.from_dict(account))
+            return result
+        else:
+            return BankAccount.from_dict(bank_accounts[0])
+
+    def get_estimated_network_fee(self, amount: str,
+                                  cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> EstimatedFee:
+        """Retrieve estimated network fee to send supported cryptocurrencies
 
         Args:
             amount: A string representing the amount of coins to calculate network fee for
             cryptocurrency: type of cryptocurrency.
         Returns:
-            A dict representing the GraphQL response
+            An EstimatedFee object
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        estimated_fee = self.client.get_estimated_network_fee(amount=amount, cryptocurrency=cryptocurrency)['data']
+        return EstimatedFee.from_dict(estimated_fee)
 
     def get_market_book(self, first: int = None, last: int = None, after: str = None, before: str = None,
-                        cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+                        cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> PostOrders:
         """Executes the getMarketBook query
 
             Args:
@@ -69,12 +99,13 @@ class BuycoinsSDK:
             Raises:
                 BuycoinsException: An error occurred
         """
-        pass
+        post_orders = self.client.get_market_book(first, last, after, before, cryptocurrency)['data']
+        return PostOrders.from_dict(post_orders)
 
-    def get_orders(self, status: GetOrdersStatus, side: str = None, first: int = None, last: int = None,
+    def get_orders(self, status: GetOrdersStatus, side: OrderSide = None, first: int = None, last: int = None,
                    after: str = None,
-                   before: str = None, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the getOrders query
+                   before: str = None, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> PostOrders:
+        """Retrieve open orders
 
             Args:
                 status: the status of the orders to get
@@ -87,13 +118,23 @@ class BuycoinsSDK:
                     cursor.
                 cryptocurrency: type of cryptocurrency.
             Returns:
-                A dict representing the GraphQL response
+                A PostOrders object representing the PostOrders type returned by the GraphQL API
             Raises:
                 BuycoinsException: An error occurred
         """
-        pass
+        post_orders = self.client.get_orders(
+            side=side,
+            first=first,
+            last=last,
+            after=after,
+            before=before,
+            cryptocurrency=cryptocurrency,
+            status=status
+        )['data']
+        return PostOrders.from_dict(post_orders)
 
-    def get_payments(self, after: str = None, before: str = None, first: int = None, last: int = None) -> dict:
+    def get_payments(self, after: str = None, before: str = None, first: int = None,
+                     last: int = None) -> PaymentConnection:
         """Executes the getPayments GraphQL query
 
         Args:
@@ -109,24 +150,39 @@ class BuycoinsSDK:
             BuycoinsException: An error occurred
 
         """
-        pass
+        return PaymentConnection.from_dict(self.client.get_payments(
+            after=after,
+            before=before,
+            first=first,
+            last=last
+        )['data'])
 
-    def get_prices(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the getPrices query
+    def get_prices(self, cryptocurrency: Cryptocurrency = None) \
+            -> Union[list[BuycoinsPrice], BuycoinsPrice]:
+        """Retrieve buy/sell price(s) for supported cryptocurrencies
 
         Args:
             cryptocurrency: the type of cryptocurrency to query for
 
         Returns:
-            A dict representing the GraphQL response
+            A array of BuycoinsPrice objects or a single BuycoinsPrice object. An array of Buycoins Objects is returned
+            when no cryptocurrency is specified
         Raises:
             BuycoinsException: An error occurred
 
         """
-        pass
+        prices = self.client.get_prices(cryptocurrency)['data']
+        if len(prices) > 1:
+            result = []
+
+            for price in prices:
+                result.append(BuycoinsPrice.from_dict(price))
+            return result
+        else:
+            return BuycoinsPrice.from_dict(prices[0])
 
     def node(self, node_id: str, gql_type: BuycoinsType) -> dict:
-        """Executes the node Graphql query
+        """Fetches an object given its ID.
 
         Args:
             node_id: the Global object ID of the node
@@ -140,10 +196,13 @@ class BuycoinsSDK:
 
         """
 
-        pass
+        return self.client.node(
+            node_id=node_id,
+            gql_type=gql_type
+        )
 
     def nodes(self, ids: list[str], gql_types=list[BuycoinsType]) -> dict:
-        """Executes the nodes GraphQL query
+        """Fetches a list of objects given a list of IDs
 
         Args:
             ids: the list of node IDs
@@ -156,10 +215,13 @@ class BuycoinsSDK:
             BuycoinsException: An unspecified error occurred
 
         """
-        pass
+        return self.client.nodes(
+            ids=ids,
+            gql_types=gql_types
+        )
 
-    def buy(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Execute the buy mutation
+    def buy(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> Order:
+        """Buy supported cryptocurrencies
 
         Args:
             price_id: Global ID of a retrieved price
@@ -167,7 +229,7 @@ class BuycoinsSDK:
             cryptocurrency: type of cryptocurrency
 
         Returns:
-            A dict representing the GraphQL response
+            An Order object representing the GraphQL response
 
         Raises:
             InsufficientBalanceToBuyException: raised when user has insufficient balance to buy cryptocurrency
@@ -175,69 +237,95 @@ class BuycoinsSDK:
 
         """
 
-        pass
+        return Order.from_dict(
+            self.client.buy(
+                price_id=price_id,
+                coin_amount=coin_amount,
+                cryptocurrency=cryptocurrency
+            )['data']
+        )
 
-    def cancel_withdrawal(self, payment_id: str) -> dict:
-        """Executes the cancelWithdrawal mutation
+    def cancel_withdrawal(self, payment_id: str) -> Payment:
+        """Cancel initiated withdrawal
 
         Args:
             payment_id: the ID of the Payment node for the withdrawal
 
         Returns:
-            A dict representing the GraphQL response
+            A Payment object representing the GraphQL response
 
         Raises:
+            WithdrawalCannotBeCanceledException: An error occurred because user tried to cancel already processed
+             withdrawal
             BuycoinsException: An error occurred
         """
-        pass
+        return Payment.from_dict(
+            self.client.cancel_withdrawal(
+                payment_id
+            )['data']
+        )
 
-    def create_address(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the createAddress mutation
+    def create_address(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> Address:
+        """Create address to receive supported cryptocurrencies
 
         Args:
             cryptocurrency: cryptocurrency of address to create
 
         Returns:
-            A dict representing the GraphQL response
+            An Address object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        return Address.from_dict(
+            self.client.create_address(
+                cryptocurrency=cryptocurrency
+            )['data']
+        )
 
-    def create_deposit_account(self, account_name: str) -> dict:
-        """Executes the createDepositAccount mutation
+    def create_deposit_account(self, account_name: str) -> DepositAccount:
+        """Generate deposit bank accounts to top up your NGNT account with Naira
 
         Args:
             account_name: name of the account
 
         Returns:
-            A dict representing the GraphQL response
+            A DepositAccount object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        return DepositAccount.from_dict(
+            self.client.create_deposit_account(
+                account_name=account_name
+            )['data']
+        )
 
-    def create_withdrawal(self, bank_account_id: str, amount: str):
-        """Executes the createWithdrawal mutation
+    def create_withdrawal(self, bank_account_id: str, amount: str) -> Payment:
+        """Create a new withdrawal
 
         Args:
             bank_account_id: Global object ID of bank account node to withdraw to
             amount: amount to withdraw in naira
 
         Returns:
-            A dict representing the GraphQL response
+            A Payment object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        return Payment.from_dict(
+            self.client.create_withdrawal(
+                bank_account_id=bank_account_id,
+                amount=amount
+            )['data']
+        )
 
+    # TODO: test
     def post_limit_order(self, order_side: OrderSide, coin_amount: str, static_price: str, price_type: PriceType,
                          dynamic_exchange_rate: str = None,
-                         cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Execute the postLimitOrder mutation
+                         cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> PostOrder:
+        """Create a new limit order
 
         Args:
             order_side: The order side either buy or sell
@@ -248,17 +336,28 @@ class BuycoinsSDK:
             cryptocurrency: type of cryptocurrency
 
         Returns:
-            A dict representing the GraphQL response
+            A PostOrder object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
 
         """
-        pass
+        return PostOrder.from_dict(
+            self.client.post_limit_order(
+                order_side=order_side,
+                coin_amount=coin_amount,
+                static_price=static_price,
+                price_type=price_type,
+                dynamic_exchange_rate=dynamic_exchange_rate,
+                cryptocurrency=cryptocurrency
+            )['data']
+        )
 
+
+    # TODO: test o
     def post_market_order(self, order_side: OrderSide, coin_amount: str,
-                          cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Execute the postMarketOrder mutation
+                          cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> PostOrder:
+        """Create a new market order
 
         Args:
             order_side: The order side either buy or sell
@@ -266,17 +365,24 @@ class BuycoinsSDK:
             cryptocurrency: type of cryptocurrency
 
         Returns:
-            A dict representing the GraphQL response
+            A PostOrder object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
 
         """
 
-        pass
+        return PostOrder.from_dict(
+            self.client.post_market_order(
+                order_side=order_side,
+                coin_amount=coin_amount,
+                cryptocurrency=cryptocurrency
+            )['data']
+        )
 
-    def sell(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Execute the sell mutation
+    # TODO: test
+    def sell(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> Order:
+        """Sell supported cryptocurrencies
 
         Args:
             price_id: Global ID of a retrieved price
@@ -284,7 +390,7 @@ class BuycoinsSDK:
             cryptocurrency: type of cryptocurrency
 
         Returns:
-            A dict representing the GraphQL response
+            An Order object representing the GraphQL response
 
         Raises:
             InsufficientAmountToSellException: raised when the user has insufficient amount of cryptocurrency to sell
@@ -292,10 +398,17 @@ class BuycoinsSDK:
 
         """
 
-        pass
+        return Order.from_dict(
+            self.client.sell(
+                price_id=price_id,
+                cryptocurrency=cryptocurrency,
+                coin_amount=coin_amount
+            )['data']
+        )
 
-    def send(self, address: str, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the send mutation
+    # TODO: TEST
+    def send(self, address: str, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> OnchainTransferRequest:
+        """Send supported cryptocurrencies to external address
 
         Args:
             address: cryptocurrency address of recipient
@@ -303,16 +416,23 @@ class BuycoinsSDK:
             cryptocurrency: cryptocurrency to send
 
         Returns:
-            A dict representing the GraphQL response
+            An OnchainTransferRequest object representing the GraphQL response
 
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        return OnchainTransferRequest.from_dict(
+            self.client.send(
+                address=address,
+                amount=amount,
+                cryptocurrency=cryptocurrency
+            )['data']
+        )
 
+    # TODO: TEST
     def send_offchain(self, recipient: str, amount: str,
-                      cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
-        """Executes the sendOffchain mutation
+                      cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> bool:
+        """Send supported cryptocurrencies to internal BuyCoins users
 
         Args:
             recipient: username of recipient
@@ -320,9 +440,98 @@ class BuycoinsSDK:
             cryptocurrency: cryptocurrency to send
 
         Returns:
-            A dict representing the GraphQL response
+            A boolean indicating whether or not the transfer was successfully initiated
 
         Raises:
             BuycoinsException: An error occurred
         """
-        pass
+        return self.client.send_offchain(
+            recipient=recipient,
+            amount=amount,
+            cryptocurrency=cryptocurrency
+        )['data']['initiated']
+
+
+# bc = BuycoinsSDK(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
+
+# print(bc.send_offchain(
+#     recipient='faru',
+#     cryptocurrency=Cryptocurrency.BITCOIN,
+#     amount='10'
+# ))
+
+# bank_id = bc.get_bank_accounts().id
+
+# w = bc.create_withdrawal(
+#     bank_account_id=bank_id,
+#     amount='100'
+# )
+# print(w)
+
+# da = bc.create_deposit_account('hey')
+# print(da.account_number, da.account_name, da.bank_name)
+
+# ad = bc.create_address(Cryptocurrency.NAIRA_TOKEN)
+# print(ad.cryptocurrency)
+# print(ad.address)
+# payments = bc.get_payments(first=1)
+# print(bc.cancel_withdrawal(payments.payment_edges[0].payment.id))
+# btc_price = bc.get_prices(Cryptocurrency.BITCOIN)
+# print(bc.buy(
+#     price_id=btc_price.id,
+#     coin_amount="2",
+#     cryptocurrency=Cryptocurrency.BITCOIN
+# ))
+# node = BuycoinsPrice.from_dict(bc.node(
+#     node_id="QnV5Y29pbnNQcmljZS1mZTZjYzdiOC0xNWRkLTQyODYtOWM4OS0yNjNhYmM2M2Q2Zjg=",
+#     gql_type=BuycoinsType.BUYCOINS_PRICE
+# )['data'])
+
+
+# price = bc.get_prices(Cryptocurrency.BITCOIN)
+# print(price.cryptocurrency)
+# print(price.buy_price_per_coin)
+# print(price.sell_price_per_coin)
+
+# for i in price:
+#     print(i.cryptocurrency)
+#     print(i.buy_price_per_coin)
+#     print(i.sell_price_per_coin)
+#     print('\n')
+
+# b = bc.get_balances()
+# for i in b:
+#     print(i.cryptocurrency)
+#     print(i.confirmed_balance)
+#     print(i.id)
+#     print('\n')
+#
+# print(len(b))
+
+# a = bc.get_bank_accounts("2119851388")
+# print(a.account_number)
+# print(a.account_name)
+# print(a.account_type)
+# print(a.account_reference)
+
+# es_fee = bc.get_estimated_network_fee(amount="1000", cryptocurrency=Cryptocurrency.ETHEREUM)
+# print(es_fee.estimated_fee, es_fee.total)
+
+# m_book = bc.get_market_book(cryptocurrency=Cryptocurrency.USD_TETHER)
+# for i in m_book.post_order_edges:
+#     print(i.post_order.status)
+#     print(i.post_order.cryptocurrency)
+#     print(i.post_order.coin_amount)
+#     print(i.post_order.price_type)
+#     print(i.post_order.side)
+#     print(i.post_order.static_price)
+#     print(i.post_order.price_per_coin)
+#     print('\n')
+
+# pays = bc.get_payments(first=1)
+# for i in pays.payment_edges:
+#     print(i.payment.payment_type)
+#     print(i.payment.status)
+#     print(i.payment.amount)
+#     print(i.payment.fee)
+#     print(i.payment.total_amount)

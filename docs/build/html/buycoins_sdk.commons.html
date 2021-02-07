@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>buycoins_sdk.commons package &#8212; Buycoins Python SDK 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="buycoins-sdk-commons-package">
+<h1>buycoins_sdk.commons package<a class="headerlink" href="#buycoins-sdk-commons-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-buycoins_sdk.commons.constants">
+<span id="buycoins-sdk-commons-constants-module"></span><h2>buycoins_sdk.commons.constants module<a class="headerlink" href="#module-buycoins_sdk.commons.constants" title="Permalink to this headline">¶</a></h2>
+<p>This module contains various constants(mostly in the form of enums) that act as native python versions of similar
+constants in the GraphQL API</p>
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.BankAccountTypes">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">BankAccountTypes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.BankAccountTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The BankAccountTypes enum represents the BankAccountTypes enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BankAccountTypes.DEPOSIT">
+<code class="sig-name descname">DEPOSIT</code><em class="property"> = 'deposit'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BankAccountTypes.DEPOSIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BankAccountTypes.WITHDRAWAL">
+<code class="sig-name descname">WITHDRAWAL</code><em class="property"> = 'withdrawal'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BankAccountTypes.WITHDRAWAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.BuycoinsPriceStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">BuycoinsPriceStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsPriceStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The BuycoinsPriceStatus enum represents the BuycoinsPriceStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsPriceStatus.ACTIVE">
+<code class="sig-name descname">ACTIVE</code><em class="property"> = 'active'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsPriceStatus.ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsPriceStatus.EXPIRED">
+<code class="sig-name descname">EXPIRED</code><em class="property"> = 'expired'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsPriceStatus.EXPIRED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">BuycoinsType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>This contains enums for all the types in the Buycoins GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.ACCOUNT">
+<code class="sig-name descname">ACCOUNT</code><em class="property"> = 'Account'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.ACCOUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.ADDRESS">
+<code class="sig-name descname">ADDRESS</code><em class="property"> = 'Address'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.ADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.BANK_ACCOUNT">
+<code class="sig-name descname">BANK_ACCOUNT</code><em class="property"> = 'BankAccount'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.BANK_ACCOUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.BUYCOINS_PRICE">
+<code class="sig-name descname">BUYCOINS_PRICE</code><em class="property"> = 'BuycoinsPrice'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.BUYCOINS_PRICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.DEPOSIT_ACCOUNT">
+<code class="sig-name descname">DEPOSIT_ACCOUNT</code><em class="property"> = 'DepositAccount'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.DEPOSIT_ACCOUNT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.ONCHAIN_TRANSFER_REQUEST">
+<code class="sig-name descname">ONCHAIN_TRANSFER_REQUEST</code><em class="property"> = 'OnchainTransferRequest'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.ONCHAIN_TRANSFER_REQUEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.ORDER">
+<code class="sig-name descname">ORDER</code><em class="property"> = 'Order'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.ORDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.PAYMENT">
+<code class="sig-name descname">PAYMENT</code><em class="property"> = 'Payment'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.PAYMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.POST_ORDER">
+<code class="sig-name descname">POST_ORDER</code><em class="property"> = 'PostOrder'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.POST_ORDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.BuycoinsType.TRANSACTION">
+<code class="sig-name descname">TRANSACTION</code><em class="property"> = 'Transaction'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.BuycoinsType.TRANSACTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">Cryptocurrency</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The Cryptocurrency enum represents the Cryptocurrency enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.BITCOIN">
+<code class="sig-name descname">BITCOIN</code><em class="property"> = 'bitcoin'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.BITCOIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.ETHEREUM">
+<code class="sig-name descname">ETHEREUM</code><em class="property"> = 'ethereum'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.ETHEREUM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.LITECOIN">
+<code class="sig-name descname">LITECOIN</code><em class="property"> = 'litecoin'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.LITECOIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.NAIRA_TOKEN">
+<code class="sig-name descname">NAIRA_TOKEN</code><em class="property"> = 'naira_token'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.NAIRA_TOKEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.USD_COIN">
+<code class="sig-name descname">USD_COIN</code><em class="property"> = 'usd_coin'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.USD_COIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.Cryptocurrency.USD_TETHER">
+<code class="sig-name descname">USD_TETHER</code><em class="property"> = 'usd_tether'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.Cryptocurrency.USD_TETHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.GetOrdersStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">GetOrdersStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.GetOrdersStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The GetOrdersStatus enum represents the GetOrdersStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.GetOrdersStatus.COMPLETED">
+<code class="sig-name descname">COMPLETED</code><em class="property"> = 'completed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.GetOrdersStatus.COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.GetOrdersStatus.OPEN">
+<code class="sig-name descname">OPEN</code><em class="property"> = 'open'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.GetOrdersStatus.OPEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">OnchainTransferRequestStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The OnchainTransferRequestStatus enum represents the OnchainTransferRequestStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.CONFIRMED">
+<code class="sig-name descname">CONFIRMED</code><em class="property"> = 'confirmed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.CONFIRMED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.EXPIRED">
+<code class="sig-name descname">EXPIRED</code><em class="property"> = 'expired'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.EXPIRED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FAILED">
+<code class="sig-name descname">FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FLAGGED">
+<code class="sig-name descname">FLAGGED</code><em class="property"> = 'flagged'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FLAGGED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSED">
+<code class="sig-name descname">PROCESSED</code><em class="property"> = 'processed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSING">
+<code class="sig-name descname">PROCESSING</code><em class="property"> = 'processing'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.READY_FOR_PROCESSING">
+<code class="sig-name descname">READY_FOR_PROCESSING</code><em class="property"> = 'ready_for_processing'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.READY_FOR_PROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OnchainTransferRequestStatus.UNCONFIRMED">
+<code class="sig-name descname">UNCONFIRMED</code><em class="property"> = 'unconfirmed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.UNCONFIRMED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.OrderSide">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">OrderSide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderSide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The OrderSide enum represents the OrderSide enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderSide.BUY">
+<code class="sig-name descname">BUY</code><em class="property"> = 'buy'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderSide.BUY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderSide.SELL">
+<code class="sig-name descname">SELL</code><em class="property"> = 'sell'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderSide.SELL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.OrderStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">OrderStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The OrderStatus enum represents the OrderStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderStatus.CANCELED">
+<code class="sig-name descname">CANCELED</code><em class="property"> = 'canceled'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderStatus.CANCELED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderStatus.DONE">
+<code class="sig-name descname">DONE</code><em class="property"> = 'done'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderStatus.DONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderStatus.FAILED">
+<code class="sig-name descname">FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderStatus.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.OrderStatus.PENDING">
+<code class="sig-name descname">PENDING</code><em class="property"> = 'pending'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.OrderStatus.PENDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">PaymentStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The PaymentStatus enum represents the PaymentStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.CANCELED">
+<code class="sig-name descname">CANCELED</code><em class="property"> = 'canceled'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.CANCELED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.FAILED">
+<code class="sig-name descname">FAILED</code><em class="property"> = 'failed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.FAILED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.FLAGGED">
+<code class="sig-name descname">FLAGGED</code><em class="property"> = 'flagged'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.FLAGGED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.INITIATED">
+<code class="sig-name descname">INITIATED</code><em class="property"> = 'initiated'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.INITIATED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.PENDING">
+<code class="sig-name descname">PENDING</code><em class="property"> = 'pending'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.PENDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.READY_FOR_PROCESSING">
+<code class="sig-name descname">READY_FOR_PROCESSING</code><em class="property"> = 'ready_for_processing'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.READY_FOR_PROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.RETRIED">
+<code class="sig-name descname">RETRIED</code><em class="property"> = 'retried'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.RETRIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.RETURNED">
+<code class="sig-name descname">RETURNED</code><em class="property"> = 'returned'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.RETURNED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentStatus.SUCCESS">
+<code class="sig-name descname">SUCCESS</code><em class="property"> = 'success'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentStatus.SUCCESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.PaymentTypes">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">PaymentTypes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The PaymentTypes enum represents the PaymentTypes enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentTypes.DEPOSIT">
+<code class="sig-name descname">DEPOSIT</code><em class="property"> = 'deposit'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentTypes.DEPOSIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PaymentTypes.WITHDRAWAL">
+<code class="sig-name descname">WITHDRAWAL</code><em class="property"> = 'withdrawal'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PaymentTypes.WITHDRAWAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">PostOrderStatus</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The PostOrderStatus enum represents the PostOrderStatus enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.ACTIVE">
+<code class="sig-name descname">ACTIVE</code><em class="property"> = 'active'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.ACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.CANCELLED">
+<code class="sig-name descname">CANCELLED</code><em class="property"> = 'cancelled'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.CANCELLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.COMPLETED">
+<code class="sig-name descname">COMPLETED</code><em class="property"> = 'completed'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.DONE">
+<code class="sig-name descname">DONE</code><em class="property"> = 'done'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.DONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.EXPIRED">
+<code class="sig-name descname">EXPIRED</code><em class="property"> = 'expired'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.EXPIRED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.INACTIVE">
+<code class="sig-name descname">INACTIVE</code><em class="property"> = 'inactive'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.INACTIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.OPEN">
+<code class="sig-name descname">OPEN</code><em class="property"> = 'open'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.OPEN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PENDING">
+<code class="sig-name descname">PAYMENT_PENDING</code><em class="property"> = 'payment_pending'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PENDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PROCESSING">
+<code class="sig-name descname">PAYMENT_PROCESSING</code><em class="property"> = 'payment_processing'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PostOrderStatus.PENDING_DEACTIVATION">
+<code class="sig-name descname">PENDING_DEACTIVATION</code><em class="property"> = 'pending_deactivation'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PostOrderStatus.PENDING_DEACTIVATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="buycoins_sdk.commons.constants.PriceType">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.commons.constants.</code><code class="sig-name descname">PriceType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.constants.PriceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The PriceType enum represents the PriceType enum in the GraphQL API</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PriceType.DYNAMIC">
+<code class="sig-name descname">DYNAMIC</code><em class="property"> = 'dynamic'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PriceType.DYNAMIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.constants.PriceType.STATIC">
+<code class="sig-name descname">STATIC</code><em class="property"> = 'static'</em><a class="headerlink" href="#buycoins_sdk.commons.constants.PriceType.STATIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-buycoins_sdk.commons.errors">
+<span id="buycoins-sdk-commons-errors-module"></span><h2>buycoins_sdk.commons.errors module<a class="headerlink" href="#module-buycoins_sdk.commons.errors" title="Permalink to this headline">¶</a></h2>
+<p>This module contains errors that can be raised during the use of the SDK</p>
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.BuycoinsException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">BuycoinsException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">error_message</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.BuycoinsException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>BuycoinsException is a generic exception which all represents all exceptions thrown by the Graphql API. All other
+exceptions must inherit from this</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.BuycoinsException.error_message">
+<code class="sig-name descname">error_message</code><a class="headerlink" href="#buycoins_sdk.commons.errors.BuycoinsException.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a string containing the error message thrown by buycoins</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.InsufficientAmountToSellException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">InsufficientAmountToSellException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount_to_sell</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientAmountToSellException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>InsufficientAmountToSellException is raised when a user tries to sell more cryptocurrency than they have</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InsufficientAmountToSellException.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientAmountToSellException.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing the cryptocurrency the user tried to sell</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InsufficientAmountToSellException.amount_to_sell">
+<code class="sig-name descname">amount_to_sell</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientAmountToSellException.amount_to_sell" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing the amount of coins the user tried to sell</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.InsufficientBalanceToBuyException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">InsufficientBalanceToBuyException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">amount_to_buy</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>InsufficientBalanceToBuyException is raised when a user tries to buy cryptocurrency with insufficient balance</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InsufficientBalanceToBuyException.amount_to_buy">
+<code class="sig-name descname">amount_to_buy</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException.amount_to_buy" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing the amount of coins the user tried to buy</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InsufficientBalanceToBuyException.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing the type of the cryptocurrency the user tried to buy</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.InsufficientBalanceToWithdrawException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">InsufficientBalanceToWithdrawException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">amount_to_withdraw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientBalanceToWithdrawException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>InsufficientBalanceToWithdrawException is raised when a user tries to withdraw more than they have</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InsufficientBalanceToWithdrawException.amount_to_withdraw">
+<code class="sig-name descname">amount_to_withdraw</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientBalanceToWithdrawException.amount_to_withdraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing amount of naira the user tried to withdraw</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">InvalidGraphQLNodeIDException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">gql_type</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.commons.constants.BuycoinsType" title="buycoins_sdk.commons.constants.BuycoinsType">buycoins_sdk.commons.constants.BuycoinsType</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'The ID or GraphQL type you passed in was invalid or wrong'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>InvalidGraphQLNodeIDException is raised when a user tries to get a node with an invalid Global Object ID(one
+that points to no node) or with a wrong GraphQL type</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException.node_id">
+<code class="sig-name descname">node_id</code><a class="headerlink" href="#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException.node_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>a string representing the Global Object ID that passed by the user</p>
+<blockquote>
+<div><p>gql_type: a BuycoinsType enum representing the GraphQL type passed by the user</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">WithdrawalCannotBeCanceledException</code><a class="headerlink" href="#buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>WithdrawalCannotBeCanceledException is raised when a user tries to cancel an already processed withdrawal</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-buycoins_sdk.commons.gql_fields">
+<span id="buycoins-sdk-commons-gql-fields-module"></span><h2>buycoins_sdk.commons.gql_fields module<a class="headerlink" href="#module-buycoins_sdk.commons.gql_fields" title="Permalink to this headline">¶</a></h2>
+<p>This module contains a single dictionary  which maps GraphQL types from the BuyCoins API to a multi-line string
+containing the fields of that type</p>
+</div>
+<div class="section" id="module-buycoins_sdk.commons.utils">
+<span id="buycoins-sdk-commons-utils-module"></span><h2>buycoins_sdk.commons.utils module<a class="headerlink" href="#module-buycoins_sdk.commons.utils" title="Permalink to this headline">¶</a></h2>
+<p>This module will contain some util functions that can be used by users</p>
+<dl class="py function">
+<dt id="buycoins_sdk.commons.utils.is_valid_webhook_request">
+<code class="sig-prename descclassname">buycoins_sdk.commons.utils.</code><code class="sig-name descname">is_valid_webhook_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">webhook_token</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">request_body</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">webhook_signature_header</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#buycoins_sdk.commons.utils.is_valid_webhook_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method verifies that requests to your Webhook URL are genuine and from Buycoins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>webhook_token</strong> – your webhook token</p></li>
+<li><p><strong>request_body</strong> – the body of the request</p></li>
+<li><p><strong>webhook_signature_header</strong> – the X-Webhook-Signature header from BuyCoins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a boolean stating whether the request is valid or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-buycoins_sdk.commons">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-buycoins_sdk.commons" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Buycoins Python SDK</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Faruq Yusuff.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/buycoins_sdk.commons.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

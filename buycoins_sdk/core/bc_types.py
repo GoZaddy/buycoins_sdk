@@ -1,15 +1,37 @@
-from buycoins_sdk.commons import Cryptocurrency, PriceType, GetOrdersStatus, OrderSide, \
-    PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, OnchainTransferRequestStatus
-
-from buycoins_sdk.client import BuycoinsGraphqlClient
-import os
+from buycoins_sdk.commons import Cryptocurrency, OrderSide, \
+    PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
+    OnchainTransferRequestStatus
 
 
-# TODO: WRITE AND DOCUMENT METHODS
+__all__ = [
+    'Account',
+    'BankAccount',
+    'PostOrder',
+    'Payment',
+    'BuycoinsPrice',
+    'Address',
+    'DepositAccount',
+    'Order',
+    'OnchainTransferRequest',
+    'Transaction',
+    'EstimatedFee',
+    'PageInfo',
+    'PostOrderEdge',
+    'PostOrders',
+    'PaymentConnection',
+    'PaymentEdge'
+]
+
+
+# TODO: DOCUMENT METHODS
 
 class Account:
-    """
-    This class represents the Buycoins Account type
+    """This class represents the Buycoins Account type
+
+    Attributes:
+        id: a string representing the id of the Account
+        cryptocurrency: type of cryptocurrency
+        confirmed_balance: Cryptocurrency balance
     """
 
     def __init__(self, node_id: str, cryptocurrency: str, confirmed_balance: str):
@@ -25,8 +47,8 @@ class Account:
 
 
 class BankAccount:
-    """
-    This class represents the Buycoins BankAccount type
+    """This class represents the Buycoins BankAccount type
+
     """
 
     def __init__(self, node_id: str, account_name: str, account_number: str, account_reference: str,
@@ -52,8 +74,8 @@ class BankAccount:
 
 
 class PostOrder:
-    """
-    This class represents the Buycoins PostOrder type
+    """This class represents the Buycoins PostOrder type
+
     """
 
     def __init__(self, node_id: str, coin_amount: str, created_at: str, cryptocurrency: str,
@@ -102,8 +124,8 @@ class PostOrder:
 
 
 class Payment:
-    """
-    This class represents the Buycoins Payment type
+    """This class represents the Buycoins Payment type
+
     """
 
     def __init__(self, node_id: str, amount: str, created_at: str, fee: str, reference: str, status: str,
@@ -133,8 +155,8 @@ class Payment:
 
 
 class BuycoinsPrice:
-    """
-    This class represents the Buycoins BuycoinsPrice type
+    """This class represents the Buycoins BuycoinsPrice type
+
     """
 
     def __init__(self, node_id: str, buy_price_per_coin: str, cryptocurrency: str, expires_at: str,
@@ -154,47 +176,25 @@ class BuycoinsPrice:
 
     @staticmethod
     def from_dict(fields: dict):
-
-        if isinstance(fields, list) and len(fields) > 1:
-            list_of_prices = []
-            for i in fields:
-                buycoins_price = BuycoinsPrice(
-                    node_id=i['id'],
-                    buy_price_per_coin=i['buyPricePerCoin'],
-                    cryptocurrency=i['cryptocurrency'],
-                    expires_at=i['expiresAt'],
-                    max_buy=i['maxBuy'],
-                    max_sell=i['maxSell'],
-                    min_buy=i['minBuy'],
-                    min_coin_amount=i['minCoinAmount'],
-                    min_sell=i['minSell'],
-                    sell_price_per_coin=i['sellPricePerCoin'],
-                    status=i['status']
-                )
-                list_of_prices.append(buycoins_price)
-            return list_of_prices
-
-        else:
-            fields = fields[0]
-            buycoins_price = BuycoinsPrice(
-                node_id=fields['id'],
-                buy_price_per_coin=fields['buyPricePerCoin'],
-                cryptocurrency=fields['cryptocurrency'],
-                expires_at=fields['expiresAt'],
-                max_buy=fields['maxBuy'],
-                max_sell=fields['maxSell'],
-                min_buy=fields['minBuy'],
-                min_coin_amount=fields['minCoinAmount'],
-                min_sell=fields['minSell'],
-                sell_price_per_coin=fields['sellPricePerCoin'],
-                status=fields['status']
-            )
-            return buycoins_price
+        buycoins_price = BuycoinsPrice(
+            node_id=fields['id'],
+            buy_price_per_coin=fields['buyPricePerCoin'],
+            cryptocurrency=fields['cryptocurrency'],
+            expires_at=fields['expiresAt'],
+            max_buy=fields['maxBuy'],
+            max_sell=fields['maxSell'],
+            min_buy=fields['minBuy'],
+            min_coin_amount=fields['minCoinAmount'],
+            min_sell=fields['minSell'],
+            sell_price_per_coin=fields['sellPricePerCoin'],
+            status=fields['status']
+        )
+        return buycoins_price
 
 
 class Address:
-    """
-    This class represents the Buycoins Address type
+    """This class represents the Buycoins Address type
+
     """
 
     def __init__(self, node_id: str, address: str, created_at: str, cryptocurrency: str):
@@ -215,8 +215,8 @@ class Address:
 
 
 class DepositAccount:
-    """
-    This class represents the Buycoins DepositAccount type
+    """This class represents the Buycoins DepositAccount type
+
     """
 
     def __init__(self, node_id: str, account_name: str, account_number: str, account_reference: str,
@@ -242,11 +242,12 @@ class DepositAccount:
 
 
 class Order:
-    """
-    This class represents the Buycoins Order type
+    """This class represents the Buycoins Order type
+
     """
 
-    def __init__(self, node_id: str, created_at: str, cryptocurrency: str, filled_coin_amount: str, price: BuycoinsPrice,
+    def __init__(self, node_id: str, created_at: str, cryptocurrency: str, filled_coin_amount: str,
+                 price: BuycoinsPrice,
                  side: str, status: str, total_coin_amount: str):
         self.id = node_id
         self.created_at = created_at
@@ -273,8 +274,8 @@ class Order:
 
 
 class OnchainTransferRequest:
-    """
-    This class represents the Buycoins OnchainTransferRequest type
+    """This class represents the Buycoins OnchainTransferRequest type
+
     """
 
     def __init__(self, node_id: str, address: str, amount: str, created_at: str, cryptocurrency: str, fee: str,
@@ -304,8 +305,8 @@ class OnchainTransferRequest:
 
 
 class Transaction:
-    """
-    This class represents the Buycoins Transaction type
+    """This class represents the Buycoins Transaction type
+
     """
 
     def __init__(self, node_id: str, address: Address, amount: str, confirmed: bool, created_at: str,
@@ -336,7 +337,168 @@ class Transaction:
         return tx
 
 
+class EstimatedFee:
+    """This class represents the Buycoins EstimatedFee type
 
-bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
-print(bc.get_prices(Cryptocurrency.BITCOIN)['data'])
+    Attributes:
+        estimated_fee: Estimated network fee for send
+        total: Sum of amount and estimated network fee
+    """
 
+    def __init__(self, estimated_fee: str, total: str):
+        """Initialise a new EstimatedFee object
+
+        Args:
+            estimated_fee: a string representing estimated fee
+            total: a string representing sum of estimated fee and amount of coins to be sent
+        """
+        self.estimated_fee = estimated_fee
+        self.total = total
+
+    @staticmethod
+    def from_dict(fields: dict):
+        es_fee = EstimatedFee(
+            estimated_fee=fields['estimatedFee'],
+            total=fields['total']
+        )
+        return es_fee
+
+
+class PageInfo:
+    """This class represents the Buycoins PageInfo type
+
+    Attributes:
+        end_cursor: a string representing the last cursor of the PageInfo
+        has_next_page: boolean stating whether or not a next page exists
+        has_previous_page: boolean stating whether or not a previous page exists
+        start_cursor: start cursor of PageInfo object
+    """
+
+    def __init__(self, end_cursor: str, has_next_page: bool, has_previous_page: bool, start_cursor: str):
+        """Initialise a new PageInfo object
+
+        Args:
+            end_cursor: end cursor of PageInfo object
+            has_next_page: boolean stating whether or not a next page exists
+            has_previous_page: boolean stating whether or not a previous page exists
+            start_cursor: start cursor of PageInfo object
+        """
+        self.end_cursor = end_cursor
+        self.has_next_page = has_next_page
+        self.has_previous_page = has_previous_page
+        self.start_cursor = start_cursor
+
+    @staticmethod
+    def from_dict(fields: dict):
+        return PageInfo(
+            end_cursor=fields['endCursor'],
+            start_cursor=fields['startCursor'],
+            has_next_page=fields['hasNextPage'],
+            has_previous_page=fields['hasPreviousPage']
+        )
+
+
+class PostOrderEdge:
+    """This class represents the Buycoins PostOrderEdge type
+
+   Attributes:
+        cursor: a string representing the cursor for the PostOrderEdge object
+        post_order: a PostOrder object representing the PostOrder node
+    """
+
+    def __init__(self, cursor: str, post_order: PostOrder):
+        """Initialise new PostOrderEdge object
+
+        Args:
+            cursor: cursor for the PostOrderEdge object
+            post_order: a PostOrder object representing the PostOrder node
+        """
+        self.cursor = cursor
+        self.post_order = post_order
+
+
+class PostOrders:
+    """This class represents the Buycoins PostOrders type
+
+    Attributes:
+        dynamic_price_expiry:
+        page_info: a PageInfo object containing pagination details about the post_order_edges attribute
+        post_order_edges: a list of PostOrderEdge objects
+    """
+
+    def __init__(self, dynamic_price_expiry: str, page_info: PageInfo, post_order_edges: list[PostOrderEdge]):
+        self.dynamic_price_expiry = dynamic_price_expiry
+        self.page_info = page_info
+        self.post_order_edges = post_order_edges
+
+    @staticmethod
+    def from_dict(fields: dict):
+        po_edges = []
+        post_order_edges_dict = fields['orders']['edges']
+        for i in post_order_edges_dict:
+            post_order = PostOrder.from_dict(i['node'])
+            po_edges.append(PostOrderEdge(cursor=i['cursor'], post_order=post_order))
+        return PostOrders(
+            dynamic_price_expiry=fields['dynamicPriceExpiry'],
+            page_info=PageInfo.from_dict(fields['orders']['pageInfo']),
+            post_order_edges=po_edges
+        )
+
+
+class PaymentEdge:
+    """This class represents the Buycoins PaymentEdge type
+
+       Attributes:
+            cursor: a string representing the cursor for the PaymentEdge object
+            payment: a Payment object representing the Payment node
+        """
+
+    def __init__(self, cursor: str, payment: Payment):
+        """Initialise new PaymentEdge object
+
+        Args:
+            cursor: a string representing the cursor for the PaymentEdge object
+            payment: a Payment object representing the Payment node
+        """
+        self.cursor = cursor
+        self.payment = payment
+
+
+class PaymentConnection:
+    """This class represents the connection type for Buycoins Payment type.
+
+    Attributes:
+        payment_edges: a list of PaymentEdge objects
+        page_info: a PageInfo object containing pagination details about the payment_edges attribute
+    """
+
+    def __init__(self, payment_edges: list[PaymentEdge], page_info: PageInfo):
+        """Initialise a new PaymentConnection object
+
+        Args:
+            payment_edges: a list of PaymentEdge objects
+            page_info: a PageInfo object containing pagination details about the payment_edges attribute
+        """
+        self.payment_edges = payment_edges
+        self.page_info = page_info
+
+    @staticmethod
+    def from_dict(fields: dict):
+        p_edges = []
+        payment_edges_dict = fields['edges']
+        for i in payment_edges_dict:
+            payment = Payment.from_dict(i['node'])
+            p_edges.append(PaymentEdge(cursor=i['cursor'], payment=payment))
+        return PaymentConnection(
+            page_info=PageInfo.from_dict(fields['pageInfo']),
+            payment_edges=p_edges
+        )
+
+# bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
+# b = bc.get_balances()
+# print(b)
+# bcp = BuycoinsPrice.from_dict(bc.get_prices(Cryptocurrency.USD_TETHER)['data'])
+# print(bcp.status)
+# print(bcp.cryptocurrency)
+# print(bcp.buy_price_per_coin)
+# print(bcp.sell_price_per_coin)

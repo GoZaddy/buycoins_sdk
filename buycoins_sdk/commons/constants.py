@@ -29,6 +29,7 @@ class Cryptocurrency(Enum):
     ETHEREUM = 'ethereum'
     USD_COIN = 'usd_coin'
     USD_TETHER = 'usd_tether'
+    NAIRA_TOKEN = 'naira_token'
 
 
 class OrderSide(Enum):

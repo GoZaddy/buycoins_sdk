@@ -10,8 +10,14 @@ from buycoins_sdk.commons import errors, type_to_field, Cryptocurrency, GetOrder
     PriceType
 from typing import Any
 
+__all__ = [
+    'BuycoinsGraphqlClient',
+    '_prepare_graphql_args'
+]
+
 # load environment variables
 load_dotenv()
+
 
 
 def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: int = None, after: str = None,
@@ -60,6 +66,10 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
 class BuycoinsGraphqlClient:
     """The BuycoinsGraphqlClient is a wrapper around GraphqlClient which takes in the user's public and secret keys
     for making GraphQL queries.
+
+    Attributes:
+        _client: A GraphqlClient used to make queries and mutations directly. Only use this when you want to write your
+                    own queries and mutations. Most times, you won't need to do that yourself.
     """
 
     def __init__(self, public_key: str, secret_key: str):
@@ -84,14 +94,25 @@ class BuycoinsGraphqlClient:
         Raises:
             BuycoinsException: An error occurred
         """
-        query = """
-            query getBalances($cryptocurrency: Cryptocurrency){
-                getBalances(cryptocurrency: $cryptocurrency){
-                    """ + type_to_field[BuycoinsType.ACCOUNT] + """
+        if cryptocurrency is None:
+            query = """
+                query getBalances{
+                    getBalances{
+                        """ + type_to_field[BuycoinsType.ACCOUNT] + """
+                    }
                 }
-            }
-        """
-        variables = {'cryptocurrency': cryptocurrency.value}
+            """
+            variables = {}
+        else:
+            query = """
+                query getBalances($cryptocurrency: Cryptocurrency){
+                    getBalances(cryptocurrency: $cryptocurrency){
+                        """ + type_to_field[BuycoinsType.ACCOUNT] + """
+                    }
+                }
+            """
+            variables = {'cryptocurrency': cryptocurrency.value}
+
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
@@ -102,7 +123,7 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getBalances']}
 
-    def get_bank_accounts(self, account_number: str) -> dict:
+    def get_bank_accounts(self, account_number) -> dict:
         """Executes the getBankAccounts query
 
         Args:
@@ -112,14 +133,24 @@ class BuycoinsGraphqlClient:
         Raises:
             BuycoinsException: An error occurred
         """
-        query = """
-            query getBankAccounts($accountNumber: String){
-                getBankAccounts(accountNumber: $accountNumber){
-                    """ + type_to_field[BuycoinsType.BANK_ACCOUNT] + """
+        if account_number is None:
+            query = """
+                query getBankAccounts{
+                    getBankAccounts{
+                        """ + type_to_field[BuycoinsType.BANK_ACCOUNT] + """
+                    }
                 }
-            }
-        """
-        variables = {'accountNumber': account_number}
+            """
+            variables = {}
+        else:
+            query = """
+                query getBankAccounts($accountNumber: String){
+                    getBankAccounts(accountNumber: $accountNumber){
+                        """ + type_to_field[BuycoinsType.BANK_ACCOUNT] + """
+                    }
+                }
+            """
+            variables = {'accountNumber': account_number}
         try:
             data = self._client.execute(query=query, variables=variables)
         except Exception as err:
@@ -215,7 +246,7 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getMarketBook']}
 
-    def get_orders(self, status: GetOrdersStatus, side: str = None, first: int = None, last: int = None,
+    def get_orders(self, status: GetOrdersStatus, side: OrderSide = None, first: int = None, last: int = None,
                    after: str = None,
                    before: str = None, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
         """Executes the getOrders query
@@ -247,7 +278,7 @@ class BuycoinsGraphqlClient:
         if side is not None:
             get_orders_args = "side: $side"
             arg = arg + ", $side: OrderSide"
-            variables['side'] = side
+            variables['side'] = side.value
         query = """
             query getOrders($cryptocurrency: Cryptocurrency, $status: GetOrdersStatus!""" + arg + """){                           
               getOrders(cryptocurrency: $cryptocurrency, status: $status, """ + get_orders_args + """ ){
@@ -332,7 +363,7 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['getPayments']}
 
-    def get_prices(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
+    def get_prices(self, cryptocurrency: Cryptocurrency = None) -> dict:
         """Executes the getPrices query
 
         Args:
@@ -344,14 +375,24 @@ class BuycoinsGraphqlClient:
             BuycoinsException: An error occurred
 
         """
-        query = """
-            query getPrices($cryptocurrency: Cryptocurrency){
-              getPrices(cryptocurrency: $cryptocurrency){
-                """ + type_to_field[BuycoinsType.BUYCOINS_PRICE] + """ 
-              }
-            }
-        """
-        variables = {'cryptocurrency': cryptocurrency.value}
+        if cryptocurrency is None:
+            query = """
+                        query getPrices{
+                          getPrices{
+                            """ + type_to_field[BuycoinsType.BUYCOINS_PRICE] + """ 
+                          }
+                        }
+                    """
+            variables = {}
+        else:
+            query = """
+                query getPrices($cryptocurrency: Cryptocurrency){
+                  getPrices(cryptocurrency: $cryptocurrency){
+                    """ + type_to_field[BuycoinsType.BUYCOINS_PRICE] + """ 
+                  }
+                }
+            """
+            variables = {'cryptocurrency': cryptocurrency.value}
 
         try:
             data = self._client.execute(query=query, variables=variables)
@@ -499,6 +540,8 @@ class BuycoinsGraphqlClient:
             A dict representing the GraphQL response
 
         Raises:
+            WithdrawalCannotBeCanceledException: An error occurred because user tried to cancel already processed
+             withdrawal
             BuycoinsException: An error occurred
         """
         query = """
@@ -516,6 +559,8 @@ class BuycoinsGraphqlClient:
             raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
+                if data['errors'][0]['message'] == "This payment has been processed and can not be canceled":
+                    raise errors.WithdrawalCannotBeCanceledException()
                 raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['cancelWithdrawal']}
@@ -593,6 +638,7 @@ class BuycoinsGraphqlClient:
             A dict representing the GraphQL response
 
         Raises:
+            InsufficientBalanceToWithdrawException: This is raised when a user tries withdrawing more naira than they have
             BuycoinsException: An error occurred
         """
         query = """
@@ -610,6 +656,8 @@ class BuycoinsGraphqlClient:
             raise errors.BuycoinsException(str(err))
         else:
             if 'errors' in data:
+                if data['errors'][0]['message'] == 'Balance is insufficient for this withdrawal':
+                    raise errors.InsufficientBalanceToWithdrawException(amount_to_withdraw=amount)
                 raise errors.BuycoinsException(data['errors'][0]['message'])
             else:
                 return {'data': data['data']['createWithdrawal']}
@@ -810,7 +858,5 @@ class BuycoinsGraphqlClient:
             else:
                 return {'data': data['data']['sendOffchain']}
 
-
-
-bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
-print(bc.get_prices(Cryptocurrency.BITCOIN)['data'])
+# bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
+# print(bc.get_prices(Cryptocurrency.BITCOIN)['data'])

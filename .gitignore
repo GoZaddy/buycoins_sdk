@@ -6,3 +6,4 @@
 env/
 .env
 .DS_store
+script.py
