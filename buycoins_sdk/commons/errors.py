@@ -3,6 +3,7 @@ This module contains errors that can be raised during the use of the SDK
 """
 
 from buycoins_sdk.commons import BuycoinsType
+from requests import Response
 
 __all__ = [
     'BuycoinsException',
@@ -29,6 +30,28 @@ class BuycoinsException(Exception):
             error_message: the error message thrown by the Buycoins API
         """
         super().__init__(error_message)
+
+
+class BuycoinsHTTPException(BuycoinsException):
+    """BuycoinsHTTPException is raised when a call to the BuyCoins API raises an HTTPError
+
+    Attributes:
+        status_code [int]: an integer representing the status code of the HTTPError
+        response [requests.Response]: the HTTP Response from the HTTPError
+        error_message: the error message from the HTTPError
+    """
+
+    def __init__(self, response: Response, message: str):
+        """Create a new BuycoinsHTTPException
+
+            Args:
+                response: This is the HTTP Response from the HTTPError
+                message: This is error message from the HTTPError
+        """
+        self.status_code = response.status_code
+        self.response = response
+        self.error_message = message
+        super().__init__(error_message=message)
 
 
 class InsufficientAmountToSellException(BuycoinsException):

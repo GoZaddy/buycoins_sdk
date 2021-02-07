@@ -1,7 +1,6 @@
-from buycoins_sdk.commons import Cryptocurrency, OrderSide, \
+from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, \
     PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
     OnchainTransferRequestStatus
-
 
 __all__ = [
     'Account',
@@ -23,24 +22,37 @@ __all__ = [
 ]
 
 
-# TODO: DOCUMENT METHODS
-
 class Account:
     """This class represents the Buycoins Account type
 
     Attributes:
         id: a string representing the id of the Account
-        cryptocurrency: type of cryptocurrency
-        confirmed_balance: Cryptocurrency balance
+        cryptocurrency: the cryptocurrency field of the Account type
+        confirmed_balance: the confirmed balance field of the Account type
     """
 
     def __init__(self, node_id: str, cryptocurrency: str, confirmed_balance: str):
+        """Create a new Account type
+
+        Args:
+            node_id: a string representing the id of the Account
+            cryptocurrency: the cryptocurrency field of the Account type
+            confirmed_balance: the confirmed balance field of the Account type
+        """
         self.id = node_id
         self.cryptocurrency = Cryptocurrency(cryptocurrency)
         self.confirmed_balance = confirmed_balance
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create an Account object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            An Account object
+        """
         account = Account(node_id=fields['id'], cryptocurrency=fields['cryptocurrency'],
                           confirmed_balance=fields['confirmedBalance'])
         return account
@@ -49,10 +61,27 @@ class Account:
 class BankAccount:
     """This class represents the Buycoins BankAccount type
 
+    Attributes:
+        id: the id of the BankAccount
+        account_name: the Account name field of the BankAccount type
+        account_number: the account number field of the BankAccount type
+        account_reference: the account reference field of the BankAccount type
+        account_type: the account type field of the BankAccount type
+        bank_name: the bank name field of the BankAccount type
     """
 
     def __init__(self, node_id: str, account_name: str, account_number: str, account_reference: str,
                  account_type: str, bank_name: str):
+        """Create a BankAccount type
+
+        Args:
+            node_id: the id of the BankAccount
+            account_name: the Account name field of the BankAccount type
+            account_number: the account number field of the BankAccount type
+            account_reference: the account reference field of the BankAccount type
+            account_type: the account type field of the BankAccount type
+            bank_name: the bank name field of the BankAccount type
+        """
         self.id = node_id
         self.account_name = account_name
         self.account_number = account_number
@@ -62,6 +91,14 @@ class BankAccount:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a BankAccount object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            A BankAccount object
+        """
         bank_account = BankAccount(
             node_id=fields['id'],
             account_name=fields['accountName'],
@@ -75,7 +112,17 @@ class BankAccount:
 
 class PostOrder:
     """This class represents the Buycoins PostOrder type
-
+    Attributes:
+        id: the id field of the PostOrder type
+        coin_amount: the coin amount field of the PostOrder type
+        created_at: the createdAt field of the PostOrder type
+        cryptocurrency: the cryptocurrency field of the PostOrder type
+        dynamic_exchange_rate: the dynamic exchange rate field of the PostOrder type
+        price_per_coin: the price per coin field of the PostOrder type
+        price_type: the price type field of the PostOrder type
+        side: the side field of the PostOrder type
+        static_price: the static price field of the PostOrder type
+        status: the status field of the PostOrder type
     """
 
     def __init__(self, node_id: str, coin_amount: str, created_at: str, cryptocurrency: str,
@@ -84,16 +131,16 @@ class PostOrder:
         """
         This initialises a PostOrder object
         Args:
-            node_id:
-            coin_amount:
-            created_at:
-            cryptocurrency:
-            dynamic_exchange_rate:
-            price_per_coin:
-            price_type:
-            side:
-            static_price:
-            status:
+            node_id: the id field of the PostOrder type
+            coin_amount: the coin amount field of the PostOrder type
+            created_at: the createdAt field of the PostOrder type
+            cryptocurrency: the cryptocurrency field of the PostOrder type
+            dynamic_exchange_rate: the dynamic exchange rate field of the PostOrder type
+            price_per_coin: the price per coin field of the PostOrder type
+            price_type: the price type field of the PostOrder type
+            side: the side field of the PostOrder type
+            static_price: the static price field of the PostOrder type
+            status: the status field of the PostOrder type
         """
         self.status = PostOrderStatus(status)
         self.static_price = static_price
@@ -108,6 +155,14 @@ class PostOrder:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a PostOrder object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods. Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            A PostOrder object
+        """
         post_order = PostOrder(
             node_id=fields['id'],
             coin_amount=fields['coinAmount'],
@@ -126,10 +181,31 @@ class PostOrder:
 class Payment:
     """This class represents the Buycoins Payment type
 
+    Attributes:
+        id: the id field of the Payment type
+        amount: the amount field of the Payment type
+        created_at: the createdAt field of the Payment type
+        fee: the fee field of the Payment type
+        reference: the reference field of the Payment type
+        status: the status field of the Payment type
+        total_amount: the total_amount field of the Payment type
+        payment_type: the payment_type field of the Payment type
     """
 
     def __init__(self, node_id: str, amount: str, created_at: str, fee: str, reference: str, status: str,
                  total_amount: str, payment_type: str):
+        """Create a new Payment object
+
+        Args:
+            node_id: the id field of the Payment type
+            amount: the amount field of the Payment type
+            created_at: the createdAt field of the Payment type
+            fee: the fee field of the Payment type
+            reference: the reference field of the Payment type
+            status: the status field of the Payment type
+            total_amount: the total_amount field of the Payment type
+            payment_type: the payment_type field of the Payment type
+        """
         self.id = node_id
         self.amount = amount
         self.created_at = created_at
@@ -141,6 +217,14 @@ class Payment:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a Payment object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods. Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           A Payment object
+       """
         payment = Payment(
             node_id=fields['id'],
             amount=fields['amount'],
@@ -157,11 +241,38 @@ class Payment:
 class BuycoinsPrice:
     """This class represents the Buycoins BuycoinsPrice type
 
+    Attributes:
+        id: the id field of the BuycoinsPrice type
+        buy_price_per_coin: the buyPricePerCoin field of the BuycoinsPrice type
+        cryptocurrency: the cryptocurrency field of the BuycoinsPrice type
+        expires_at: the expiresAt field of the BuycoinsPrice type
+        max_buy: the maxBuy field of the BuycoinsPrice type
+        max_sell: the maxSel field of the BuycoinsPrice type
+        min_buy: the minBuy field of the BuycoinsPrice type
+        min_coin_amount: the minCoinAmount field of the BuycoinsPrice type
+        min_sell: the minSell field of the BuycoinsPrice type
+        sell_price_per_coin: the sellPricePerCoin field of the BuycoinsPrice type
+        status: the status field of the BuycoinsPrice type
     """
 
     def __init__(self, node_id: str, buy_price_per_coin: str, cryptocurrency: str, expires_at: str,
                  max_buy: str, max_sell: str, min_buy: str, min_coin_amount: str, min_sell: str,
                  sell_price_per_coin: str, status: str):
+        """Create a new BuycoinsPrice object
+
+        Args:
+            node_id: the id field of the BuycoinsPrice type
+            buy_price_per_coin: the buyPricePerCoin field of the BuycoinsPrice type
+            cryptocurrency: the cryptocurrency field of the BuycoinsPrice type
+            expires_at: the expiresAt field of the BuycoinsPrice type
+            max_buy: the maxBuy field of the BuycoinsPrice type
+            max_sell: the maxSel field of the BuycoinsPrice type
+            min_buy: the minBuy field of the BuycoinsPrice type
+            min_coin_amount: the minCoinAmount field of the BuycoinsPrice type
+            min_sell: the minSell field of the BuycoinsPrice type
+            sell_price_per_coin: the sellPricePerCoin field of the BuycoinsPrice type
+            status: the status field of the BuycoinsPrice type
+        """
         self.id = node_id
         self.buy_price_per_coin = buy_price_per_coin
         self.cryptocurrency = Cryptocurrency(cryptocurrency)
@@ -176,6 +287,14 @@ class BuycoinsPrice:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a BuycoinsPrice object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods. Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           A BuycoinsPrice object
+       """
         buycoins_price = BuycoinsPrice(
             node_id=fields['id'],
             buy_price_per_coin=fields['buyPricePerCoin'],
@@ -195,9 +314,22 @@ class BuycoinsPrice:
 class Address:
     """This class represents the Buycoins Address type
 
+    Attributes:
+        id: the id field of the Address object
+        address: the address field of the Address object
+        created_at: the createdAt field of the Address object
+        cryptocurrency: the cryptocurrency field of the Address object
     """
 
     def __init__(self, node_id: str, address: str, created_at: str, cryptocurrency: str):
+        """Create a new Address object
+
+        Args:
+            node_id: the id field of the Address object
+            address: the address field of the Address object
+            created_at: the createdAt field of the Address object
+            cryptocurrency: the cryptocurrency field of the Address object
+        """
         self.id = node_id
         self.address = address
         self.created_at = created_at
@@ -205,6 +337,14 @@ class Address:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create an Address object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            An Address object
+        """
         address = Address(
             node_id=fields['id'],
             address=fields['address'],
@@ -217,10 +357,27 @@ class Address:
 class DepositAccount:
     """This class represents the Buycoins DepositAccount type
 
+    Attributes:
+        id: the id field of the DepositAccount object
+        account_name: the accountName field of the DepositAccount object
+        account_number: the accountNumber field of the DepositAccount object
+        account_reference: the accountReference field of the DepositAccount object
+        account_type: the accountType field of the DepositAccount object
+        bank_name: the bankName field of the DepositAccount object
     """
 
     def __init__(self, node_id: str, account_name: str, account_number: str, account_reference: str,
                  account_type: str, bank_name: str):
+        """Create a new DepositAccount object
+
+        Args:
+            node_id: the id field of the DepositAccount object
+            account_name: the accountName field of the DepositAccount object
+            account_number: the accountNumber field of the DepositAccount object
+            account_reference: the accountReference field of the DepositAccount object
+            account_type: the accountType field of the DepositAccount object
+            bank_name: the bankName field of the DepositAccount object
+        """
         self.id = node_id
         self.account_name = account_name
         self.account_number = account_number
@@ -230,6 +387,14 @@ class DepositAccount:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a DepositAccount object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            A DepositAccount object
+        """
         deposit_account = DepositAccount(
             node_id=fields['id'],
             account_name=fields['accountName'],
@@ -244,11 +409,32 @@ class DepositAccount:
 class Order:
     """This class represents the Buycoins Order type
 
+    Attributes:
+        id: the id field of the Order object
+        created_at: the createdAt field of the Order object
+        cryptocurrency: the cryptocurrency field of the Order object
+        filled_coin_amount: the filledCoinAmount field of the Order object
+        price: the price field of the Order object
+        side: the side field of the Order object
+        status: the status field of the Order object
+        total_coin_amount: the totalCoinAmount field of the Order object
     """
 
     def __init__(self, node_id: str, created_at: str, cryptocurrency: str, filled_coin_amount: str,
                  price: BuycoinsPrice,
                  side: str, status: str, total_coin_amount: str):
+        """
+
+        Args:
+            node_id: the id field of the Order object
+            created_at: the createdAt field of the Order object
+            cryptocurrency: the cryptocurrency field of the Order object
+            filled_coin_amount: the filledCoinAmount field of the Order object
+            price: the price field of the Order object
+            side: the side field of the Order object
+            status: the status field of the Order object
+            total_coin_amount: the totalCoinAmount field of the Order object
+        """
         self.id = node_id
         self.created_at = created_at
         self.cryptocurrency = Cryptocurrency(cryptocurrency)
@@ -260,6 +446,14 @@ class Order:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create an Order object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            An Order object
+        """
         order = Order(
             node_id=fields['id'],
             created_at=fields['createdAt'],
@@ -276,10 +470,31 @@ class Order:
 class OnchainTransferRequest:
     """This class represents the Buycoins OnchainTransferRequest type
 
+    Attributes:
+        id: the id field of the OnchainTransferRequest type
+        address: the address field of the OnchainTransferRequest type
+        amount: the amount field of the OnchainTransferRequest type
+        created_at: the createdAt field of the OnchainTransferRequest type
+        cryptocurrency: the cryptocurrency field of the OnchainTransferRequest type
+        fee: the fee field of the OnchainTransferRequest type
+        status: the status field of the OnchainTransferRequest type
+        transaction_id: the id of the transaction of the OnchainTransferRequest type
     """
 
     def __init__(self, node_id: str, address: str, amount: str, created_at: str, cryptocurrency: str, fee: str,
                  status: str, transaction_id: str):
+        """Create a new OnchainTransferRequest type
+
+        Args:
+            node_id: the id field of the OnchainTransferRequest type
+            address: the address field of the OnchainTransferRequest type
+            amount: the amount field of the OnchainTransferRequest type
+            created_at: the createdAt field of the OnchainTransferRequest type
+            cryptocurrency: the cryptocurrency field of the OnchainTransferRequest type
+            fee: the fee field of the OnchainTransferRequest type
+            status: the status field of the OnchainTransferRequest type
+            transaction_id: the id of the transaction of the OnchainTransferRequest type
+        """
         self.id = node_id
         self.address = address
         self.amount = amount
@@ -291,6 +506,14 @@ class OnchainTransferRequest:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create an OnchainTransferRequest object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            An OnchainTransferRequest object
+        """
         onchain_transfer_request = OnchainTransferRequest(
             node_id=fields['id'],
             address=fields['address'],
@@ -307,10 +530,33 @@ class OnchainTransferRequest:
 class Transaction:
     """This class represents the Buycoins Transaction type
 
+    Attributes:
+        node_id: the id field of the Transaction type
+        address: the address field of the Transaction type
+        amount: the amount field of the Transaction type
+        confirmed: the confirmed field of the Transaction type
+        created_at: the createdAt field of the Transaction type
+        cryptocurrency: the cryptocurrency field of the Transaction type
+        direction: the direction field of the Transaction type
+        onchain_transfer_request_id: the id field of the onchainTransferRequest field of the Transaction type
+        tx_hash: the txHash field of the Transaction type
     """
 
     def __init__(self, node_id: str, address: Address, amount: str, confirmed: bool, created_at: str,
                  cryptocurrency: str, direction: str, onchain_transfer_request_id: str, tx_hash: str):
+        """Create a new Transaction object
+
+        Args:
+            node_id: the id field of the Transaction type
+            address: the address field of the Transaction type
+            amount: the amount field of the Transaction type
+            confirmed: the confirmed field of the Transaction type
+            created_at: the createdAt field of the Transaction type
+            cryptocurrency: the cryptocurrency field of the Transaction type
+            direction: the direction field of the Transaction type
+            onchain_transfer_request_id: the id field of the onchainTransferRequest field of the Transaction type
+            tx_hash: the txHash field of the Transaction type
+        """
         self.id = node_id
         self.address = address
         self.amount = amount
@@ -323,6 +569,14 @@ class Transaction:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a Transaction object using the fields in the data attribute of the dicts returned
+            from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+        Args:
+            fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+        Returns:
+            A Transaction object
+        """
         tx = Transaction(
             node_id=fields['id'],
             address=Address.from_dict(fields['address']),
@@ -357,6 +611,14 @@ class EstimatedFee:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create an EstimatedFee object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           An EstimatedFee object
+       """
         es_fee = EstimatedFee(
             estimated_fee=fields['estimatedFee'],
             total=fields['total']
@@ -390,6 +652,14 @@ class PageInfo:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a PageInfo object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           A PageInfo object
+       """
         return PageInfo(
             end_cursor=fields['endCursor'],
             start_cursor=fields['startCursor'],
@@ -433,6 +703,14 @@ class PostOrders:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a PostOrders object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           A PostOrders object
+       """
         po_edges = []
         post_order_edges_dict = fields['orders']['edges']
         for i in post_order_edges_dict:
@@ -484,6 +762,14 @@ class PaymentConnection:
 
     @staticmethod
     def from_dict(fields: dict):
+        """This allows you to create a PaymentConnection object using the fields in the data attribute of the dicts returned
+           from BuycoinsGraphqlClient's methods.Study the methods of BuycoinsSDK to know how this is used
+
+       Args:
+           fields: the fields of the data property of a dict returned from a BuycoinsGraphqlClient method
+       Returns:
+           A PaymentConnection object
+       """
         p_edges = []
         payment_edges_dict = fields['edges']
         for i in payment_edges_dict:

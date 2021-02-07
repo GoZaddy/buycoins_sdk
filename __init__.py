@@ -3,7 +3,6 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
-from buycoins_sdk.commons import *
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
