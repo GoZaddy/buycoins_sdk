@@ -8,7 +8,7 @@ from requests import exceptions
 from ..commons import errors, type_to_field
 from ..commons.enums import Cryptocurrency, GetOrdersStatus, BuycoinsType, OrderSide, \
     PriceType
-from typing import Any
+from typing import Any, Dict, List
 
 __all__ = [
     'BuycoinsGraphqlClient',
@@ -17,8 +17,8 @@ __all__ = [
 ]
 
 
-def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: int = None, after: str = None,
-                          before: str = None) -> dict[str, Any]:
+def _prepare_graphql_args(variables: Dict[str, Any], first: int = None, last: int = None, after: str = None,
+                          before: str = None) -> Dict[str, Any]:
     """This function takes in common pagination args for the Connection and prepares them into two variables
     to be used in GraphQL queries
 
@@ -441,7 +441,7 @@ class BuycoinsGraphqlClient:
         else:
             return {'data': data['data']['node']}
 
-    def nodes(self, ids: list[str], gql_types=list[BuycoinsType]) -> dict:
+    def nodes(self, ids: List[str], gql_types: List[BuycoinsType]) -> dict:
         """Executes the nodes GraphQL query
 
         Args:

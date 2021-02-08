@@ -2,7 +2,7 @@ from ..client import BuycoinsGraphqlClient
 from ..commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
 from ..core.bc_types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
     BuycoinsPrice, Order, Payment, DepositAccount, PostOrder, OnchainTransferRequest, Address
-from typing import Union
+from typing import Union, List, Dict
 
 
 __all__ = [
@@ -25,7 +25,7 @@ class BuycoinsSDK:
         self._secret_key = secret_key
         self.client = BuycoinsGraphqlClient(public_key=public_key, secret_key=secret_key)
 
-    def get_balances(self, cryptocurrency: Cryptocurrency = None) -> Union[list[Account], Account]:
+    def get_balances(self, cryptocurrency: Cryptocurrency = None) -> Union[List[Account], Account]:
         """Retrieve supported cryptocurrencies account balance(s)
 
         Args:
@@ -46,7 +46,7 @@ class BuycoinsSDK:
         else:
             return Account.from_dict(balances[0])
 
-    def get_bank_accounts(self, account_number: str = None) -> Union[list[BankAccount], BankAccount]:
+    def get_bank_accounts(self, account_number: str = None) -> Union[List[BankAccount], BankAccount]:
         """Retrieve bank accounts
 
         Args:
@@ -158,7 +158,7 @@ class BuycoinsSDK:
         )['data'])
 
     def get_prices(self, cryptocurrency: Cryptocurrency = None) \
-            -> Union[list[BuycoinsPrice], BuycoinsPrice]:
+            -> Union[List[BuycoinsPrice], BuycoinsPrice]:
         """Retrieve buy/sell price(s) for supported cryptocurrencies
 
         Args:
@@ -201,7 +201,7 @@ class BuycoinsSDK:
             gql_type=gql_type
         )
 
-    def nodes(self, ids: list[str], gql_types=list[BuycoinsType]) -> dict:
+    def nodes(self, ids: List[str], gql_types: List[BuycoinsType]) -> dict:
         """Fetches a list of objects given a list of IDs
 
         Args:
