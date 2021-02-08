@@ -125,7 +125,7 @@ class PostOrder:
         status: the status field of the PostOrder type
     """
 
-    def __init__(self, node_id: str, coin_amount: str, created_at: str, cryptocurrency: str,
+    def __init__(self, node_id: str, coin_amount: str, created_at: int, cryptocurrency: str,
                  dynamic_exchange_rate: str, price_per_coin: str, price_type: str, side: str,
                  static_price: str, status: str):
         """
@@ -192,7 +192,7 @@ class Payment:
         payment_type: the payment_type field of the Payment type
     """
 
-    def __init__(self, node_id: str, amount: str, created_at: str, fee: str, reference: str, status: str,
+    def __init__(self, node_id: str, amount: str, created_at: int, fee: str, reference: str, status: str,
                  total_amount: str, payment_type: str):
         """Create a new Payment object
 
@@ -255,7 +255,7 @@ class BuycoinsPrice:
         status: the status field of the BuycoinsPrice type
     """
 
-    def __init__(self, node_id: str, buy_price_per_coin: str, cryptocurrency: str, expires_at: str,
+    def __init__(self, node_id: str, buy_price_per_coin: str, cryptocurrency: str, expires_at: int,
                  max_buy: str, max_sell: str, min_buy: str, min_coin_amount: str, min_sell: str,
                  sell_price_per_coin: str, status: str):
         """Create a new BuycoinsPrice object
@@ -321,7 +321,7 @@ class Address:
         cryptocurrency: the cryptocurrency field of the Address object
     """
 
-    def __init__(self, node_id: str, address: str, created_at: str, cryptocurrency: str):
+    def __init__(self, node_id: str, address: str, created_at: int, cryptocurrency: str):
         """Create a new Address object
 
         Args:
@@ -420,7 +420,7 @@ class Order:
         total_coin_amount: the totalCoinAmount field of the Order object
     """
 
-    def __init__(self, node_id: str, created_at: str, cryptocurrency: str, filled_coin_amount: str,
+    def __init__(self, node_id: str, created_at: int, cryptocurrency: str, filled_coin_amount: str,
                  price: BuycoinsPrice,
                  side: str, status: str, total_coin_amount: str):
         """
@@ -481,7 +481,7 @@ class OnchainTransferRequest:
         transaction_id: the id of the transaction of the OnchainTransferRequest type
     """
 
-    def __init__(self, node_id: str, address: str, amount: str, created_at: str, cryptocurrency: str, fee: str,
+    def __init__(self, node_id: str, address: str, amount: str, created_at: int, cryptocurrency: str, fee: str,
                  status: str, transaction_id: str):
         """Create a new OnchainTransferRequest type
 
@@ -542,7 +542,7 @@ class Transaction:
         tx_hash: the txHash field of the Transaction type
     """
 
-    def __init__(self, node_id: str, address: Address, amount: str, confirmed: bool, created_at: str,
+    def __init__(self, node_id: str, address: Address, amount: str, confirmed: bool, created_at: int,
                  cryptocurrency: str, direction: str, onchain_transfer_request_id: str, tx_hash: str):
         """Create a new Transaction object
 

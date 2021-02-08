@@ -34,6 +34,8 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
     Returns: A dictionary with keys: connection_arg and arg, which represents the arguments for the Connection and the
             GraphQL query.
     """
+
+    var = variables
     connection_arg = ''
     arg_map = {'first': first, 'last': last, 'after': after, 'before': before}
     arg = ','
@@ -44,7 +46,7 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
                 arg = arg + f"${i}: Int,"
             elif i == 'after' or i == 'before':
                 arg = arg + f"${i}: String,"
-            variables[i] = arg_map[i]
+            var[i] = arg_map[i]
     if connection_arg != '':
         connection_arg = connection_arg[:-1]
         connection_arg = f"({connection_arg})"
@@ -57,8 +59,8 @@ def _prepare_graphql_args(variables: dict[str, Any], first: int = None, last: in
     return {
         "connection_arg": connection_arg,
         "arg": arg,
+        'variables': var
     }
-
 
 def _wrap_graphql_call(client: GraphqlClient, query: str, variables: dict) -> Any:
     """This function wraps calls to the GraphQL API and raises the appropriate exceptions
@@ -162,7 +164,7 @@ class BuycoinsGraphqlClient:
         data = _wrap_graphql_call(self._client, query=query, variables=variables)
         return {'data': data['data']['getBalances']}
 
-    def get_bank_accounts(self, account_number) -> dict:
+    def get_bank_accounts(self, account_number=None) -> dict:
         """Executes the getBankAccounts query
 
         Args:
@@ -239,6 +241,7 @@ class BuycoinsGraphqlClient:
         arg_and_order_arg = _prepare_graphql_args(variables, first, last, after, before)
         connection_arg = arg_and_order_arg['connection_arg']
         arg = arg_and_order_arg['arg']
+        variables = arg_and_order_arg['variables']
 
         query = """
             query getMarketBook($cryptocurrency: Cryptocurrency""" + arg + """){                           
@@ -290,6 +293,7 @@ class BuycoinsGraphqlClient:
         arg_and_order_arg = _prepare_graphql_args(variables, first, last, after, before)
         connection_arg = arg_and_order_arg['connection_arg']
         arg = arg_and_order_arg['arg']
+        variables = arg_and_order_arg['variables']
 
         # get the arguments for the getOrders query
         get_orders_args = ""
@@ -341,6 +345,7 @@ class BuycoinsGraphqlClient:
         args_and_get_payments_args = _prepare_graphql_args(variables, first, last, after, before)
         arg = args_and_get_payments_args['arg']
         connection_arg = args_and_get_payments_args['connection_arg']
+        variables = args_and_get_payments_args['variables']
 
         if arg != "":
             arg = arg[1:]
