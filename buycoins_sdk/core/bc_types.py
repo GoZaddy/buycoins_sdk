@@ -1,4 +1,4 @@
-from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, \
+from ..commons.enums import Cryptocurrency, OrderSide, \
     PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
     OnchainTransferRequestStatus
 

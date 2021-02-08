@@ -1,6 +1,6 @@
-from buycoins_sdk.client import BuycoinsGraphqlClient
-from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
-from buycoins_sdk.core.bc_types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
+from ..client import BuycoinsGraphqlClient
+from ..commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
+from ..core.bc_types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
     BuycoinsPrice, Order, Payment, DepositAccount, PostOrder, OnchainTransferRequest, Address
 from typing import Union
 
