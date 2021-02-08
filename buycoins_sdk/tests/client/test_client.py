@@ -2,7 +2,6 @@ from unittest import TestCase, main
 from unittest.mock import Mock, patch
 from ... import BuycoinsGraphqlClient, enums, errors, client
 from .fixtures import *
-from pprint import pprint
 
 
 def _add_error_to_result(result: dict, message: str = 'random error message'):

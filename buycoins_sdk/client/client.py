@@ -5,8 +5,8 @@ This module contains and exports the BuycoinsGraphqlClient class  and a helper f
 from python_graphql_client import GraphqlClient
 import base64
 from requests import exceptions
-from buycoins_sdk.commons import errors, type_to_field
-from buycoins_sdk.commons.enums import Cryptocurrency, GetOrdersStatus, BuycoinsType, OrderSide, \
+from ..commons import errors, type_to_field
+from ..commons.enums import Cryptocurrency, GetOrdersStatus, BuycoinsType, OrderSide, \
     PriceType
 from typing import Any
 
