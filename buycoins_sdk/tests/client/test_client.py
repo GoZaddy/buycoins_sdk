@@ -1,6 +1,7 @@
 from unittest import TestCase, main
 from unittest.mock import Mock
-from ... import BuycoinsGraphqlClient, enums, errors, client
+from ...client import BuycoinsGraphqlClient, _prepare_graphql_args
+from ...commons import enums, errors
 from .fixtures import *
 
 
@@ -24,7 +25,7 @@ class TestClient(TestCase):
         self.bc_client._client = Mock()
 
     def test_prepare_graphql_args(self):
-        res = client._prepare_graphql_args(variables={}, first=2, last=2, after='ma', before='mb')
+        res = _prepare_graphql_args(variables={}, first=2, last=2, after='ma', before='mb')
         result = {
             'connection_arg': '(first:$first,last:$last,after:$after,before:$before)',
             'arg': ',$first: Int,$last: Int,$after: String,$before: String',
@@ -32,7 +33,7 @@ class TestClient(TestCase):
         }
         self.assertEqual(res, result, 'SHOULD BE EQUAL')
 
-        res = client._prepare_graphql_args(variables={})
+        res = _prepare_graphql_args(variables={})
         result = {
             'connection_arg': '',
             'arg': '',
