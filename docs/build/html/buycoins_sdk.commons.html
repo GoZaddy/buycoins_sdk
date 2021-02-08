@@ -567,6 +567,31 @@ exceptions must inherit from this</p>
 </dd></dl>
 
 <dl class="py exception">
+<dt id="buycoins_sdk.commons.errors.BuycoinsHTTPException">
+<em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">BuycoinsHTTPException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span><span class="p">:</span> <span class="n">requests.models.Response</span></em>, <em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.BuycoinsHTTPException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>
+<p>BuycoinsHTTPException is raised when a call to the BuyCoins API raises an HTTPError</p>
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">status_code [int]</code></dt>
+<dd><p>an integer representing the status code of the HTTPError</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt>
+<code class="sig-name descname">response [requests.Response]</code></dt>
+<dd><p>the HTTP Response from the HTTPError</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="buycoins_sdk.commons.errors.BuycoinsHTTPException.error_message">
+<code class="sig-name descname">error_message</code><a class="headerlink" href="#buycoins_sdk.commons.errors.BuycoinsHTTPException.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>the error message from the HTTPError</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
 <dt id="buycoins_sdk.commons.errors.InsufficientAmountToSellException">
 <em class="property">exception </em><code class="sig-prename descclassname">buycoins_sdk.commons.errors.</code><code class="sig-name descname">InsufficientAmountToSellException</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount_to_sell</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.commons.errors.InsufficientAmountToSellException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.commons.errors.BuycoinsException</span></code></a></p>

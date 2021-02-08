@@ -165,34 +165,34 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-buycoins_sdk.core.bc_types">
-<span id="buycoins-sdk-core-bc-types-module"></span><h2>buycoins_sdk.core.bc_types module<a class="headerlink" href="#module-buycoins_sdk.core.bc_types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-buycoins_sdk.core.types">
+<span id="buycoins-sdk-core-types-module"></span><h2>buycoins_sdk.core.types module<a class="headerlink" href="#module-buycoins_sdk.core.types" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.Account">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">Account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">confirmed_balance</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Account" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Account">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">Account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">confirmed_balance</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins Account type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Account.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Account.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Account.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.Account.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>a string representing the id of the Account</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Account.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Account.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Account.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.Account.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the Account type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Account.confirmed_balance">
-<code class="sig-name descname">confirmed_balance</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Account.confirmed_balance" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Account.confirmed_balance">
+<code class="sig-name descname">confirmed_balance</code><a class="headerlink" href="#buycoins_sdk.core.types.Account.confirmed_balance" title="Permalink to this definition">¶</a></dt>
 <dd><p>the confirmed balance field of the Account type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.Account.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Account.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Account.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Account.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create an Account object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -210,37 +210,37 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.Address">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">Address</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">Address</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins Address type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Address.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.Address.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the Address object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Address.address">
-<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address.address" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.types.Address.address" title="Permalink to this definition">¶</a></dt>
 <dd><p>the address field of the Address object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Address.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.Address.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the Address object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Address.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.Address.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the Address object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.Address.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Address.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Address.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Address.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create an Address object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -258,49 +258,49 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.BankAccount">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">BankAccount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">bank_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">BankAccount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">bank_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins BankAccount type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id of the BankAccount</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.account_name">
-<code class="sig-name descname">account_name</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.account_name" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.account_name">
+<code class="sig-name descname">account_name</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.account_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>the Account name field of the BankAccount type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.account_number">
-<code class="sig-name descname">account_number</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.account_number" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.account_number">
+<code class="sig-name descname">account_number</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.account_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>the account number field of the BankAccount type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.account_reference">
-<code class="sig-name descname">account_reference</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.account_reference" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.account_reference">
+<code class="sig-name descname">account_reference</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.account_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>the account reference field of the BankAccount type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.account_type">
-<code class="sig-name descname">account_type</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.account_type" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.account_type">
+<code class="sig-name descname">account_type</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.account_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>the account type field of the BankAccount type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.bank_name">
-<code class="sig-name descname">bank_name</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.bank_name" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.bank_name">
+<code class="sig-name descname">bank_name</code><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.bank_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>the bank name field of the BankAccount type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.BankAccount.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.BankAccount.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BankAccount.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.BankAccount.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a BankAccount object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -318,79 +318,79 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">BuycoinsPrice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">buy_price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expires_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">max_buy</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">max_sell</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_buy</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_sell</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">sell_price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">BuycoinsPrice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">buy_price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">expires_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">max_buy</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">max_sell</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_buy</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_sell</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">sell_price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins BuycoinsPrice type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.buy_price_per_coin">
-<code class="sig-name descname">buy_price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.buy_price_per_coin" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.buy_price_per_coin">
+<code class="sig-name descname">buy_price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.buy_price_per_coin" title="Permalink to this definition">¶</a></dt>
 <dd><p>the buyPricePerCoin field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.expires_at">
-<code class="sig-name descname">expires_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.expires_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.expires_at">
+<code class="sig-name descname">expires_at</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.expires_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the expiresAt field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.max_buy">
-<code class="sig-name descname">max_buy</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.max_buy" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.max_buy">
+<code class="sig-name descname">max_buy</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.max_buy" title="Permalink to this definition">¶</a></dt>
 <dd><p>the maxBuy field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.max_sell">
-<code class="sig-name descname">max_sell</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.max_sell" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.max_sell">
+<code class="sig-name descname">max_sell</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.max_sell" title="Permalink to this definition">¶</a></dt>
 <dd><p>the maxSel field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.min_buy">
-<code class="sig-name descname">min_buy</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.min_buy" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.min_buy">
+<code class="sig-name descname">min_buy</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.min_buy" title="Permalink to this definition">¶</a></dt>
 <dd><p>the minBuy field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.min_coin_amount">
-<code class="sig-name descname">min_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.min_coin_amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.min_coin_amount">
+<code class="sig-name descname">min_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.min_coin_amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the minCoinAmount field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.min_sell">
-<code class="sig-name descname">min_sell</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.min_sell" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.min_sell">
+<code class="sig-name descname">min_sell</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.min_sell" title="Permalink to this definition">¶</a></dt>
 <dd><p>the minSell field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.sell_price_per_coin">
-<code class="sig-name descname">sell_price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.sell_price_per_coin" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.sell_price_per_coin">
+<code class="sig-name descname">sell_price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.sell_price_per_coin" title="Permalink to this definition">¶</a></dt>
 <dd><p>the sellPricePerCoin field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.status" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>the status field of the BuycoinsPrice type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.BuycoinsPrice.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.BuycoinsPrice.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.BuycoinsPrice.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.BuycoinsPrice.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a BuycoinsPrice object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods. Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -408,49 +408,49 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">DepositAccount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">bank_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">DepositAccount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">account_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">bank_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins DepositAccount type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.account_name">
-<code class="sig-name descname">account_name</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.account_name" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.account_name">
+<code class="sig-name descname">account_name</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.account_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>the accountName field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.account_number">
-<code class="sig-name descname">account_number</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.account_number" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.account_number">
+<code class="sig-name descname">account_number</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.account_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>the accountNumber field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.account_reference">
-<code class="sig-name descname">account_reference</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.account_reference" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.account_reference">
+<code class="sig-name descname">account_reference</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.account_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>the accountReference field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.account_type">
-<code class="sig-name descname">account_type</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.account_type" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.account_type">
+<code class="sig-name descname">account_type</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.account_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>the accountType field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.bank_name">
-<code class="sig-name descname">bank_name</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.bank_name" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.bank_name">
+<code class="sig-name descname">bank_name</code><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.bank_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>the bankName field of the DepositAccount object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.DepositAccount.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.DepositAccount.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.DepositAccount.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.DepositAccount.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a DepositAccount object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -468,25 +468,25 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.EstimatedFee">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">EstimatedFee</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimated_fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.EstimatedFee" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.EstimatedFee">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">EstimatedFee</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">estimated_fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.EstimatedFee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins EstimatedFee type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.EstimatedFee.estimated_fee">
-<code class="sig-name descname">estimated_fee</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.EstimatedFee.estimated_fee" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.EstimatedFee.estimated_fee">
+<code class="sig-name descname">estimated_fee</code><a class="headerlink" href="#buycoins_sdk.core.types.EstimatedFee.estimated_fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimated network fee for send</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.EstimatedFee.total">
-<code class="sig-name descname">total</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.EstimatedFee.total" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.EstimatedFee.total">
+<code class="sig-name descname">total</code><a class="headerlink" href="#buycoins_sdk.core.types.EstimatedFee.total" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sum of amount and estimated network fee</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.EstimatedFee.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.EstimatedFee.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.EstimatedFee.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.EstimatedFee.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create an EstimatedFee object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -504,61 +504,61 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">OnchainTransferRequest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">transaction_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">OnchainTransferRequest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">transaction_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins OnchainTransferRequest type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.address">
-<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.address" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.address" title="Permalink to this definition">¶</a></dt>
 <dd><p>the address field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.amount">
+<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the amount field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.fee">
-<code class="sig-name descname">fee</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.fee" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.fee">
+<code class="sig-name descname">fee</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>the fee field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.status" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>the status field of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.transaction_id">
-<code class="sig-name descname">transaction_id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.transaction_id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.transaction_id">
+<code class="sig-name descname">transaction_id</code><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.transaction_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id of the transaction of the OnchainTransferRequest type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.OnchainTransferRequest.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.OnchainTransferRequest.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.OnchainTransferRequest.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create an OnchainTransferRequest object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -576,61 +576,61 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.Order">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">Order</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">filled_coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="buycoins_sdk.core.bc_types.BuycoinsPrice">buycoins_sdk.core.bc_types.BuycoinsPrice</a></span></em>, <em class="sig-param"><span class="n">side</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total_coin_amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">Order</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">filled_coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a></span></em>, <em class="sig-param"><span class="n">side</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total_coin_amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins Order type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.filled_coin_amount">
-<code class="sig-name descname">filled_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.filled_coin_amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.filled_coin_amount">
+<code class="sig-name descname">filled_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.filled_coin_amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the filledCoinAmount field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.price">
-<code class="sig-name descname">price</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.price" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.price">
+<code class="sig-name descname">price</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.price" title="Permalink to this definition">¶</a></dt>
 <dd><p>the price field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.side">
-<code class="sig-name descname">side</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.side" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.side">
+<code class="sig-name descname">side</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.side" title="Permalink to this definition">¶</a></dt>
 <dd><p>the side field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.status" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>the status field of the Order object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Order.total_coin_amount">
-<code class="sig-name descname">total_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.total_coin_amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.total_coin_amount">
+<code class="sig-name descname">total_coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.types.Order.total_coin_amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the totalCoinAmount field of the Order object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.Order.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Order.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Order.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Order.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create an Order object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -648,37 +648,37 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PageInfo">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PageInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">end_cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">has_next_page</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">has_previous_page</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">start_cursor</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PageInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">end_cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">has_next_page</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">has_previous_page</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">start_cursor</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins PageInfo type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PageInfo.end_cursor">
-<code class="sig-name descname">end_cursor</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo.end_cursor" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo.end_cursor">
+<code class="sig-name descname">end_cursor</code><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo.end_cursor" title="Permalink to this definition">¶</a></dt>
 <dd><p>a string representing the last cursor of the PageInfo</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PageInfo.has_next_page">
-<code class="sig-name descname">has_next_page</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo.has_next_page" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo.has_next_page">
+<code class="sig-name descname">has_next_page</code><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo.has_next_page" title="Permalink to this definition">¶</a></dt>
 <dd><p>boolean stating whether or not a next page exists</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PageInfo.has_previous_page">
-<code class="sig-name descname">has_previous_page</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo.has_previous_page" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo.has_previous_page">
+<code class="sig-name descname">has_previous_page</code><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo.has_previous_page" title="Permalink to this definition">¶</a></dt>
 <dd><p>boolean stating whether or not a previous page exists</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PageInfo.start_cursor">
-<code class="sig-name descname">start_cursor</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo.start_cursor" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo.start_cursor">
+<code class="sig-name descname">start_cursor</code><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo.start_cursor" title="Permalink to this definition">¶</a></dt>
 <dd><p>start cursor of PageInfo object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.PageInfo.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PageInfo.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PageInfo.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PageInfo.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a PageInfo object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -696,61 +696,61 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.Payment">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">Payment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">payment_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">Payment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">fee</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">reference</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">total_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">payment_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Payment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins Payment type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.amount">
+<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the amount field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.fee">
-<code class="sig-name descname">fee</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.fee" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.fee">
+<code class="sig-name descname">fee</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>the fee field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.reference">
-<code class="sig-name descname">reference</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.reference" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.reference">
+<code class="sig-name descname">reference</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>the reference field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.status" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>the status field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.total_amount">
-<code class="sig-name descname">total_amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.total_amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.total_amount">
+<code class="sig-name descname">total_amount</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.total_amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the total_amount field of the Payment type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Payment.payment_type">
-<code class="sig-name descname">payment_type</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.payment_type" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.payment_type">
+<code class="sig-name descname">payment_type</code><a class="headerlink" href="#buycoins_sdk.core.types.Payment.payment_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>the payment_type field of the Payment type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.Payment.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Payment.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Payment.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Payment.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a Payment object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods. Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -768,25 +768,25 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PaymentConnection">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PaymentConnection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_edges</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.PaymentEdge" title="buycoins_sdk.core.bc_types.PaymentEdge">buycoins_sdk.core.bc_types.PaymentEdge</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">page_info</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.PageInfo" title="buycoins_sdk.core.bc_types.PageInfo">buycoins_sdk.core.bc_types.PageInfo</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentConnection" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentConnection">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PaymentConnection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_edges</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.PaymentEdge" title="buycoins_sdk.core.types.PaymentEdge">buycoins_sdk.core.types.PaymentEdge</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">page_info</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.PageInfo" title="buycoins_sdk.core.types.PageInfo">buycoins_sdk.core.types.PageInfo</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PaymentConnection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the connection type for Buycoins Payment type.</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PaymentConnection.payment_edges">
-<code class="sig-name descname">payment_edges</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentConnection.payment_edges" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentConnection.payment_edges">
+<code class="sig-name descname">payment_edges</code><a class="headerlink" href="#buycoins_sdk.core.types.PaymentConnection.payment_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>a list of PaymentEdge objects</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PaymentConnection.page_info">
-<code class="sig-name descname">page_info</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentConnection.page_info" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentConnection.page_info">
+<code class="sig-name descname">page_info</code><a class="headerlink" href="#buycoins_sdk.core.types.PaymentConnection.page_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>a PageInfo object containing pagination details about the payment_edges attribute</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.PaymentConnection.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentConnection.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentConnection.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PaymentConnection.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a PaymentConnection object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -804,27 +804,27 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PaymentEdge">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PaymentEdge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">payment</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.Payment" title="buycoins_sdk.core.bc_types.Payment">buycoins_sdk.core.bc_types.Payment</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentEdge" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentEdge">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PaymentEdge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">payment</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PaymentEdge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins PaymentEdge type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PaymentEdge.cursor">
-<code class="sig-name descname">cursor</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentEdge.cursor" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentEdge.cursor">
+<code class="sig-name descname">cursor</code><a class="headerlink" href="#buycoins_sdk.core.types.PaymentEdge.cursor" title="Permalink to this definition">¶</a></dt>
 <dd><p>a string representing the cursor for the PaymentEdge object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PaymentEdge.payment">
-<code class="sig-name descname">payment</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PaymentEdge.payment" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PaymentEdge.payment">
+<code class="sig-name descname">payment</code><a class="headerlink" href="#buycoins_sdk.core.types.PaymentEdge.payment" title="Permalink to this definition">¶</a></dt>
 <dd><p>a Payment object representing the Payment node</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PostOrder">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PostOrder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">dynamic_exchange_rate</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">side</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">static_price</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PostOrder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">coin_amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">dynamic_exchange_rate</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price_per_coin</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">price_type</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">side</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">static_price</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">status</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins PostOrder type
 .. attribute:: id</p>
@@ -832,62 +832,62 @@
 <div><p>the id field of the PostOrder type</p>
 </div></blockquote>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.coin_amount">
-<code class="sig-name descname">coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.coin_amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.coin_amount">
+<code class="sig-name descname">coin_amount</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.coin_amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the coin amount field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.dynamic_exchange_rate">
-<code class="sig-name descname">dynamic_exchange_rate</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.dynamic_exchange_rate" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.dynamic_exchange_rate">
+<code class="sig-name descname">dynamic_exchange_rate</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.dynamic_exchange_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>the dynamic exchange rate field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.price_per_coin">
-<code class="sig-name descname">price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.price_per_coin" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.price_per_coin">
+<code class="sig-name descname">price_per_coin</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.price_per_coin" title="Permalink to this definition">¶</a></dt>
 <dd><p>the price per coin field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.price_type">
-<code class="sig-name descname">price_type</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.price_type" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.price_type">
+<code class="sig-name descname">price_type</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.price_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>the price type field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.side">
-<code class="sig-name descname">side</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.side" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.side">
+<code class="sig-name descname">side</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.side" title="Permalink to this definition">¶</a></dt>
 <dd><p>the side field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.static_price">
-<code class="sig-name descname">static_price</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.static_price" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.static_price">
+<code class="sig-name descname">static_price</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.static_price" title="Permalink to this definition">¶</a></dt>
 <dd><p>the static price field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.status">
-<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.status" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.status">
+<code class="sig-name descname">status</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.status" title="Permalink to this definition">¶</a></dt>
 <dd><p>the status field of the PostOrder type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.PostOrder.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrder.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrder.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PostOrder.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a PostOrder object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods. Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -905,49 +905,49 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PostOrderEdge">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PostOrderEdge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">post_order</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrder" title="buycoins_sdk.core.bc_types.PostOrder">buycoins_sdk.core.bc_types.PostOrder</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrderEdge" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrderEdge">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PostOrderEdge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cursor</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">post_order</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PostOrderEdge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins PostOrderEdge type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrderEdge.cursor">
-<code class="sig-name descname">cursor</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrderEdge.cursor" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrderEdge.cursor">
+<code class="sig-name descname">cursor</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrderEdge.cursor" title="Permalink to this definition">¶</a></dt>
 <dd><p>a string representing the cursor for the PostOrderEdge object</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrderEdge.post_order">
-<code class="sig-name descname">post_order</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrderEdge.post_order" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrderEdge.post_order">
+<code class="sig-name descname">post_order</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrderEdge.post_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>a PostOrder object representing the PostOrder node</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.PostOrders">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">PostOrders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dynamic_price_expiry</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">page_info</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.PageInfo" title="buycoins_sdk.core.bc_types.PageInfo">buycoins_sdk.core.bc_types.PageInfo</a></span></em>, <em class="sig-param"><span class="n">post_order_edges</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrderEdge" title="buycoins_sdk.core.bc_types.PostOrderEdge">buycoins_sdk.core.bc_types.PostOrderEdge</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrders" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrders">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">PostOrders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dynamic_price_expiry</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">page_info</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.PageInfo" title="buycoins_sdk.core.types.PageInfo">buycoins_sdk.core.types.PageInfo</a></span></em>, <em class="sig-param"><span class="n">post_order_edges</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.PostOrderEdge" title="buycoins_sdk.core.types.PostOrderEdge">buycoins_sdk.core.types.PostOrderEdge</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PostOrders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins PostOrders type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrders.dynamic_price_expiry">
-<code class="sig-name descname">dynamic_price_expiry</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrders.dynamic_price_expiry" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrders.dynamic_price_expiry">
+<code class="sig-name descname">dynamic_price_expiry</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrders.dynamic_price_expiry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrders.page_info">
-<code class="sig-name descname">page_info</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrders.page_info" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrders.page_info">
+<code class="sig-name descname">page_info</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrders.page_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>a PageInfo object containing pagination details about the post_order_edges attribute</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.PostOrders.post_order_edges">
-<code class="sig-name descname">post_order_edges</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrders.post_order_edges" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrders.post_order_edges">
+<code class="sig-name descname">post_order_edges</code><a class="headerlink" href="#buycoins_sdk.core.types.PostOrders.post_order_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>a list of PostOrderEdge objects</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.PostOrders.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.PostOrders.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.PostOrders.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.PostOrders.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a PostOrders object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -965,67 +965,67 @@
 </dd></dl>
 
 <dl class="py class">
-<dt id="buycoins_sdk.core.bc_types.Transaction">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.bc_types.</code><code class="sig-name descname">Transaction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.bc_types.Address" title="buycoins_sdk.core.bc_types.Address">buycoins_sdk.core.bc_types.Address</a></span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">confirmed</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">direction</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">onchain_transfer_request_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">tx_hash</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.types.</code><code class="sig-name descname">Transaction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">address</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#buycoins_sdk.core.types.Address" title="buycoins_sdk.core.types.Address">buycoins_sdk.core.types.Address</a></span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">confirmed</span><span class="p">:</span> <span class="n">bool</span></em>, <em class="sig-param"><span class="n">created_at</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">direction</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">onchain_transfer_request_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">tx_hash</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Transaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class represents the Buycoins Transaction type</p>
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.node_id">
-<code class="sig-name descname">node_id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.node_id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.node_id">
+<code class="sig-name descname">node_id</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.node_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.address">
-<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.address" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.address" title="Permalink to this definition">¶</a></dt>
 <dd><p>the address field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.amount">
-<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.amount" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.amount">
+<code class="sig-name descname">amount</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.amount" title="Permalink to this definition">¶</a></dt>
 <dd><p>the amount field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.confirmed">
-<code class="sig-name descname">confirmed</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.confirmed" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.confirmed">
+<code class="sig-name descname">confirmed</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.confirmed" title="Permalink to this definition">¶</a></dt>
 <dd><p>the confirmed field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.created_at">
-<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.created_at" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>the createdAt field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.cryptocurrency">
-<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.cryptocurrency" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.cryptocurrency">
+<code class="sig-name descname">cryptocurrency</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.cryptocurrency" title="Permalink to this definition">¶</a></dt>
 <dd><p>the cryptocurrency field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.direction">
-<code class="sig-name descname">direction</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.direction" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.direction">
+<code class="sig-name descname">direction</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.direction" title="Permalink to this definition">¶</a></dt>
 <dd><p>the direction field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.onchain_transfer_request_id">
-<code class="sig-name descname">onchain_transfer_request_id</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.onchain_transfer_request_id" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.onchain_transfer_request_id">
+<code class="sig-name descname">onchain_transfer_request_id</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.onchain_transfer_request_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the id field of the onchainTransferRequest field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="buycoins_sdk.core.bc_types.Transaction.tx_hash">
-<code class="sig-name descname">tx_hash</code><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.tx_hash" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.tx_hash">
+<code class="sig-name descname">tx_hash</code><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.tx_hash" title="Permalink to this definition">¶</a></dt>
 <dd><p>the txHash field of the Transaction type</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="buycoins_sdk.core.bc_types.Transaction.from_dict">
-<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.bc_types.Transaction.from_dict" title="Permalink to this definition">¶</a></dt>
+<dt id="buycoins_sdk.core.types.Transaction.from_dict">
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.types.Transaction.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>This allows you to create a Transaction object using the fields in the data attribute of the dicts returned</dt><dd><p>from BuycoinsGraphqlClient’s methods.Study the methods of BuycoinsSDK to know how this is used</p>
 </dd>
@@ -1059,7 +1059,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy">
-<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Order" title="buycoins_sdk.core.bc_types.Order">buycoins_sdk.core.bc_types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Buy supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1083,7 +1083,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal">
-<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Payment" title="buycoins_sdk.core.bc_types.Payment">buycoins_sdk.core.bc_types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel initiated withdrawal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1104,7 +1104,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address">
-<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Address" title="buycoins_sdk.core.bc_types.Address">buycoins_sdk.core.bc_types.Address</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Address" title="buycoins_sdk.core.types.Address">buycoins_sdk.core.types.Address</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create address to receive supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1121,7 +1121,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account">
-<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.DepositAccount" title="buycoins_sdk.core.bc_types.DepositAccount">buycoins_sdk.core.bc_types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.DepositAccount" title="buycoins_sdk.core.types.DepositAccount">buycoins_sdk.core.types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate deposit bank accounts to top up your NGNT account with Naira</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1138,7 +1138,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal">
-<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Payment" title="buycoins_sdk.core.bc_types.Payment">buycoins_sdk.core.bc_types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new withdrawal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1158,7 +1158,7 @@
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances">
-<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.Account" title="buycoins_sdk.core.bc_types.Account">buycoins_sdk.core.bc_types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.Account" title="buycoins_sdk.core.bc_types.Account">buycoins_sdk.core.bc_types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve supported cryptocurrencies account balance(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1176,7 +1176,7 @@ is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts">
-<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BankAccount" title="buycoins_sdk.core.bc_types.BankAccount">buycoins_sdk.core.bc_types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BankAccount" title="buycoins_sdk.core.bc_types.BankAccount">buycoins_sdk.core.bc_types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve bank accounts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1194,7 +1194,7 @@ is returned when no account number is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee">
-<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.EstimatedFee" title="buycoins_sdk.core.bc_types.EstimatedFee">buycoins_sdk.core.bc_types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.EstimatedFee" title="buycoins_sdk.core.types.EstimatedFee">buycoins_sdk.core.types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve estimated network fee to send supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1214,7 +1214,7 @@ is returned when no account number is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book">
-<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrders" title="buycoins_sdk.core.bc_types.PostOrders">buycoins_sdk.core.bc_types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getMarketBook query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1239,7 +1239,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders">
-<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrders" title="buycoins_sdk.core.bc_types.PostOrders">buycoins_sdk.core.bc_types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve open orders</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1266,7 +1266,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments">
-<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PaymentConnection" title="buycoins_sdk.core.bc_types.PaymentConnection">buycoins_sdk.core.bc_types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PaymentConnection" title="buycoins_sdk.core.types.PaymentConnection">buycoins_sdk.core.types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getPayments GraphQL query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1290,7 +1290,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices">
-<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="buycoins_sdk.core.bc_types.BuycoinsPrice">buycoins_sdk.core.bc_types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="buycoins_sdk.core.bc_types.BuycoinsPrice">buycoins_sdk.core.bc_types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve buy/sell price(s) for supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1354,7 +1354,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order">
-<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrder" title="buycoins_sdk.core.bc_types.PostOrder">buycoins_sdk.core.bc_types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new limit order</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1378,7 +1378,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order">
-<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrder" title="buycoins_sdk.core.bc_types.PostOrder">buycoins_sdk.core.bc_types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new market order</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1399,7 +1399,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell">
-<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Order" title="buycoins_sdk.core.bc_types.Order">buycoins_sdk.core.bc_types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sell supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1423,7 +1423,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send">
-<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest" title="buycoins_sdk.core.bc_types.OnchainTransferRequest">buycoins_sdk.core.bc_types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.OnchainTransferRequest" title="buycoins_sdk.core.types.OnchainTransferRequest">buycoins_sdk.core.types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send supported cryptocurrencies to external address</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1482,7 +1482,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.buy">
-<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Order" title="buycoins_sdk.core.bc_types.Order">buycoins_sdk.core.bc_types.Order</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Buy supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1506,7 +1506,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.cancel_withdrawal">
-<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Payment" title="buycoins_sdk.core.bc_types.Payment">buycoins_sdk.core.bc_types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel initiated withdrawal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1527,7 +1527,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.create_address">
-<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Address" title="buycoins_sdk.core.bc_types.Address">buycoins_sdk.core.bc_types.Address</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Address" title="buycoins_sdk.core.types.Address">buycoins_sdk.core.types.Address</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create address to receive supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1544,7 +1544,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.create_deposit_account">
-<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.DepositAccount" title="buycoins_sdk.core.bc_types.DepositAccount">buycoins_sdk.core.bc_types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.DepositAccount" title="buycoins_sdk.core.types.DepositAccount">buycoins_sdk.core.types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate deposit bank accounts to top up your NGNT account with Naira</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1561,7 +1561,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.create_withdrawal">
-<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Payment" title="buycoins_sdk.core.bc_types.Payment">buycoins_sdk.core.bc_types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new withdrawal</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1581,7 +1581,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_balances">
-<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.Account" title="buycoins_sdk.core.bc_types.Account">buycoins_sdk.core.bc_types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.Account" title="buycoins_sdk.core.bc_types.Account">buycoins_sdk.core.bc_types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve supported cryptocurrencies account balance(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1599,7 +1599,7 @@ is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_bank_accounts">
-<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BankAccount" title="buycoins_sdk.core.bc_types.BankAccount">buycoins_sdk.core.bc_types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BankAccount" title="buycoins_sdk.core.bc_types.BankAccount">buycoins_sdk.core.bc_types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve bank accounts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1617,7 +1617,7 @@ is returned when no account number is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_estimated_network_fee">
-<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.EstimatedFee" title="buycoins_sdk.core.bc_types.EstimatedFee">buycoins_sdk.core.bc_types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.EstimatedFee" title="buycoins_sdk.core.types.EstimatedFee">buycoins_sdk.core.types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve estimated network fee to send supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1637,7 +1637,7 @@ is returned when no account number is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_market_book">
-<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrders" title="buycoins_sdk.core.bc_types.PostOrders">buycoins_sdk.core.bc_types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getMarketBook query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1662,7 +1662,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_orders">
-<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrders" title="buycoins_sdk.core.bc_types.PostOrders">buycoins_sdk.core.bc_types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve open orders</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1689,7 +1689,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_payments">
-<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PaymentConnection" title="buycoins_sdk.core.bc_types.PaymentConnection">buycoins_sdk.core.bc_types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PaymentConnection" title="buycoins_sdk.core.types.PaymentConnection">buycoins_sdk.core.types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getPayments GraphQL query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1713,7 +1713,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.get_prices">
-<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="buycoins_sdk.core.bc_types.BuycoinsPrice">buycoins_sdk.core.bc_types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.bc_types.BuycoinsPrice" title="buycoins_sdk.core.bc_types.BuycoinsPrice">buycoins_sdk.core.bc_types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve buy/sell price(s) for supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1777,7 +1777,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.post_limit_order">
-<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrder" title="buycoins_sdk.core.bc_types.PostOrder">buycoins_sdk.core.bc_types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new limit order</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1801,7 +1801,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.post_market_order">
-<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.PostOrder" title="buycoins_sdk.core.bc_types.PostOrder">buycoins_sdk.core.bc_types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new market order</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1822,7 +1822,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.sell">
-<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.Order" title="buycoins_sdk.core.bc_types.Order">buycoins_sdk.core.bc_types.Order</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sell supported cryptocurrencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1846,7 +1846,7 @@ when no cryptocurrency is specified</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.core.BuycoinsSDK.send">
-<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.bc_types.OnchainTransferRequest" title="buycoins_sdk.core.bc_types.OnchainTransferRequest">buycoins_sdk.core.bc_types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.OnchainTransferRequest" title="buycoins_sdk.core.types.OnchainTransferRequest">buycoins_sdk.core.types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send supported cryptocurrencies to external address</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1886,12 +1886,6 @@ when no cryptocurrency is specified</p>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="buycoins_sdk.core.types">
-<code class="sig-prename descclassname">buycoins_sdk.core.</code><code class="sig-name descname">types</code><a class="headerlink" href="#buycoins_sdk.core.types" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#buycoins_sdk.core.bc_types.PaymentEdge" title="buycoins_sdk.core.bc_types.PaymentEdge"><code class="xref py py-class docutils literal notranslate"><span class="pre">buycoins_sdk.core.bc_types.PaymentEdge</span></code></a></p>
 </dd></dl>
 
 </div>

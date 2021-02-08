@@ -11,7 +11,8 @@ __all__ = [
     'InvalidGraphQLNodeIDException',
     'InsufficientBalanceToBuyException',
     'InsufficientBalanceToWithdrawException',
-    'WithdrawalCannotBeCanceledException'
+    'WithdrawalCannotBeCanceledException',
+    'BuycoinsHTTPException'
 ]
 
 

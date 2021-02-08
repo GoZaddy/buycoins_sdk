@@ -164,6 +164,56 @@
             
   <div class="section" id="types-and-enums">
 <h1>Types and Enums<a class="headerlink" href="#types-and-enums" title="Permalink to this headline">¶</a></h1>
+<p>An amazing feature of this Buycoins Python SDK is that it comes with many native Python classes and enums that represent the GraphQL types and enums of the Buycoins GraphQL API.
+For example, in the Buycoins GraphQL API, there is an Address type which is used to represents cryptocurrency addresses.
+Here’s what the Address type looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Address
+    id: ID!
+    address: String!
+    cryptocurrency: Cryptocurrency!
+    createdAt: Int!
+</pre></div>
+</div>
+<p>If you make a query that returns an address type to the Buycoins GraphQL API, you will get a response similar to what we have below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">    &#39;data&#39;: {</span>
+<span class="go">        &#39;someQuery&#39;: {</span>
+<span class="go">            &#39;id&#39;: &#39;Some ID&#39;,</span>
+<span class="go">            &#39;address&#39;: &#39;some address&#39;,</span>
+<span class="go">            &#39;cryptocurrency&#39;: &#39;bitcoin&#39;,</span>
+<span class="go">            &#39;createdAt&#39;: 1689289228</span>
+<span class="go">        }</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>With this response, you can easily use one of the convenience methods available in Buycoins SDK to get a native Python Address object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">types</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Address</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;someQuery&#39;</span><span class="p">])</span> <span class="c1"># Now we have our very own address object!</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+<span class="go">    some address</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">cryptocurrency</span><span class="p">)</span>
+<span class="go">    Cryptocurrency.BITCOIN</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Buycoins SDK also automatically returns GraphQL types as native Python objects so you do not have to use any of the convenience methods directly except you are writing your own queries.</p>
+</div>
+<p>As you may have noticed already, the cryptocurrency of the Address object we created was printed out as <cite>Cryptocurrency.BITCOIN</cite>.
+This is an example of one of the enums available in the Buycoins SDK. To use these enums, simply import enums from buycoins_sdk like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">enums</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span> <span class="o">=</span> <span class="n">enums</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="p">(</span><span class="s1">&#39;bitcoin&#39;</span><span class="p">)</span>
+<span class="go"># or</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span> <span class="o">=</span> <span class="n">enums</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="o">.</span><span class="n">BITCOIN</span>
+
+<span class="go"># you can also get the value of an existing enum</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">btc</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="go">bitcoin</span>
+</pre></div>
+</div>
 </div>
 
 

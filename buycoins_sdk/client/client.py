@@ -130,6 +130,7 @@ class BuycoinsGraphqlClient:
         self._client = GraphqlClient("https://backend.buycoins.tech/api/graphql", headers={
             'authorization': f"Basic {b64_key}"
         })
+        print('test')
 
     def get_balances(self, cryptocurrency: Cryptocurrency) -> dict:
         """Executes the getBalances query

@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 from ... import BuycoinsGraphqlClient, enums, errors, client
 from .fixtures import *
 
@@ -19,6 +19,7 @@ class TestClient(TestCase):
     """
 
     def setUp(self) -> None:
+        BuycoinsGraphqlClient.__init__ = Mock(side_effect=lambda public_key, secret_key: None)
         self.bc_client = BuycoinsGraphqlClient(secret_key="secret_key", public_key="public_key")
         self.bc_client._client = Mock()
 
@@ -322,8 +323,8 @@ class TestClient(TestCase):
     def test_post_limit_order(self):
         val = post_limit_order_success
         self.bc_client._client.execute.return_value = val
-        client_result = self.bc_client.post_limit_order(coin_amount='10',order_side=enums.OrderSide.SELL,
-                                                        static_price='1000',price_type=enums.PriceType.STATIC)
+        client_result = self.bc_client.post_limit_order(coin_amount='10', order_side=enums.OrderSide.SELL,
+                                                        static_price='1000', price_type=enums.PriceType.STATIC)
         self.assertEqual(val['data']['postLimitOrder'], client_result['data'], "should be Equal")
 
         # test for error
@@ -347,9 +348,9 @@ class TestClient(TestCase):
         self.bc_client._client.execute.return_value = val
         with self.assertRaises(errors.BuycoinsException):
             self.bc_client.post_market_order(
-            order_side=enums.OrderSide.SELL,
-            coin_amount='100'
-        )
+                order_side=enums.OrderSide.SELL,
+                coin_amount='100'
+            )
 
     def test_sell(self):
         val = sell_success

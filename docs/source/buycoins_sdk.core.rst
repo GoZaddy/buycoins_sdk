@@ -4,10 +4,10 @@ buycoins\_sdk.core package
 Submodules
 ----------
 
-buycoins\_sdk.core.bc\_types module
+buycoins\_sdk.core.types module
 -----------------------------------
 
-.. automodule:: buycoins_sdk.core.bc_types
+.. automodule:: buycoins_sdk.core.types
    :members:
    :undoc-members:
    :show-inheritance:

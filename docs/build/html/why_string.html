@@ -93,10 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="types_and_enums.html">Types and Enums</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions and Exception Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_nodes.html">GraphQL Global object Nodes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Why are numerical values returned as strings?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#heyyy">Heyyy</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Why are numerical values returned as strings?</a></li>
 </ul>
 
             
@@ -166,10 +163,13 @@
             
   <div class="section" id="why-are-numerical-values-returned-as-strings">
 <h1>Why are numerical values returned as strings?<a class="headerlink" href="#why-are-numerical-values-returned-as-strings" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="heyyy">
-<h2>Heyyy<a class="headerlink" href="#heyyy" title="Permalink to this headline">¶</a></h2>
-<p>heyyy</p>
-</div>
+<p>If you have gone through the documentation or used this Buycoins SDK package in some capacity,
+you have probably already noticed that most, if not all, decimal values are returned in a string format. Why is this so?</p>
+<p>Since this package deals with many decimals and numbers that are important as they most represent prices and money, it
+is essential to avoid any insignificant errors resulting from issues with floating points, precision, etc.
+Therefore, it was decided that all decimals will be returned as strings leaving the responsibility of representing these
+operations however they want entirely up to the user
+of the SDK.</p>
 </div>
 
 

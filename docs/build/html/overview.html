@@ -87,7 +87,17 @@
               <p class="caption"><span class="caption-text">Intro</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buycoinssdk-and-buycoinsgraphqlclient">BuycoinsSDK and BuycoinsGraphqlClient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#native-buycoins-classes">Native Buycoins Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enums">Enums</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
@@ -164,7 +174,87 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The purpose of this page is to give you a quick rundown of more of the things you can do with the Buycoins SDK</p>
+<p>The purpose of this page is to give you a quick rundown of some of the contents of the Buycoins SDK package and some of the things you can do with it.</p>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<p>The Buycoins SDK has three subpackages: client, core and commons</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.client.html"><span class="doc">client</span></a> - this package contains BuycoinsGraphqlClient and some other private helper functions.</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html"><span class="doc">commons</span></a> - this package contains the exceptions and enums that are used throughout the Buycoins SDK</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.core.html"><span class="doc">core</span></a> - this package contains the native Python representations for the Buycoins GraphQL API types, and the BuycoinsSDK class</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="buycoinssdk-and-buycoinsgraphqlclient">
+<h3>BuycoinsSDK and BuycoinsGraphqlClient<a class="headerlink" href="#buycoinssdk-and-buycoinsgraphqlclient" title="Permalink to this headline">¶</a></h3>
+<p>BuycoinsSDK is the entry point of the Buycoins SDK. It gives you full access to all the functionality of the Buycoins public API.
+BuycoinsGraphqlClient, on the other hand, is a class that wraps a standard GraphQL client and makes the queries and mutations to the Buycoins API on behalf of the BuycoinsSDK.
+You can use the BuycoinsGraphqlClient on its own, although there’s almost no reason for you to.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>BuycoinsSDK’s methods mostly return responses as native Python objects while those of the BuycoinsClient return responses as dictionaries in the form of <cite>{‘data’: graphql_response}</cite>.</p>
+</div>
+<p>Here’s how to use BuycoinsSDK and BuycoinsGraphqlClient:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">BuycoinsSDK</span><span class="p">,</span> <span class="n">BuycoinsGraphqlClient</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bc_sdk</span> <span class="o">=</span> <span class="n">BuycoinsSDK</span><span class="p">(</span>
+<span class="go">        public_key=os.getenv(&#39;BUYCOINS_PUBLIC_KEY&#39;),</span>
+<span class="go">        secret_key=os.getenv(&#39;BUYCOINS_SECRET_KEY&#39;)</span>
+<span class="go">    )</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fetched_nodes</span> <span class="o">=</span> <span class="n">bc_sdk</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span>
+<span class="go">        ids=[&#39;QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk=&#39;, &#39;QWRkcmVzcy1mM2YzOGQ4OS02OWFjLTQwOWQtOWM5Zi1hMDM4YTM0YTExMTg=&#39;],</span>
+<span class="go">        gql_types=[enums.BuycoinsType.ADDRESS]</span>
+<span class="go">    )</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bc_client</span> <span class="o">=</span> <span class="n">BuycoinsGraphqlClient</span><span class="p">(</span>
+<span class="go">        public_key=os.getenv(&#39;BUYCOINS_PUBLIC_KEY&#39;),</span>
+<span class="go">        secret_key=os.getenv(&#39;BUYCOINS_SECRET_KEY&#39;)</span>
+<span class="go">    )</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prices</span> <span class="o">=</span> <span class="n">bc_client</span><span class="o">.</span><span class="n">get_prices</span><span class="p">(</span><span class="n">enums</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="o">.</span><span class="n">BITCOIN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h3>
+<p>To use exceptions from the Buycoins SDK, simply import them like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">errors</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="go">        # buycoins related code</span>
+<span class="go">    except errors.BuycoinsException:</span>
+<span class="go">        # handle error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="native-buycoins-classes">
+<h3>Native Buycoins Classes<a class="headerlink" href="#native-buycoins-classes" title="Permalink to this headline">¶</a></h3>
+<p>To use the native Buycoins related classes, import them like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">types</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Address</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enums">
+<h3>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h3>
+<p>To use the enums available in the Buycoins SDK, import them like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">enums</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">btc</span> <span class="o">=</span> <span class="n">enums</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="o">.</span><span class="n">BITCOIN</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
 </div>
 
 

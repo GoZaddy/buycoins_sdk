@@ -16,6 +16,20 @@ This means that you can:
    * Perform P2P trading on the Buycoins platform
    * Get the latest prices of various cryptocurrencies in Naira and so on.
 
+Features
+^^^^^^^^^^^^
+Buycoins Python SDK comes with amazing features and benefits such as:
+
+   * **Strong emphasis on types**
+      | Everyone loves types!
+      | All Buycoins GraphQL types and enums have a corresponding native Python Class or Enum provided by this package.
+      | There are also convenience methods for converting fields of a GraphQL response to a native Python object instantly.
+   * **Capability**
+      With this SDK, you have access to all the functionality of the official Buycoins API
+   * **Flexibility**
+         While you can do almost anything you want to do with the classes provided, you can also write your own custom queries if you choose to, and so much more
+
+
 
 Getting Started
 ^^^^^^^^^^^^^^^^

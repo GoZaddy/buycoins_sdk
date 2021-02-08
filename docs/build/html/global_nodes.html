@@ -164,6 +164,81 @@
             
   <div class="section" id="graphql-global-object-nodes">
 <h1>GraphQL Global object Nodes<a class="headerlink" href="#graphql-global-object-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">The Buycoins GraphQL API implements the <a class="reference external" href="https://relay.dev/graphql/objectidentification.htm">GraphQL Global Object Identification Specification</a> which basically allows GraphQL objects called nodes to be fetched by GraphQL clients via a unique ID.</div>
+<div class="line">Most native Python Buycoins classes available in the Buycoins SDK have an <strong>id</strong> field which points to the ID for that object.</div>
+</div>
+<p>Now that you know what a Global Object ID is, how do you use it to fetch GraphQL object?
+In the BuycoinsSDK class, there are two methods available for node fetching - <strong>node</strong> and <strong>nodes</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find these methods and the BuycoinsSDK class in <a class="reference internal" href="buycoins_sdk.core.html"><span class="doc">buycoins_sdk.core package</span></a></p>
+</div>
+<p><strong>node</strong> is used to retrieve a single GraphQL object. To use <strong>node</strong>, you must know the type of the GraphQL object you are planning to retrieve and of course, its Global Object ID or just ID.
+Here’s an example of how to use this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">enums</span><span class="p">,</span> <span class="n">BuycoinsSDK</span>
+
+<span class="go"># initialise the Buycoins SDK</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">buycoins_sdk</span> <span class="o">=</span> <span class="n">BuycoinsSDK</span><span class="p">(</span>
+<span class="go">    public_key=&#39;pubic_key&#39;,</span>
+<span class="go">    secret_key=&#39;secret_key&#39;</span>
+<span class="go">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address_node</span> <span class="o">=</span> <span class="n">buycoins_sdk</span><span class="o">.</span><span class="n">node</span><span class="p">(</span>
+<span class="go">    gql_type=enums.BuycoinsType.ADDRESS,</span>
+<span class="go">    node_id=&#39;QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk=&#39;</span>
+<span class="go">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">address_node</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    &#39;data&#39;: {</span>
+<span class="go">        &#39;id&#39;: &#39;QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk=&#39;,</span>
+<span class="go">        &#39;address&#39;: &#39;MNjTVmqy5a9mjUShT8XsWgJQFasgHpr1ML&#39;,</span>
+<span class="go">        &#39;createdAt&#39;: 1612759118,</span>
+<span class="go">        &#39;cryptocurrency&#39;: &#39;litecoin&#39;</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p><em>Voila!</em></p>
+<p>Also, unlike other methods of the BuycoinsSDK class, the <strong>node</strong> and <strong>nodes</strong> methods return their responses in a dictionary format so it is your job to convert those responses to native Python objects if you want.
+We can easily do that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">types</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">Address</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">address_node</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">cryptocurrency</span><span class="p">)</span>
+<span class="go">Cryptocurrency.LITECOIN</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">The <strong>nodes</strong> method, on the other hand is used for fetching more than one node at the same time.</div>
+</div>
+<p>Like the <strong>node</strong> method, it returns the fetched nodes in a dictionary format so you will need to convert them to native Python objects if that’s what you want:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">types</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fetched_nodes</span> <span class="o">=</span> <span class="n">buycoins_sdk</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span>
+<span class="go">    ids=[&#39;QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk=&#39;, &#39;QWRkcmVzcy1mM2YzOGQ4OS02OWFjLTQwOWQtOWM5Zi1hMDM4YTM0YTExMTg=&#39;],</span>
+<span class="go">    gql_types=[enums.BuycoinsType.ADDRESS]  # pass in all the types of all the IDs. No need to repeat types.</span>
+<span class="go">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fetched_nodes</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">    &#39;data&#39;: [</span>
+<span class="go">        {</span>
+<span class="go">            &#39;id&#39;: &#39;QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk=&#39;,</span>
+<span class="go">            &#39;address&#39;: &#39;MNjTVmqy5a9mjUShT8XsWgJQFasgHpr1ML&#39;,</span>
+<span class="go">            &#39;createdAt&#39;: 1612759118,</span>
+<span class="go">            &#39;cryptocurrency&#39;: &#39;litecoin&#39;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">            &#39;id&#39;: &#39;QWRkcmVzcy1mM2YzOGQ4OS02OWFjLTQwOWQtOWM5Zi1hMDM4YTM0YTExMTg=&#39;,</span>
+<span class="go">            &#39;address&#39;: &#39;0x680dd813a5fdcd2f69e9b5edaa4a8dd6b098d759&#39;,</span>
+<span class="go">            &#39;createdAt&#39;: 1612819781,</span>
+<span class="go">            &#39;cryptocurrency&#39;: &#39;naira_token&#39;</span>
+<span class="go">        }</span>
+<span class="go">    ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 </div>
 
 
