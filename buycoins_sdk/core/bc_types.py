@@ -2,6 +2,8 @@ from ..commons.enums import Cryptocurrency, OrderSide, \
     PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
     OnchainTransferRequestStatus
 
+from typing import List
+
 __all__ = [
     'Account',
     'BankAccount',
@@ -696,7 +698,7 @@ class PostOrders:
         post_order_edges: a list of PostOrderEdge objects
     """
 
-    def __init__(self, dynamic_price_expiry: str, page_info: PageInfo, post_order_edges: list[PostOrderEdge]):
+    def __init__(self, dynamic_price_expiry: str, page_info: PageInfo, post_order_edges: List[PostOrderEdge]):
         self.dynamic_price_expiry = dynamic_price_expiry
         self.page_info = page_info
         self.post_order_edges = post_order_edges
@@ -750,7 +752,7 @@ class PaymentConnection:
         page_info: a PageInfo object containing pagination details about the payment_edges attribute
     """
 
-    def __init__(self, payment_edges: list[PaymentEdge], page_info: PageInfo):
+    def __init__(self, payment_edges: List[PaymentEdge], page_info: PageInfo):
         """Initialise a new PaymentConnection object
 
         Args:
