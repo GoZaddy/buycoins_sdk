@@ -2,7 +2,7 @@
 This module contains errors that can be raised during the use of the SDK
 """
 
-from buycoins_sdk.commons import BuycoinsType
+from .enums import BuycoinsType
 from requests import Response
 
 __all__ = [

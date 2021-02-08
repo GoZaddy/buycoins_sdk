@@ -3,7 +3,6 @@ from unittest.mock import Mock, patch
 from buycoins_sdk import BuycoinsGraphqlClient, enums
 
 
-
 class TestBuycoinsGraphqlClient(TestCase):
     @patch('buycoins_sdk.BuycoinsGraphqlClient')
     def setUp(self, mock) -> None:
@@ -11,16 +10,22 @@ class TestBuycoinsGraphqlClient(TestCase):
         self.bc_client._client = Mock()
 
     def test_get_balances(self):
-        self.bc_client._client.execute.return_value = {
+        val = {
             'data': {
-                'getBalances': {
-                    'hey': 'hey'
-                }
+                'getBalances': [
+                    {
+                        'confirmedBalance': '0.0',
+                        'cryptocurrency': 'bitcoin',
+                        'id': 'QWNjb3VudC0='
+                    }
+                ]
             }
         }
+        self.bc_client._client.execute.return_value = val
 
-        i = self.bc_client.get_balances(cryptocurrency=enums.Cryptocurrency.BITCOIN)
-        print(i)
+        balances = self.bc_client.get_balances(cryptocurrency=enums.Cryptocurrency.BITCOIN)
+
+        self.assertEqual(val['data']['getBalances'], balances['data'], "should be Equal")
 
 
 if __name__ == '__main__':
