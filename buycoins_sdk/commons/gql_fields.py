@@ -1,7 +1,7 @@
 """This module contains a single dictionary  which maps GraphQL types from the BuyCoins API to a multi-line string
 containing the fields of that type """
 
-from buycoins_sdk.commons.enums import *
+from ..commons.enums import *
 
 
 type_to_field = {
