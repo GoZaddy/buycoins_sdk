@@ -7,7 +7,7 @@ Submodules
 buycoins\_sdk.commons.constants module
 --------------------------------------
 
-.. automodule:: buycoins_sdk.commons.constants
+.. automodule:: buycoins_sdk.commons.enums
    :members:
    :undoc-members:
    :show-inheritance:

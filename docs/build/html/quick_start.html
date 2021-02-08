@@ -100,6 +100,7 @@
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="types_and_enums.html">Types and Enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions and Exception Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_nodes.html">GraphQL Global object Nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why_string.html">Why are numerical values returned as strings?</a></li>
 </ul>
@@ -203,7 +204,8 @@ To apply for API access, please send an email to <a class="reference external" h
 <dt>Initialise a BuycoinsSDK object</dt><dd><p>To initialise a BuycoinsSDK object, use the BuycoinsSDK class and pass your public and secret keys as arguments.
 It is not advisable to pass in your public and private keys directly due to security reasons. A better option would be to use
 environment variables</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">buycoins_sdk</span> <span class="o">=</span> <span class="n">BuycoinsSDK</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">BuycoinsSDK</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">buycoins_sdk</span> <span class="o">=</span> <span class="n">BuycoinsSDK</span><span class="p">(</span>
 <span class="go">    public_key=os.getenv(&#39;BUYCOINS_PUBLIC_KEY&#39;),</span>
 <span class="go">    secret_key=os.getenv(&#39;BUYCOINS_SECRET_KEY&#39;)</span>
 <span class="go">)</span>
@@ -214,7 +216,8 @@ environment variables</p>
 </li>
 <li><dl>
 <dt>Get to work!</dt><dd><p>You can now make use of the BuycoinsSDK object to access all of the Buycoins API’s functionality. Here’s an example showing how to get current prices of cryptocurrencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prices</span> <span class="o">=</span> <span class="n">buycoins_sdk</span><span class="o">.</span><span class="n">get_prices</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="o">.</span><span class="n">BITCOIN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">buycoins_sdk</span> <span class="kn">import</span> <span class="n">enums</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prices</span> <span class="o">=</span> <span class="n">buycoins_sdk</span><span class="o">.</span><span class="n">get_prices</span><span class="p">(</span><span class="n">enums</span><span class="o">.</span><span class="n">Cryptocurrency</span><span class="o">.</span><span class="n">BITCOIN</span><span class="p">)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">prices</span><span class="o">.</span><span class="n">cryptocurrency</span><span class="p">)</span>
 <span class="go">Cryptocurrency.BITCOIN</span>

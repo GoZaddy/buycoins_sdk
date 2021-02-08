@@ -90,6 +90,7 @@
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="types_and_enums.html">Types and Enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions and Exception Handling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="global_nodes.html">GraphQL Global object Nodes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why_string.html">Why are numerical values returned as strings?</a></li>
 </ul>
@@ -194,22 +195,62 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.ACCOUNT">ACCOUNT (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.ACCOUNT">ACCOUNT (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Account">Account (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsPriceStatus.ACTIVE">ACTIVE (buycoins_sdk.commons.constants.BuycoinsPriceStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.account_name">account_name (buycoins_sdk.core.bc_types.BankAccount attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.ACTIVE">(buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.account_name">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.account_number">account_number (buycoins_sdk.core.bc_types.BankAccount attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.account_number">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.account_reference">account_reference (buycoins_sdk.core.bc_types.BankAccount attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.account_reference">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.account_type">account_type (buycoins_sdk.core.bc_types.BankAccount attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.account_type">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsPriceStatus.ACTIVE">ACTIVE (buycoins_sdk.commons.enums.BuycoinsPriceStatus attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.ACTIVE">(buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.ADDRESS">ADDRESS (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.ADDRESS">ADDRESS (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Address.address">address (buycoins_sdk.core.bc_types.Address attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.address">(buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.address">(buycoins_sdk.core.bc_types.Transaction attribute)</a>
+</li>
+      </ul></li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Address">Address (class in buycoins_sdk.core.bc_types)</a>
 </li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.amount">amount (buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.amount">(buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.amount">(buycoins_sdk.core.bc_types.Transaction attribute)</a>
+</li>
+      </ul></li>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException.amount_to_buy">amount_to_buy (buycoins_sdk.commons.errors.InsufficientBalanceToBuyException attribute)</a>
 </li>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientAmountToSellException.amount_to_sell">amount_to_sell (buycoins_sdk.commons.errors.InsufficientAmountToSellException attribute)</a>
@@ -222,23 +263,33 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.BANK_ACCOUNT">BANK_ACCOUNT (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.BANK_ACCOUNT">BANK_ACCOUNT (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.bank_name">bank_name (buycoins_sdk.core.bc_types.BankAccount attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.bank_name">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+      </ul></li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount">BankAccount (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BankAccountTypes">BankAccountTypes (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BankAccountTypes">BankAccountTypes (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.BITCOIN">BITCOIN (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.BITCOIN">BITCOIN (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderSide.BUY">BUY (buycoins_sdk.commons.constants.OrderSide attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderSide.BUY">BUY (buycoins_sdk.commons.enums.OrderSide attribute)</a>
 </li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.buy">buy() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.buy">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.BUYCOINS_PRICE">BUYCOINS_PRICE (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.buy_price_per_coin">buy_price_per_coin (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.BUYCOINS_PRICE">BUYCOINS_PRICE (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li>
     buycoins_sdk
@@ -268,15 +319,15 @@
         <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons">module</a>
 </li>
       </ul></li>
-      <li>
-    buycoins_sdk.commons.constants
-
-      <ul>
-        <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons.constants">module</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    buycoins_sdk.commons.enums
+
+      <ul>
+        <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons.enums">module</a>
+</li>
+      </ul></li>
       <li>
     buycoins_sdk.commons.errors
 
@@ -325,11 +376,15 @@
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice">BuycoinsPrice (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsPriceStatus">BuycoinsPriceStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsPriceStatus">BuycoinsPriceStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK">BuycoinsSDK (class in buycoins_sdk.core.main_buycoins_sdk)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK">BuycoinsSDK (class in buycoins_sdk.core)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK">(class in buycoins_sdk.core.main_buycoins_sdk)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType">BuycoinsType (class in buycoins_sdk.commons.constants)</a>
+      </ul></li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType">BuycoinsType (class in buycoins_sdk.commons.enums)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -340,47 +395,77 @@
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.cancel_withdrawal">cancel_withdrawal() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.cancel_withdrawal">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderStatus.CANCELED">CANCELED (buycoins_sdk.commons.constants.OrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderStatus.CANCELED">CANCELED (buycoins_sdk.commons.enums.OrderStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.CANCELED">(buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.CANCELED">(buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.CANCELLED">CANCELLED (buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.CANCELLED">CANCELLED (buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client">client (buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK attribute)</a>
-</li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.GetOrdersStatus.COMPLETED">COMPLETED (buycoins_sdk.commons.constants.GetOrdersStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.client">client (buycoins_sdk.core.BuycoinsSDK attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.COMPLETED">(buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK attribute)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.CONFIRMED">CONFIRMED (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.coin_amount">coin_amount (buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.GetOrdersStatus.COMPLETED">COMPLETED (buycoins_sdk.commons.enums.GetOrdersStatus attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.COMPLETED">(buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.CONFIRMED">CONFIRMED (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.confirmed">confirmed (buycoins_sdk.core.bc_types.Transaction attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Account.confirmed_balance">confirmed_balance (buycoins_sdk.core.bc_types.Account attribute)</a>
 </li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_address">create_address() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.create_address">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_deposit_account">create_deposit_account() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.create_deposit_account">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_deposit_account">create_deposit_account() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
-
-      <ul>
-        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
-</li>
-      </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_withdrawal">create_withdrawal() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.create_withdrawal">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Address.created_at">created_at (buycoins_sdk.core.bc_types.Address attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.created_at">(buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.created_at">(buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.created_at">(buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.created_at">(buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.created_at">(buycoins_sdk.core.bc_types.Transaction attribute)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientAmountToSellException.cryptocurrency">cryptocurrency (buycoins_sdk.commons.errors.InsufficientAmountToSellException attribute)</a>
@@ -390,8 +475,20 @@
 </li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Account.cryptocurrency">(buycoins_sdk.core.bc_types.Account attribute)</a>
 </li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Address.cryptocurrency">(buycoins_sdk.core.bc_types.Address attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.cryptocurrency">(buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.cryptocurrency">(buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.cryptocurrency">(buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.cryptocurrency">(buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.cryptocurrency">(buycoins_sdk.core.bc_types.Transaction attribute)</a>
+</li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency">Cryptocurrency (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency">Cryptocurrency (class in buycoins_sdk.commons.enums)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PaymentEdge.cursor">cursor (buycoins_sdk.core.bc_types.PaymentEdge attribute)</a>
 
@@ -405,25 +502,29 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BankAccountTypes.DEPOSIT">DEPOSIT (buycoins_sdk.commons.constants.BankAccountTypes attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BankAccountTypes.DEPOSIT">DEPOSIT (buycoins_sdk.commons.enums.BankAccountTypes attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentTypes.DEPOSIT">(buycoins_sdk.commons.constants.PaymentTypes attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentTypes.DEPOSIT">(buycoins_sdk.commons.enums.PaymentTypes attribute)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.DEPOSIT_ACCOUNT">DEPOSIT_ACCOUNT (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.DEPOSIT_ACCOUNT">DEPOSIT_ACCOUNT (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount">DepositAccount (class in buycoins_sdk.core.bc_types)</a>
 </li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.direction">direction (buycoins_sdk.core.bc_types.Transaction attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderStatus.DONE">DONE (buycoins_sdk.commons.constants.OrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderStatus.DONE">DONE (buycoins_sdk.commons.enums.OrderStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.DONE">(buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.DONE">(buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PriceType.DYNAMIC">DYNAMIC (buycoins_sdk.commons.constants.PriceType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PriceType.DYNAMIC">DYNAMIC (buycoins_sdk.commons.enums.PriceType attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.dynamic_exchange_rate">dynamic_exchange_rate (buycoins_sdk.core.bc_types.PostOrder attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrders.dynamic_price_expiry">dynamic_price_expiry (buycoins_sdk.core.bc_types.PostOrders attribute)</a>
 </li>
@@ -443,34 +544,44 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.ETHEREUM">ETHEREUM (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.ETHEREUM">ETHEREUM (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsPriceStatus.EXPIRED">EXPIRED (buycoins_sdk.commons.constants.BuycoinsPriceStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsPriceStatus.EXPIRED">EXPIRED (buycoins_sdk.commons.enums.BuycoinsPriceStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.EXPIRED">(buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.EXPIRED">(buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
 </li>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.EXPIRED">(buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.EXPIRED">(buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
       </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.expires_at">expires_at (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FAILED">FAILED (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.FAILED">FAILED (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderStatus.FAILED">(buycoins_sdk.commons.constants.OrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderStatus.FAILED">(buycoins_sdk.commons.enums.OrderStatus attribute)</a>
 </li>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.FAILED">(buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.FAILED">(buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.FLAGGED">FLAGGED (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.fee">fee (buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.FLAGGED">(buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.fee">(buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.filled_coin_amount">filled_coin_amount (buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.FLAGGED">FLAGGED (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.FLAGGED">(buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Account.from_dict">from_dict() (buycoins_sdk.core.bc_types.Account static method)</a>
@@ -512,24 +623,32 @@
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_balances">get_balances() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_balances">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_bank_accounts">get_bank_accounts() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_bank_accounts">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_estimated_network_fee">get_estimated_network_fee() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_estimated_network_fee">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_market_book">get_market_book() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_market_book">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
@@ -538,22 +657,28 @@
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_orders">get_orders() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_orders">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_payments">get_payments() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_payments">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_prices">get_prices() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.get_prices">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.GetOrdersStatus">GetOrdersStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.GetOrdersStatus">GetOrdersStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -574,15 +699,31 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Account.id">id (buycoins_sdk.core.bc_types.Account attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Address.id">(buycoins_sdk.core.bc_types.Address attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.INACTIVE">INACTIVE (buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BankAccount.id">(buycoins_sdk.core.bc_types.BankAccount attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.INITIATED">INITIATED (buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.id">(buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.DepositAccount.id">(buycoins_sdk.core.bc_types.DepositAccount attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.id">(buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.id">(buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.id">(buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.INACTIVE">INACTIVE (buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.INITIATED">INITIATED (buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientAmountToSellException">InsufficientAmountToSellException</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException">InsufficientBalanceToBuyException</a>
 </li>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientBalanceToWithdrawException">InsufficientBalanceToWithdrawException</a>
@@ -597,7 +738,7 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.LITECOIN">LITECOIN (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.LITECOIN">LITECOIN (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -605,6 +746,16 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.max_buy">max_buy (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.max_sell">max_sell (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.min_buy">min_buy (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.min_coin_amount">min_coin_amount (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.min_sell">min_sell (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
       <li>
     module
 
@@ -617,7 +768,7 @@
 </li>
         <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons">buycoins_sdk.commons</a>
 </li>
-        <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons.constants">buycoins_sdk.commons.constants</a>
+        <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons.enums">buycoins_sdk.commons.enums</a>
 </li>
         <li><a href="buycoins_sdk.commons.html#module-buycoins_sdk.commons.errors">buycoins_sdk.commons.errors</a>
 </li>
@@ -638,21 +789,29 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.NAIRA_TOKEN">NAIRA_TOKEN (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.NAIRA_TOKEN">NAIRA_TOKEN (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.node">node() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.node">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.node">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException.node_id">node_id (buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.node_id">(buycoins_sdk.core.bc_types.Transaction attribute)</a>
 </li>
+      </ul></li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.nodes">nodes() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.nodes">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.nodes">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
@@ -662,27 +821,29 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.ONCHAIN_TRANSFER_REQUEST">ONCHAIN_TRANSFER_REQUEST (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.ONCHAIN_TRANSFER_REQUEST">ONCHAIN_TRANSFER_REQUEST (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.onchain_transfer_request_id">onchain_transfer_request_id (buycoins_sdk.core.bc_types.Transaction attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest">OnchainTransferRequest (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus">OnchainTransferRequestStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus">OnchainTransferRequestStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.GetOrdersStatus.OPEN">OPEN (buycoins_sdk.commons.constants.GetOrdersStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.GetOrdersStatus.OPEN">OPEN (buycoins_sdk.commons.enums.GetOrdersStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.OPEN">(buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.OPEN">(buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.ORDER">ORDER (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.ORDER">ORDER (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order">Order (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderSide">OrderSide (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderSide">OrderSide (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderStatus">OrderStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderStatus">OrderStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -698,7 +859,7 @@
       </ul></li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PageInfo">PageInfo (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.PAYMENT">PAYMENT (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.PAYMENT">PAYMENT (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PaymentEdge.payment">payment (buycoins_sdk.core.bc_types.PaymentEdge attribute)</a>
 </li>
@@ -706,41 +867,47 @@
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PaymentConnection.payment_edges">payment_edges (buycoins_sdk.core.bc_types.PaymentConnection attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PENDING">PAYMENT_PENDING (buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.PAYMENT_PENDING">PAYMENT_PENDING (buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.PAYMENT_PROCESSING">PAYMENT_PROCESSING (buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.PAYMENT_PROCESSING">PAYMENT_PROCESSING (buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.payment_type">payment_type (buycoins_sdk.core.bc_types.Payment attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PaymentConnection">PaymentConnection (class in buycoins_sdk.core.bc_types)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PaymentEdge">PaymentEdge (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus">PaymentStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus">PaymentStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentTypes">PaymentTypes (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentTypes">PaymentTypes (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderStatus.PENDING">PENDING (buycoins_sdk.commons.constants.OrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderStatus.PENDING">PENDING (buycoins_sdk.commons.enums.OrderStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.PENDING">(buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.PENDING">(buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus.PENDING_DEACTIVATION">PENDING_DEACTIVATION (buycoins_sdk.commons.constants.PostOrderStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus.PENDING_DEACTIVATION">PENDING_DEACTIVATION (buycoins_sdk.commons.enums.PostOrderStatus attribute)</a>
 </li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_limit_order">post_limit_order() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.post_limit_order">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_market_order">post_market_order() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.post_market_order">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.POST_ORDER">POST_ORDER (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.POST_ORDER">POST_ORDER (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrderEdge.post_order">post_order (buycoins_sdk.core.bc_types.PostOrderEdge attribute)</a>
 </li>
@@ -752,13 +919,19 @@
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrders">PostOrders (class in buycoins_sdk.core.bc_types)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PostOrderStatus">PostOrderStatus (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PostOrderStatus">PostOrderStatus (class in buycoins_sdk.commons.enums)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PriceType">PriceType (class in buycoins_sdk.commons.constants)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.price">price (buycoins_sdk.core.bc_types.Order attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSED">PROCESSED (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.price_per_coin">price_per_coin (buycoins_sdk.core.bc_types.PostOrder attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.PROCESSING">PROCESSING (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.price_type">price_type (buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PriceType">PriceType (class in buycoins_sdk.commons.enums)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.PROCESSED">PROCESSED (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.PROCESSING">PROCESSING (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -766,17 +939,19 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.READY_FOR_PROCESSING">READY_FOR_PROCESSING (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.READY_FOR_PROCESSING">READY_FOR_PROCESSING (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.READY_FOR_PROCESSING">(buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.READY_FOR_PROCESSING">(buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.RETRIED">RETRIED (buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.reference">reference (buycoins_sdk.core.bc_types.Payment attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.RETURNED">RETURNED (buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.RETRIED">RETRIED (buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.RETURNED">RETURNED (buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -784,33 +959,61 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OrderSide.SELL">SELL (buycoins_sdk.commons.constants.OrderSide attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OrderSide.SELL">SELL (buycoins_sdk.commons.enums.OrderSide attribute)</a>
 </li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.sell">sell() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.sell">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.sell_price_per_coin">sell_price_per_coin (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+</li>
       <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.send">send() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
 
       <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.send">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
         <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.send_offchain">send_offchain() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.BuycoinsSDK.send_offchain">(buycoins_sdk.core.BuycoinsSDK method)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.client.html#buycoins_sdk.client.client.BuycoinsGraphqlClient.send_offchain">send_offchain() (buycoins_sdk.client.client.BuycoinsGraphqlClient method)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.side">side (buycoins_sdk.core.bc_types.Order attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain">(buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK method)</a>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.side">(buycoins_sdk.core.bc_types.PostOrder attribute)</a>
 </li>
       </ul></li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PageInfo.start_cursor">start_cursor (buycoins_sdk.core.bc_types.PageInfo attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PriceType.STATIC">STATIC (buycoins_sdk.commons.constants.PriceType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PriceType.STATIC">STATIC (buycoins_sdk.commons.enums.PriceType attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentStatus.SUCCESS">SUCCESS (buycoins_sdk.commons.constants.PaymentStatus attribute)</a>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.static_price">static_price (buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.BuycoinsPrice.status">status (buycoins_sdk.core.bc_types.BuycoinsPrice attribute)</a>
+
+      <ul>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.status">(buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.status">(buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.status">(buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+        <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.PostOrder.status">(buycoins_sdk.core.bc_types.PostOrder attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentStatus.SUCCESS">SUCCESS (buycoins_sdk.commons.enums.PaymentStatus attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -820,11 +1023,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.EstimatedFee.total">total (buycoins_sdk.core.bc_types.EstimatedFee attribute)</a>
 </li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Payment.total_amount">total_amount (buycoins_sdk.core.bc_types.Payment attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Order.total_coin_amount">total_coin_amount (buycoins_sdk.core.bc_types.Order attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType.TRANSACTION">TRANSACTION (buycoins_sdk.commons.constants.BuycoinsType attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType.TRANSACTION">TRANSACTION (buycoins_sdk.commons.enums.BuycoinsType attribute)</a>
 </li>
       <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction">Transaction (class in buycoins_sdk.core.bc_types)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.OnchainTransferRequest.transaction_id">transaction_id (buycoins_sdk.core.bc_types.OnchainTransferRequest attribute)</a>
+</li>
+      <li><a href="buycoins_sdk.core.html#buycoins_sdk.core.bc_types.Transaction.tx_hash">tx_hash (buycoins_sdk.core.bc_types.Transaction attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -832,13 +1043,13 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.OnchainTransferRequestStatus.UNCONFIRMED">UNCONFIRMED (buycoins_sdk.commons.constants.OnchainTransferRequestStatus attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.OnchainTransferRequestStatus.UNCONFIRMED">UNCONFIRMED (buycoins_sdk.commons.enums.OnchainTransferRequestStatus attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.USD_COIN">USD_COIN (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.USD_COIN">USD_COIN (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency.USD_TETHER">USD_TETHER (buycoins_sdk.commons.constants.Cryptocurrency attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency.USD_TETHER">USD_TETHER (buycoins_sdk.commons.enums.Cryptocurrency attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -846,10 +1057,10 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BankAccountTypes.WITHDRAWAL">WITHDRAWAL (buycoins_sdk.commons.constants.BankAccountTypes attribute)</a>
+      <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BankAccountTypes.WITHDRAWAL">WITHDRAWAL (buycoins_sdk.commons.enums.BankAccountTypes attribute)</a>
 
       <ul>
-        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.PaymentTypes.WITHDRAWAL">(buycoins_sdk.commons.constants.PaymentTypes attribute)</a>
+        <li><a href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.PaymentTypes.WITHDRAWAL">(buycoins_sdk.commons.enums.PaymentTypes attribute)</a>
 </li>
       </ul></li>
   </ul></td>

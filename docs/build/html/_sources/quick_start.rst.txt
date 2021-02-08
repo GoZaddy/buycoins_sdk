@@ -37,6 +37,7 @@ Steps
     It is not advisable to pass in your public and private keys directly due to security reasons. A better option would be to use
     environment variables ::
 
+        >>> from buycoins_sdk import BuycoinsSDK
         >>> buycoins_sdk = BuycoinsSDK(
             public_key=os.getenv('BUYCOINS_PUBLIC_KEY'),
             secret_key=os.getenv('BUYCOINS_SECRET_KEY')
@@ -45,7 +46,8 @@ Steps
 * Get to work!
     You can now make use of the BuycoinsSDK object to access all of the Buycoins API's functionality. Here's an example showing how to get current prices of cryptocurrencies::
 
-        >>> prices = buycoins_sdk.get_prices(constants.Cryptocurrency.BITCOIN)
+        >>> from buycoins_sdk import enums
+        >>> prices = buycoins_sdk.get_prices(enums.Cryptocurrency.BITCOIN)
 
         >>> print(prices.cryptocurrency)
         Cryptocurrency.BITCOIN

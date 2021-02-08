@@ -37,6 +37,7 @@ Table of Contents
    :caption: Guides
 
    types_and_enums
+   exceptions
    global_nodes
    why_string
 

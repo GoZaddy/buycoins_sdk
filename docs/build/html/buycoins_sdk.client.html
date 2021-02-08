@@ -37,9 +37,7 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="buycoins_sdk.commons package" href="buycoins_sdk.commons.html" />
-    <link rel="prev" title="buycoins_sdk package" href="buycoins_sdk.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,23 +82,17 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="buycoins_sdk.html">buycoins_sdk package</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="buycoins_sdk.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">buycoins_sdk.client package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-buycoins_sdk.client.client">buycoins_sdk.client.client module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-buycoins_sdk.client">Module contents</a></li>
+              <p class="caption"><span class="caption-text">Intro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 </ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="buycoins_sdk.commons.html">buycoins_sdk.commons package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="buycoins_sdk.core.html">buycoins_sdk.core package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="buycoins_sdk.html#module-buycoins_sdk">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="demo.html">Here’s a demo of how to use the Buycoins SDK</a></li>
+<p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="types_and_enums.html">Types and Enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions and Exception Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global_nodes.html">GraphQL Global object Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why_string.html">Why are numerical values returned as strings?</a></li>
 </ul>
 
             
@@ -149,8 +141,6 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="buycoins_sdk.html">buycoins_sdk package</a> &raquo;</li>
-        
       <li>buycoins_sdk.client package</li>
     
     
@@ -193,7 +183,7 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.buy">
-<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.buy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.buy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the buy mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -238,7 +228,7 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.create_address">
-<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_address" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.create_address" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the createAddress mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -295,7 +285,7 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_balances">
-<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency" title="buycoins_sdk.commons.constants.Cryptocurrency">buycoins_sdk.commons.constants.Cryptocurrency</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_balances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_balances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getBalances query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -305,14 +295,17 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 <dd class="field-even"><p>A dict representing the GraphQL response</p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AuthenticationException</strong> – User provided wrong on invalid BuyCoins API credentials</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_bank_accounts">
-<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getBankAccounts query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -329,7 +322,7 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_estimated_network_fee">
-<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getEstimatedNetworkFee query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -349,7 +342,7 @@ own queries and mutations. Most times, you won’t need to do that yourself.</p>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_market_book">
-<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_market_book" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_market_book" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getMarketBook query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -374,7 +367,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_orders">
-<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.constants.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.constants.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_orders" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getOrders query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -425,7 +418,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.get_prices">
-<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.Cryptocurrency" title="buycoins_sdk.commons.constants.Cryptocurrency">buycoins_sdk.commons.constants.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_prices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.get_prices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the getPrices query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -442,7 +435,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.node">
-<code class="sig-name descname">node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">gql_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.constants.BuycoinsType" title="buycoins_sdk.commons.constants.BuycoinsType">buycoins_sdk.commons.constants.BuycoinsType</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.node" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">gql_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType" title="buycoins_sdk.commons.enums.BuycoinsType">buycoins_sdk.commons.enums.BuycoinsType</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the node Graphql query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -465,7 +458,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.nodes">
-<code class="sig-name descname">nodes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">gql_types</span><span class="o">=</span><span class="default_value">list[buycoins_sdk.commons.constants.BuycoinsType]</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.nodes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">nodes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">gql_types</span><span class="o">=</span><span class="default_value">list[buycoins_sdk.commons.enums.BuycoinsType]</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.nodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the nodes GraphQL query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -488,7 +481,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.post_limit_order">
-<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.constants.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.constants.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_limit_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_limit_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the postLimitOrder mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -512,7 +505,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.post_market_order">
-<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.constants.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_market_order" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.post_market_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the postMarketOrder mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -533,7 +526,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.sell">
-<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.sell" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.sell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the sell mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -557,7 +550,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.send">
-<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.send" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the send mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -578,7 +571,7 @@ cursor.</p></li>
 
 <dl class="py method">
 <dt id="buycoins_sdk.client.client.BuycoinsGraphqlClient.send_offchain">
-<code class="sig-name descname">send_offchain</code><span class="sig-paren">(</span><em class="sig-param">recipient: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.constants.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.send_offchain" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">send_offchain</code><span class="sig-paren">(</span><em class="sig-param">recipient: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.client.client.BuycoinsGraphqlClient.send_offchain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the sendOffchain mutation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -610,10 +603,6 @@ cursor.</p></li>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="buycoins_sdk.commons.html" class="btn btn-neutral float-right" title="buycoins_sdk.commons package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="buycoins_sdk.html" class="btn btn-neutral float-left" title="buycoins_sdk package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
