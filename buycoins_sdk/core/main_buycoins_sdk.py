@@ -1,6 +1,6 @@
 from ..client import BuycoinsGraphqlClient
 from ..commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
-from ..core.bc_types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
+from ..core.types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
     BuycoinsPrice, Order, Payment, DepositAccount, PostOrder, OnchainTransferRequest, Address
 from typing import Union, List, Dict
 

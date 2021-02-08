@@ -2,6 +2,7 @@ from ..commons.enums import Cryptocurrency, OrderSide, \
     PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
     OnchainTransferRequestStatus
 
+
 from typing import List
 
 __all__ = [
