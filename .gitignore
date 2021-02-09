@@ -7,3 +7,4 @@ env/
 .env
 .DS_store
 script.py
+docs/build
