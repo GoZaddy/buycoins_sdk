@@ -165,6 +165,429 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="module-buycoins_sdk.core.main_buycoins_sdk">
+<span id="buycoins-sdk-core-main-buycoins-sdk-module"></span><h2>buycoins_sdk.core.main_buycoins_sdk module<a class="headerlink" href="#module-buycoins_sdk.core.main_buycoins_sdk" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK">
+<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.main_buycoins_sdk.</code><code class="sig-name descname">BuycoinsSDK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">public_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">secret_key</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>BuycoinsSDK is the entry point of the Buycoins SDK</p>
+<p>All calls to the Buycoins GraphQL API should be done using this class</p>
+<dl class="py attribute">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client">
+<code class="sig-name descname">client</code><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client" title="Permalink to this definition">¶</a></dt>
+<dd><p>A BuycoinsGraphqlClient object where the actual GraphQL queries and mutations are made</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy">
+<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buy supported cryptocurrencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>price_id</strong> – Global ID of a retrieved price</p></li>
+<li><p><strong>coin_amount</strong> – Amount of coins to buy</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Order object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException" title="buycoins_sdk.commons.errors.InsufficientBalanceToBuyException"><strong>InsufficientBalanceToBuyException</strong></a> – raised when user has insufficient balance to buy cryptocurrency</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal">
+<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel initiated withdrawal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>payment_id</strong> – the ID of the Payment node for the withdrawal</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Payment object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException" title="buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException"><strong>WithdrawalCannotBeCanceledException</strong></a> – An error occurred because user tried to cancel already processed
+    withdrawal</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address">
+<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Address" title="buycoins_sdk.core.types.Address">buycoins_sdk.core.types.Address</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create address to receive supported cryptocurrencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cryptocurrency</strong> – cryptocurrency of address to create</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Address object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account">
+<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.DepositAccount" title="buycoins_sdk.core.types.DepositAccount">buycoins_sdk.core.types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate deposit bank accounts to top up your NGNT account with Naira</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>account_name</strong> – name of the account</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DepositAccount object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal">
+<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new withdrawal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bank_account_id</strong> – Global object ID of bank account node to withdraw to</p></li>
+<li><p><strong>amount</strong> – amount to withdraw in naira</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Payment object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances">
+<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve supported cryptocurrencies account balance(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cryptocurrency</strong> – A Cryptocurrency enum representing the cryptocurrency to query.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of Account or a single Account object. An array of Accounts is returned when no cryptocurrency
+is specified</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts">
+<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve bank accounts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>account_number</strong> – A string representing the account number to get.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of BankAccount objects or a single BankAccount object. An array of BankAccount objects
+is returned when no account number is specified</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee">
+<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.EstimatedFee" title="buycoins_sdk.core.types.EstimatedFee">buycoins_sdk.core.types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve estimated network fee to send supported cryptocurrencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amount</strong> – A string representing the amount of coins to calculate network fee for</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An EstimatedFee object</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book">
+<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the getMarketBook query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
+<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
+<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
+cursor.</p></li>
+<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
+cursor.</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders">
+<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve open orders</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – the status of the orders to get</p></li>
+<li><p><strong>side</strong> – the side of the orders to get</p></li>
+<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
+<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
+<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
+cursor.</p></li>
+<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
+cursor.</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A PostOrders object representing the PostOrders type returned by the GraphQL API</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments">
+<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PaymentConnection" title="buycoins_sdk.core.types.PaymentConnection">buycoins_sdk.core.types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the getPayments GraphQL query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
+<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
+<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
+cursor.</p></li>
+<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
+cursor.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices">
+<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve buy/sell price(s) for supported cryptocurrencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cryptocurrency</strong> – the type of cryptocurrency to query for</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A array of BuycoinsPrice objects or a single BuycoinsPrice object. An array of Buycoins Objects is returned
+when no cryptocurrency is specified</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.node">
+<code class="sig-name descname">node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">gql_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType" title="buycoins_sdk.commons.enums.BuycoinsType">buycoins_sdk.commons.enums.BuycoinsType</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches an object given its ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_id</strong> – the Global object ID of the node</p></li>
+<li><p><strong>gql_type</strong> – the GraphQL type of the Graphql node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException" title="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException"><strong>InvalidGraphQLNodeIDException</strong></a> – You tried to search for a node with the wrong ID or wrong GraphQL type</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An unspecified error occurred</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.nodes">
+<code class="sig-name descname">nodes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">gql_types</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType" title="buycoins_sdk.commons.enums.BuycoinsType">buycoins_sdk.commons.enums.BuycoinsType</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches a list of objects given a list of IDs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ids</strong> – the list of node IDs</p></li>
+<li><p><strong>gql_types</strong> – the list of node types</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException" title="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException"><strong>InvalidGraphQLNodeIDException</strong></a> – You tried to search for a node with the wrong ID or wrong GraphQL type</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An unspecified error occurred</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order">
+<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new limit order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – The order side either buy or sell</p></li>
+<li><p><strong>coin_amount</strong> – Amount of coins the user wants to trade</p></li>
+<li><p><strong>static_price</strong> – The static price in naira</p></li>
+<li><p><strong>price_type</strong> – The type of the price either dynamic or static</p></li>
+<li><p><strong>dynamic_exchange_rate</strong> – The dynamic exchange rate in naira</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A PostOrder object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order">
+<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new market order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – The order side either buy or sell</p></li>
+<li><p><strong>coin_amount</strong> – Amount of coins the user wants to trade</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A PostOrder object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell">
+<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sell supported cryptocurrencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>price_id</strong> – Global ID of a retrieved price</p></li>
+<li><p><strong>coin_amount</strong> – Amount of coins to sell</p></li>
+<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Order object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientAmountToSellException" title="buycoins_sdk.commons.errors.InsufficientAmountToSellException"><strong>InsufficientAmountToSellException</strong></a> – raised when the user has insufficient amount of cryptocurrency to sell</p></li>
+<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send">
+<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.OnchainTransferRequest" title="buycoins_sdk.core.types.OnchainTransferRequest">buycoins_sdk.core.types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send supported cryptocurrencies to external address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – cryptocurrency address of recipient</p></li>
+<li><p><strong>amount</strong> – amount of cryptocurrency to send</p></li>
+<li><p><strong>cryptocurrency</strong> – cryptocurrency to send</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An OnchainTransferRequest object representing the GraphQL response</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain">
+<code class="sig-name descname">send_offchain</code><span class="sig-paren">(</span><em class="sig-param">recipient: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send supported cryptocurrencies to internal BuyCoins users</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>recipient</strong> – username of recipient</p></li>
+<li><p><strong>amount</strong> – amount of cryptocurrency to send</p></li>
+<li><p><strong>cryptocurrency</strong> – cryptocurrency to send</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A boolean indicating whether or not the transfer was successfully initiated</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-buycoins_sdk.core.types">
 <span id="buycoins-sdk-core-types-module"></span><h2>buycoins_sdk.core.types module<a class="headerlink" href="#module-buycoins_sdk.core.types" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
@@ -1036,429 +1459,6 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A Transaction object</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-buycoins_sdk.core.main_buycoins_sdk">
-<span id="buycoins-sdk-core-main-buycoins-sdk-module"></span><h2>buycoins_sdk.core.main_buycoins_sdk module<a class="headerlink" href="#module-buycoins_sdk.core.main_buycoins_sdk" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK">
-<em class="property">class </em><code class="sig-prename descclassname">buycoins_sdk.core.main_buycoins_sdk.</code><code class="sig-name descname">BuycoinsSDK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">public_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">secret_key</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>BuycoinsSDK is the entry point of the Buycoins SDK</p>
-<p>All calls to the Buycoins GraphQL API should be done using this class</p>
-<dl class="py attribute">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client">
-<code class="sig-name descname">client</code><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.client" title="Permalink to this definition">¶</a></dt>
-<dd><p>A BuycoinsGraphqlClient object where the actual GraphQL queries and mutations are made</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy">
-<code class="sig-name descname">buy</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.buy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Buy supported cryptocurrencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>price_id</strong> – Global ID of a retrieved price</p></li>
-<li><p><strong>coin_amount</strong> – Amount of coins to buy</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An Order object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientBalanceToBuyException" title="buycoins_sdk.commons.errors.InsufficientBalanceToBuyException"><strong>InsufficientBalanceToBuyException</strong></a> – raised when user has insufficient balance to buy cryptocurrency</p></li>
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal">
-<code class="sig-name descname">cancel_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">payment_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.cancel_withdrawal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cancel initiated withdrawal</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>payment_id</strong> – the ID of the Payment node for the withdrawal</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A Payment object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException" title="buycoins_sdk.commons.errors.WithdrawalCannotBeCanceledException"><strong>WithdrawalCannotBeCanceledException</strong></a> – An error occurred because user tried to cancel already processed
-    withdrawal</p></li>
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address">
-<code class="sig-name descname">create_address</code><span class="sig-paren">(</span><em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Address" title="buycoins_sdk.core.types.Address">buycoins_sdk.core.types.Address</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_address" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create address to receive supported cryptocurrencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cryptocurrency</strong> – cryptocurrency of address to create</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An Address object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account">
-<code class="sig-name descname">create_deposit_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.DepositAccount" title="buycoins_sdk.core.types.DepositAccount">buycoins_sdk.core.types.DepositAccount</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_deposit_account" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate deposit bank accounts to top up your NGNT account with Naira</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>account_name</strong> – name of the account</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A DepositAccount object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal">
-<code class="sig-name descname">create_withdrawal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bank_account_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">amount</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Payment" title="buycoins_sdk.core.types.Payment">buycoins_sdk.core.types.Payment</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.create_withdrawal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new withdrawal</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>bank_account_id</strong> – Global object ID of bank account node to withdraw to</p></li>
-<li><p><strong>amount</strong> – amount to withdraw in naira</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A Payment object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances">
-<code class="sig-name descname">get_balances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.Account" title="buycoins_sdk.core.types.Account">buycoins_sdk.core.types.Account</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_balances" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve supported cryptocurrencies account balance(s)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cryptocurrency</strong> – A Cryptocurrency enum representing the cryptocurrency to query.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An array of Account or a single Account object. An array of Accounts is returned when no cryptocurrency
-is specified</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts">
-<code class="sig-name descname">get_bank_accounts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">account_number</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BankAccount" title="buycoins_sdk.core.types.BankAccount">buycoins_sdk.core.types.BankAccount</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_bank_accounts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve bank accounts</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>account_number</strong> – A string representing the account number to get.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An array of BankAccount objects or a single BankAccount object. An array of BankAccount objects
-is returned when no account number is specified</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee">
-<code class="sig-name descname">get_estimated_network_fee</code><span class="sig-paren">(</span><em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.EstimatedFee" title="buycoins_sdk.core.types.EstimatedFee">buycoins_sdk.core.types.EstimatedFee</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_estimated_network_fee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve estimated network fee to send supported cryptocurrencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>amount</strong> – A string representing the amount of coins to calculate network fee for</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An EstimatedFee object</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book">
-<code class="sig-name descname">get_market_book</code><span class="sig-paren">(</span><em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_market_book" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the getMarketBook query</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
-<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
-<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
-cursor.</p></li>
-<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
-cursor.</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders">
-<code class="sig-name descname">get_orders</code><span class="sig-paren">(</span><em class="sig-param">status: buycoins_sdk.commons.enums.GetOrdersStatus</em>, <em class="sig-param">side: Optional[buycoins_sdk.commons.enums.OrderSide] = None</em>, <em class="sig-param">first: Optional[int] = None</em>, <em class="sig-param">last: Optional[int] = None</em>, <em class="sig-param">after: Optional[str] = None</em>, <em class="sig-param">before: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrders" title="buycoins_sdk.core.types.PostOrders">buycoins_sdk.core.types.PostOrders</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_orders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve open orders</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>status</strong> – the status of the orders to get</p></li>
-<li><p><strong>side</strong> – the side of the orders to get</p></li>
-<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
-<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
-<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
-cursor.</p></li>
-<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
-cursor.</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A PostOrders object representing the PostOrders type returned by the GraphQL API</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments">
-<code class="sig-name descname">get_payments</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">before</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">first</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">last</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>int<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PaymentConnection" title="buycoins_sdk.core.types.PaymentConnection">buycoins_sdk.core.types.PaymentConnection</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_payments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes the getPayments GraphQL query</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>first</strong> – For pagination. Returns the first n elements in a list.</p></li>
-<li><p><strong>last</strong> – For pagination. Returns the last n elements in a list.</p></li>
-<li><p><strong>after</strong> – A string representing a cursor. Returns the elements in the list that come after the specified
-cursor.</p></li>
-<li><p><strong>before</strong> – A string representing a cursor. Returns the elements in the list that come before the specified
-cursor.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices">
-<code class="sig-name descname">get_prices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cryptocurrency</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.Cryptocurrency" title="buycoins_sdk.commons.enums.Cryptocurrency">buycoins_sdk.commons.enums.Cryptocurrency</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="#buycoins_sdk.core.types.BuycoinsPrice" title="buycoins_sdk.core.types.BuycoinsPrice">buycoins_sdk.core.types.BuycoinsPrice</a><span class="p">]</span><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.get_prices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve buy/sell price(s) for supported cryptocurrencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cryptocurrency</strong> – the type of cryptocurrency to query for</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A array of BuycoinsPrice objects or a single BuycoinsPrice object. An array of Buycoins Objects is returned
-when no cryptocurrency is specified</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.node">
-<code class="sig-name descname">node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">gql_type</span><span class="p">:</span> <span class="n"><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType" title="buycoins_sdk.commons.enums.BuycoinsType">buycoins_sdk.commons.enums.BuycoinsType</a></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetches an object given its ID.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>node_id</strong> – the Global object ID of the node</p></li>
-<li><p><strong>gql_type</strong> – the GraphQL type of the Graphql node</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException" title="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException"><strong>InvalidGraphQLNodeIDException</strong></a> – You tried to search for a node with the wrong ID or wrong GraphQL type</p></li>
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An unspecified error occurred</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.nodes">
-<code class="sig-name descname">nodes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ids</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">gql_types</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.enums.BuycoinsType" title="buycoins_sdk.commons.enums.BuycoinsType">buycoins_sdk.commons.enums.BuycoinsType</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetches a list of objects given a list of IDs</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ids</strong> – the list of node IDs</p></li>
-<li><p><strong>gql_types</strong> – the list of node types</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException" title="buycoins_sdk.commons.errors.InvalidGraphQLNodeIDException"><strong>InvalidGraphQLNodeIDException</strong></a> – You tried to search for a node with the wrong ID or wrong GraphQL type</p></li>
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An unspecified error occurred</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order">
-<code class="sig-name descname">post_limit_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">static_price: str</em>, <em class="sig-param">price_type: buycoins_sdk.commons.enums.PriceType</em>, <em class="sig-param">dynamic_exchange_rate: Optional[str] = None</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_limit_order" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new limit order</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>order_side</strong> – The order side either buy or sell</p></li>
-<li><p><strong>coin_amount</strong> – Amount of coins the user wants to trade</p></li>
-<li><p><strong>static_price</strong> – The static price in naira</p></li>
-<li><p><strong>price_type</strong> – The type of the price either dynamic or static</p></li>
-<li><p><strong>dynamic_exchange_rate</strong> – The dynamic exchange rate in naira</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A PostOrder object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order">
-<code class="sig-name descname">post_market_order</code><span class="sig-paren">(</span><em class="sig-param">order_side: buycoins_sdk.commons.enums.OrderSide</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.PostOrder" title="buycoins_sdk.core.types.PostOrder">buycoins_sdk.core.types.PostOrder</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.post_market_order" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new market order</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>order_side</strong> – The order side either buy or sell</p></li>
-<li><p><strong>coin_amount</strong> – Amount of coins the user wants to trade</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A PostOrder object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell">
-<code class="sig-name descname">sell</code><span class="sig-paren">(</span><em class="sig-param">price_id: str</em>, <em class="sig-param">coin_amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.Order" title="buycoins_sdk.core.types.Order">buycoins_sdk.core.types.Order</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.sell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sell supported cryptocurrencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>price_id</strong> – Global ID of a retrieved price</p></li>
-<li><p><strong>coin_amount</strong> – Amount of coins to sell</p></li>
-<li><p><strong>cryptocurrency</strong> – type of cryptocurrency</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An Order object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.InsufficientAmountToSellException" title="buycoins_sdk.commons.errors.InsufficientAmountToSellException"><strong>InsufficientAmountToSellException</strong></a> – raised when the user has insufficient amount of cryptocurrency to sell</p></li>
-<li><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send">
-<code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">address: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#buycoins_sdk.core.types.OnchainTransferRequest" title="buycoins_sdk.core.types.OnchainTransferRequest">buycoins_sdk.core.types.OnchainTransferRequest</a><a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send supported cryptocurrencies to external address</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>address</strong> – cryptocurrency address of recipient</p></li>
-<li><p><strong>amount</strong> – amount of cryptocurrency to send</p></li>
-<li><p><strong>cryptocurrency</strong> – cryptocurrency to send</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An OnchainTransferRequest object representing the GraphQL response</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain">
-<code class="sig-name descname">send_offchain</code><span class="sig-paren">(</span><em class="sig-param">recipient: str</em>, <em class="sig-param">amount: str</em>, <em class="sig-param">cryptocurrency: buycoins_sdk.commons.enums.Cryptocurrency = &lt;Cryptocurrency.BITCOIN: 'bitcoin'&gt;</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#buycoins_sdk.core.main_buycoins_sdk.BuycoinsSDK.send_offchain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send supported cryptocurrencies to internal BuyCoins users</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>recipient</strong> – username of recipient</p></li>
-<li><p><strong>amount</strong> – amount of cryptocurrency to send</p></li>
-<li><p><strong>cryptocurrency</strong> – cryptocurrency to send</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A boolean indicating whether or not the transfer was successfully initiated</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="buycoins_sdk.commons.html#buycoins_sdk.commons.errors.BuycoinsException" title="buycoins_sdk.commons.errors.BuycoinsException"><strong>BuycoinsException</strong></a> – An error occurred</p>
 </dd>
 </dl>
 </dd></dl>

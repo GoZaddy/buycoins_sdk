@@ -4,8 +4,8 @@ buycoins\_sdk.commons package
 Submodules
 ----------
 
-buycoins\_sdk.commons.constants module
---------------------------------------
+buycoins\_sdk.commons.enums module
+----------------------------------
 
 .. automodule:: buycoins_sdk.commons.enums
    :members:
