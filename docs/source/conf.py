@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../../buycoins_sdk/'))
+sys.path.insert(0, os.path.abspath('../../buycoins_sdk/'))
 
 
 # -- Project information -----------------------------------------------------
