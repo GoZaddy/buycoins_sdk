@@ -14,7 +14,7 @@ import os
 import sys
 from unittest.mock import Mock as MagicMock
 
-sys.path.insert(0, os.path.abspath('../../../buycoins_sdk/'))
+sys.path.insert(0, os.path.abspath('../../buycoins_sdk/'))
 
 
 class Mock(MagicMock):
