@@ -133,3 +133,13 @@ class OrderStatus(Enum):
     CANCELED = 'canceled'
     DONE = 'done'
     FAILED = 'failed'
+
+
+class EventType(Enum):
+    """The EventType enum represents the types of events that can be fired by Buycoins
+
+    """
+    COINS_INCOMING = 'coins.incoming'
+    BANK_DEPOSIT_INCOMING = 'bank_deposit.incoming'
+    ORDER_SUCCEEDED = 'order.succeeded'
+    ORDER_FAILED = 'order.failed'

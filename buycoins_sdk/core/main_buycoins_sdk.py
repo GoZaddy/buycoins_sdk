@@ -1,6 +1,6 @@
-from ..client import BuycoinsGraphqlClient
-from ..commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
-from ..core.types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
+from buycoins_sdk.client import BuycoinsGraphqlClient
+from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, GetOrdersStatus, BuycoinsType, PriceType
+from buycoins_sdk.core.types import Account, BankAccount, EstimatedFee, PostOrders, PaymentConnection, \
     BuycoinsPrice, Order, Payment, DepositAccount, PostOrder, OnchainTransferRequest, Address
 from typing import Union, List, Dict
 
@@ -452,86 +452,3 @@ class BuycoinsSDK:
         )['data']['initiated']
 
 
-# bc = BuycoinsSDK(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
-
-# print(bc.send_offchain(
-#     recipient='faru',
-#     cryptocurrency=Cryptocurrency.BITCOIN,
-#     amount='10'
-# ))
-
-# bank_id = bc.get_bank_accounts().id
-
-# w = bc.create_withdrawal(
-#     bank_account_id=bank_id,
-#     amount='100'
-# )
-# print(w)
-
-# da = bc.create_deposit_account('hey')
-# print(da.account_number, da.account_name, da.bank_name)
-
-# ad = bc.create_address(Cryptocurrency.NAIRA_TOKEN)
-# print(ad.cryptocurrency)
-# print(ad.address)
-# payments = bc.get_payments(first=1)
-# print(bc.cancel_withdrawal(payments.payment_edges[0].payment.id))
-# btc_price = bc.get_prices(Cryptocurrency.BITCOIN)
-# print(bc.buy(
-#     price_id=btc_price.id,
-#     coin_amount="2",
-#     cryptocurrency=Cryptocurrency.BITCOIN
-# ))
-# node = BuycoinsPrice.from_dict(bc.node(
-#     node_id="QnV5Y29pbnNQcmljZS1mZTZjYzdiOC0xNWRkLTQyODYtOWM4OS0yNjNhYmM2M2Q2Zjg=",
-#     gql_type=BuycoinsType.BUYCOINS_PRICE
-# )['data'])
-
-
-# price = bc.get_prices(Cryptocurrency.BITCOIN)
-# print(price.cryptocurrency)
-# print(price.buy_price_per_coin)
-# print(price.sell_price_per_coin)
-
-# for i in price:
-#     print(i.cryptocurrency)
-#     print(i.buy_price_per_coin)
-#     print(i.sell_price_per_coin)
-#     print('\n')
-
-# b = bc.get_balances()
-# for i in b:
-#     print(i.cryptocurrency)
-#     print(i.confirmed_balance)
-#     print(i.id)
-#     print('\n')
-#
-# print(len(b))
-
-# a = bc.get_bank_accounts("2119851388")
-# print(a.account_number)
-# print(a.account_name)
-# print(a.account_type)
-# print(a.account_reference)
-
-# es_fee = bc.get_estimated_network_fee(amount="1000", cryptocurrency=Cryptocurrency.ETHEREUM)
-# print(es_fee.estimated_fee, es_fee.total)
-
-# m_book = bc.get_market_book(cryptocurrency=Cryptocurrency.USD_TETHER)
-# for i in m_book.post_order_edges:
-#     print(i.post_order.status)
-#     print(i.post_order.cryptocurrency)
-#     print(i.post_order.coin_amount)
-#     print(i.post_order.price_type)
-#     print(i.post_order.side)
-#     print(i.post_order.static_price)
-#     print(i.post_order.price_per_coin)
-#     print('\n')
-
-# pays = bc.get_payments(first=1)
-# for i in pays.payment_edges:
-#     print(i.payment.payment_type)
-#     print(i.payment.status)
-#     print(i.payment.amount)
-#     print(i.payment.fee)
-#     print(i.payment.total_amount)

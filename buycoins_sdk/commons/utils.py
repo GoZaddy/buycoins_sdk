@@ -2,6 +2,9 @@
 This module will contain some util functions that can be used by users
 """
 
+import hmac
+import hashlib
+
 
 def is_valid_webhook_request(webhook_token: str, request_body: str, webhook_signature_header: str) -> bool:
     """This method verifies that requests to your Webhook URL are genuine and from Buycoins.
@@ -15,4 +18,5 @@ def is_valid_webhook_request(webhook_token: str, request_body: str, webhook_sign
         a boolean stating whether the request is valid or not
 
     """
-    pass
+    hmac_request_body = hmac.new(webhook_token.encode(), request_body.encode(), hashlib.sha1)
+    return hmac.compare_digest(hmac_request_body.hexdigest(), webhook_signature_header)

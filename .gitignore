@@ -7,4 +7,6 @@ env/
 .env
 .DS_store
 script.py
+server.py
 docs/build
+Buycoins_Python_SDK.egg-info

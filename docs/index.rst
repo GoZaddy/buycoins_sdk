@@ -51,6 +51,7 @@ Table of Contents
    :caption: Guides
 
    types_and_enums
+   verifying_webhook
    exceptions
    global_nodes
    why_string

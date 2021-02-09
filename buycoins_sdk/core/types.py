@@ -1,6 +1,6 @@
-from ..commons.enums import Cryptocurrency, OrderSide, \
+from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, \
     PostOrderStatus, PaymentStatus, PaymentTypes, BuycoinsPriceStatus, BankAccountTypes, OrderStatus, \
-    OnchainTransferRequestStatus
+    OnchainTransferRequestStatus, EventType
 
 
 from typing import List
@@ -783,11 +783,57 @@ class PaymentConnection:
             payment_edges=p_edges
         )
 
-# bc = BuycoinsGraphqlClient(public_key=os.getenv('BUYCOINS_PUBLIC_KEY'), secret_key=os.getenv('BUYCOINS_SECRET_KEY'))
-# b = bc.get_balances()
-# print(b)
-# bcp = BuycoinsPrice.from_dict(bc.get_prices(Cryptocurrency.USD_TETHER)['data'])
-# print(bcp.status)
-# print(bcp.cryptocurrency)
-# print(bcp.buy_price_per_coin)
-# print(bcp.sell_price_per_coin)
+
+class Event:
+    """Event represents the request body of a webhook request sent from Buycoins
+
+    Attributes:
+        hook_id: hook id of webhook event
+        hook_key: hook key of webhook event
+        hook_time: hook time of webhook event
+        hook_signature: hook signature of webhook event
+        event_type: type of event
+        data: data in payload
+    """
+
+    def __init__(self, hook_id: int, hook_key: str, hook_time: int, hook_signature: str, event_type: EventType, data: dict):
+        """Create a new Event
+
+        Args:
+            hook_id: hook id of webhook event
+            hook_key: hook key of webhook event
+            hook_time: hook time of webhook event
+            hook_signature: hook signature of webhook event
+            event_type: type of event
+            data: data in payload
+        """
+
+        self.hook_id = hook_id
+        self.hook_key = hook_key
+        self.hook_time = hook_time
+        self.hook_signature = hook_signature
+        self.event_type = event_type
+        self.data = data
+
+    @staticmethod
+    def from_request_body(request_body: dict):
+        """This allows you to create an Event object using the request body of a request from Buycoins
+
+       Args:
+           request_body: the request body from buycoins
+       Returns:
+           An Event object
+       """
+        event = Event(
+            hook_id=request_body['hook_id'],
+            hook_key=request_body['hook_key'],
+            hook_time=request_body['hook_time'],
+            hook_signature=request_body['hook_signature'],
+            event_type=EventType(request_body['payload']['event']),
+            data=request_body['payload']['data']
+        )
+        return event
+
+
+if __name__ == '__main__':
+    pass

@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 from unittest.mock import Mock
-from ... import BuycoinsGraphqlClient, enums, errors, client
+from buycoins_sdk import BuycoinsGraphqlClient, enums, errors, client
 from .fixtures import *
 
 
