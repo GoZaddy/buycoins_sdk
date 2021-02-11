@@ -1,2 +1,4 @@
 python-graphql-client==0.4.2
 python-dotenv==0.15.0
+Sphinx==3.4.3
+requests~=2.25.1

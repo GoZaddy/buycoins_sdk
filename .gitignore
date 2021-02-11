@@ -1,0 +1,15 @@
+.vscode/
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/__pycache__/
+**/**/__pycache__/
+env/
+.env
+.DS_store
+script.py
+server.py
+docs/build/
+Buycoins_Python_SDK.egg-info/
+dist/
+build/
+buycoins_sdk.egg-info/
