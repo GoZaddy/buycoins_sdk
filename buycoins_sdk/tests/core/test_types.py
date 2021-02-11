@@ -1,6 +1,6 @@
 from unittest import TestCase
 from buycoins_sdk import types, errors
-from fixtures import *
+from .fixtures import *
 
 
 class TestTypes(TestCase):
