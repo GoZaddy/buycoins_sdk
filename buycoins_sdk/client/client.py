@@ -62,6 +62,7 @@ def _prepare_graphql_args(variables: Dict[str, Any], first: int = None, last: in
         'variables': var
     }
 
+
 def _wrap_graphql_call(client: GraphqlClient, query: str, variables: dict) -> Any:
     """This function wraps calls to the GraphQL API and raises the appropriate exceptions
 
@@ -115,7 +116,7 @@ class BuycoinsGraphqlClient:
     for making GraphQL queries.
 
     Attributes:
-        _client: A GraphqlClient used to make queries and mutations directly. Only use this when you want to write your
+        client: A GraphqlClient used to make queries and mutations directly. Only use this when you want to write your
                     own queries and mutations. Most times, you won't need to do that yourself.
     """
 
@@ -127,7 +128,7 @@ class BuycoinsGraphqlClient:
             secret_key: your BuyCoins secret key as a string
         """
         b64_key = base64.b64encode(f"{public_key}:{secret_key}".encode()).decode()
-        self._client = GraphqlClient("https://backend.buycoins.tech/api/graphql", headers={
+        self.client = GraphqlClient("https://backend.buycoins.tech/api/graphql", headers={
             'authorization': f"Basic {b64_key}"
         })
 
@@ -161,7 +162,7 @@ class BuycoinsGraphqlClient:
             """
             variables = {'cryptocurrency': cryptocurrency.value}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getBalances']}
 
     def get_bank_accounts(self, account_number=None) -> dict:
@@ -192,7 +193,7 @@ class BuycoinsGraphqlClient:
                 }
             """
             variables = {'accountNumber': account_number}
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getBankAccounts']}
 
     def get_estimated_network_fee(self, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -215,7 +216,7 @@ class BuycoinsGraphqlClient:
             }
         """
         variables = {'cryptocurrency': cryptocurrency.value, 'amount': amount}
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getEstimatedNetworkFee']}
 
     def get_market_book(self, first: int = None, last: int = None, after: str = None, before: str = None,
@@ -264,7 +265,7 @@ class BuycoinsGraphqlClient:
               }
             }
         """
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getMarketBook']}
 
     def get_orders(self, status: GetOrdersStatus, side: OrderSide = None, first: int = None, last: int = None,
@@ -322,7 +323,7 @@ class BuycoinsGraphqlClient:
               }
             }
         """
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getOrders']}
 
     def get_payments(self, after: str = None, before: str = None, first: int = None, last: int = None) -> dict:
@@ -369,7 +370,7 @@ class BuycoinsGraphqlClient:
               }
             }
         """
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getPayments']}
 
     def get_prices(self, cryptocurrency: Cryptocurrency = None) -> dict:
@@ -403,7 +404,7 @@ class BuycoinsGraphqlClient:
             """
             variables = {'cryptocurrency': cryptocurrency.value}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['getPrices']}
 
     def node(self, node_id: str, gql_type: BuycoinsType) -> dict:
@@ -435,7 +436,7 @@ class BuycoinsGraphqlClient:
 
         variables = {'id': node_id}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         if data['data']['node'] == {}:
             raise errors.InvalidGraphQLNodeIDException(gql_type=gql_type, node_id=node_id)
         else:
@@ -472,7 +473,7 @@ class BuycoinsGraphqlClient:
 
         variables = {'ids': ids}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         if {} in data['data']['nodes']:
             raise errors.InvalidGraphQLNodeIDException(message="One of your nodes could not looked up. Please "
                                                                "check your Node IDs or GraphQL types")
@@ -505,7 +506,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'cryptocurrency': cryptocurrency.value, 'price': price_id, 'coin_amount': coin_amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['buy']}
 
     def cancel_withdrawal(self, payment_id: str) -> dict:
@@ -531,7 +532,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'payment': payment_id}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['cancelWithdrawal']}
 
     def create_address(self, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -555,7 +556,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'cryptocurrency': cryptocurrency.value}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['createAddress']}
 
     def create_deposit_account(self, account_name: str) -> dict:
@@ -579,7 +580,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'account_name': account_name}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['createDepositAccount']}
 
     def create_withdrawal(self, bank_account_id: str, amount: str):
@@ -605,7 +606,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'bank_account': bank_account_id, 'amount': amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['createWithdrawal']}
 
     def post_limit_order(self, order_side: OrderSide, coin_amount: str, static_price: str, price_type: PriceType,
@@ -649,7 +650,7 @@ class BuycoinsGraphqlClient:
                      'static_price': static_price, 'price_type': price_type.value,
                      'dynamic_exchange_rate': dynamic_exchange_rate}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['postLimitOrder']}
 
     def post_market_order(self, order_side: OrderSide, coin_amount: str,
@@ -679,7 +680,7 @@ class BuycoinsGraphqlClient:
 
         variables = {'cryptocurrency': cryptocurrency.value, 'order_side': order_side.value, 'coin_amount': coin_amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['postMarketOrder']}
 
     def sell(self, price_id: str, coin_amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -709,7 +710,7 @@ class BuycoinsGraphqlClient:
 
         variables = {'cryptocurrency': cryptocurrency.value, 'price': price_id, 'coin_amount': coin_amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['sell']}
 
     def send(self, address: str, amount: str, cryptocurrency: Cryptocurrency = Cryptocurrency.BITCOIN) -> dict:
@@ -735,7 +736,7 @@ class BuycoinsGraphqlClient:
         """
         variables = {'cryptocurrency': cryptocurrency.value, 'address': address, 'amount': amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['send']}
 
     def send_offchain(self, recipient: str, amount: str,
@@ -762,6 +763,5 @@ class BuycoinsGraphqlClient:
         """
         variables = {'cryptocurrency': cryptocurrency.value, 'recipient': recipient, 'amount': amount}
 
-        data = _wrap_graphql_call(self._client, query=query, variables=variables)
+        data = _wrap_graphql_call(self.client, query=query, variables=variables)
         return {'data': data['data']['sendOffchain']}
-

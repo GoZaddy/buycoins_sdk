@@ -52,6 +52,7 @@ Table of Contents
 
    types_and_enums
    verifying_webhook
+   writing_queries
    exceptions
    global_nodes
    why_string
