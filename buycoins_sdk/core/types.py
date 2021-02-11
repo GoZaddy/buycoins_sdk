@@ -5,6 +5,8 @@ from buycoins_sdk.commons.enums import Cryptocurrency, OrderSide, \
 
 from typing import List
 
+from buycoins_sdk import errors
+
 __all__ = [
     'Account',
     'BankAccount',
@@ -23,6 +25,9 @@ __all__ = [
     'PaymentConnection',
     'PaymentEdge'
 ]
+
+
+
 
 
 class Account:
@@ -56,9 +61,13 @@ class Account:
         Returns:
             An Account object
         """
-        account = Account(node_id=fields['id'], cryptocurrency=fields['cryptocurrency'],
-                          confirmed_balance=fields['confirmedBalance'])
-        return account
+        try:
+            account = Account(node_id=fields['id'], cryptocurrency=fields['cryptocurrency'],
+                              confirmed_balance=fields['confirmedBalance'])
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return account
 
 
 class BankAccount:
@@ -102,15 +111,22 @@ class BankAccount:
         Returns:
             A BankAccount object
         """
-        bank_account = BankAccount(
-            node_id=fields['id'],
-            account_name=fields['accountName'],
-            account_number=fields['accountNumber'],
-            account_reference=fields['accountReference'],
-            account_type=fields['accountType'],
-            bank_name=fields['bankName']
-        )
-        return bank_account
+
+        try:
+            bank_account = BankAccount(
+                node_id=fields['id'],
+                account_name=fields['accountName'],
+                account_number=fields['accountNumber'],
+                account_reference=fields['accountReference'],
+                account_type=fields['accountType'],
+                bank_name=fields['bankName']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return bank_account
+
+
 
 
 class PostOrder:
@@ -166,19 +182,23 @@ class PostOrder:
         Returns:
             A PostOrder object
         """
-        post_order = PostOrder(
-            node_id=fields['id'],
-            coin_amount=fields['coinAmount'],
-            created_at=fields['createdAt'],
-            cryptocurrency=fields['cryptocurrency'],
-            dynamic_exchange_rate=fields['dynamicExchangeRate'],
-            price_per_coin=fields['pricePerCoin'],
-            price_type=fields['priceType'],
-            side=fields['side'],
-            static_price=fields['staticPrice'],
-            status=fields['status']
-        )
-        return post_order
+        try:
+            post_order = PostOrder(
+                node_id=fields['id'],
+                coin_amount=fields['coinAmount'],
+                created_at=fields['createdAt'],
+                cryptocurrency=fields['cryptocurrency'],
+                dynamic_exchange_rate=fields['dynamicExchangeRate'],
+                price_per_coin=fields['pricePerCoin'],
+                price_type=fields['priceType'],
+                side=fields['side'],
+                static_price=fields['staticPrice'],
+                status=fields['status']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return post_order
 
 
 class Payment:
@@ -228,17 +248,22 @@ class Payment:
        Returns:
            A Payment object
        """
-        payment = Payment(
-            node_id=fields['id'],
-            amount=fields['amount'],
-            created_at=fields['createdAt'],
-            fee=fields['fee'],
-            reference=fields['reference'],
-            status=fields['status'],
-            total_amount=fields['totalAmount'],
-            payment_type=fields['type']
-        )
-        return payment
+
+        try:
+            payment = Payment(
+                node_id=fields['id'],
+                amount=fields['amount'],
+                created_at=fields['createdAt'],
+                fee=fields['fee'],
+                reference=fields['reference'],
+                status=fields['status'],
+                total_amount=fields['totalAmount'],
+                payment_type=fields['type']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return payment
 
 
 class BuycoinsPrice:
@@ -298,20 +323,25 @@ class BuycoinsPrice:
        Returns:
            A BuycoinsPrice object
        """
-        buycoins_price = BuycoinsPrice(
-            node_id=fields['id'],
-            buy_price_per_coin=fields['buyPricePerCoin'],
-            cryptocurrency=fields['cryptocurrency'],
-            expires_at=fields['expiresAt'],
-            max_buy=fields['maxBuy'],
-            max_sell=fields['maxSell'],
-            min_buy=fields['minBuy'],
-            min_coin_amount=fields['minCoinAmount'],
-            min_sell=fields['minSell'],
-            sell_price_per_coin=fields['sellPricePerCoin'],
-            status=fields['status']
-        )
-        return buycoins_price
+
+        try:
+            buycoins_price = BuycoinsPrice(
+                node_id=fields['id'],
+                buy_price_per_coin=fields['buyPricePerCoin'],
+                cryptocurrency=fields['cryptocurrency'],
+                expires_at=fields['expiresAt'],
+                max_buy=fields['maxBuy'],
+                max_sell=fields['maxSell'],
+                min_buy=fields['minBuy'],
+                min_coin_amount=fields['minCoinAmount'],
+                min_sell=fields['minSell'],
+                sell_price_per_coin=fields['sellPricePerCoin'],
+                status=fields['status']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return buycoins_price
 
 
 class Address:
@@ -348,13 +378,18 @@ class Address:
         Returns:
             An Address object
         """
-        address = Address(
-            node_id=fields['id'],
-            address=fields['address'],
-            created_at=fields['createdAt'],
-            cryptocurrency=fields['cryptocurrency']
-        )
-        return address
+
+        try:
+            address = Address(
+                node_id=fields['id'],
+                address=fields['address'],
+                created_at=fields['createdAt'],
+                cryptocurrency=fields['cryptocurrency']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return address
 
 
 class DepositAccount:
@@ -398,15 +433,20 @@ class DepositAccount:
         Returns:
             A DepositAccount object
         """
-        deposit_account = DepositAccount(
-            node_id=fields['id'],
-            account_name=fields['accountName'],
-            account_number=fields['accountNumber'],
-            account_reference=fields['accountReference'],
-            account_type=fields['accountType'],
-            bank_name=fields['bankName']
-        )
-        return deposit_account
+
+        try:
+            deposit_account = DepositAccount(
+                node_id=fields['id'],
+                account_name=fields['accountName'],
+                account_number=fields['accountNumber'],
+                account_reference=fields['accountReference'],
+                account_type=fields['accountType'],
+                bank_name=fields['bankName']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return deposit_account
 
 
 class Order:
@@ -457,17 +497,22 @@ class Order:
         Returns:
             An Order object
         """
-        order = Order(
-            node_id=fields['id'],
-            created_at=fields['createdAt'],
-            cryptocurrency=fields['cryptocurrency'],
-            filled_coin_amount=fields['filledCoinAmount'],
-            price=BuycoinsPrice.from_dict(fields['price']),
-            side=fields['side'],
-            status=fields['status'],
-            total_coin_amount=fields['totalCoinAmount']
-        )
-        return order
+
+        try:
+            order = Order(
+                node_id=fields['id'],
+                created_at=fields['createdAt'],
+                cryptocurrency=fields['cryptocurrency'],
+                filled_coin_amount=fields['filledCoinAmount'],
+                price=BuycoinsPrice.from_dict(fields['price']),
+                side=fields['side'],
+                status=fields['status'],
+                total_coin_amount=fields['totalCoinAmount']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return order
 
 
 class OnchainTransferRequest:
@@ -517,17 +562,22 @@ class OnchainTransferRequest:
         Returns:
             An OnchainTransferRequest object
         """
-        onchain_transfer_request = OnchainTransferRequest(
-            node_id=fields['id'],
-            address=fields['address'],
-            amount=fields['amount'],
-            cryptocurrency=fields['cryptocurrency'],
-            created_at=fields['createdAt'],
-            fee=fields['fee'],
-            status=fields['status'],
-            transaction_id=fields['transaction']['id']
-        )
-        return onchain_transfer_request
+
+        try:
+            onchain_transfer_request = OnchainTransferRequest(
+                node_id=fields['id'],
+                address=fields['address'],
+                amount=fields['amount'],
+                cryptocurrency=fields['cryptocurrency'],
+                created_at=fields['createdAt'],
+                fee=fields['fee'],
+                status=fields['status'],
+                transaction_id=fields['transaction']['id']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return onchain_transfer_request
 
 
 class Transaction:
@@ -580,18 +630,22 @@ class Transaction:
         Returns:
             A Transaction object
         """
-        tx = Transaction(
-            node_id=fields['id'],
-            address=Address.from_dict(fields['address']),
-            amount=fields['amount'],
-            confirmed=fields['confirmed'],
-            created_at=fields['createdAt'],
-            cryptocurrency=fields['cryptocurrency'],
-            direction=fields['direction'],
-            onchain_transfer_request_id=fields['onchainTransferRequest']['id'],
-            tx_hash=fields['txhash']
-        )
-        return tx
+        try:
+            tx = Transaction(
+                node_id=fields['id'],
+                address=Address.from_dict(fields['address']),
+                amount=fields['amount'],
+                confirmed=fields['confirmed'],
+                created_at=fields['createdAt'],
+                cryptocurrency=fields['cryptocurrency'],
+                direction=fields['direction'],
+                onchain_transfer_request_id=fields['onchainTransferRequest']['id'],
+                tx_hash=fields['txhash']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return tx
 
 
 class EstimatedFee:
@@ -622,11 +676,16 @@ class EstimatedFee:
        Returns:
            An EstimatedFee object
        """
-        es_fee = EstimatedFee(
-            estimated_fee=fields['estimatedFee'],
-            total=fields['total']
-        )
-        return es_fee
+
+        try:
+            es_fee = EstimatedFee(
+                estimated_fee=fields['estimatedFee'],
+                total=fields['total']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return es_fee
 
 
 class PageInfo:
@@ -663,12 +722,16 @@ class PageInfo:
        Returns:
            A PageInfo object
        """
-        return PageInfo(
-            end_cursor=fields['endCursor'],
-            start_cursor=fields['startCursor'],
-            has_next_page=fields['hasNextPage'],
-            has_previous_page=fields['hasPreviousPage']
-        )
+
+        try:
+            return PageInfo(
+                end_cursor=fields['endCursor'],
+                start_cursor=fields['startCursor'],
+                has_next_page=fields['hasNextPage'],
+                has_previous_page=fields['hasPreviousPage']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
 
 
 class PostOrderEdge:
@@ -714,16 +777,20 @@ class PostOrders:
        Returns:
            A PostOrders object
        """
-        po_edges = []
-        post_order_edges_dict = fields['orders']['edges']
-        for i in post_order_edges_dict:
-            post_order = PostOrder.from_dict(i['node'])
-            po_edges.append(PostOrderEdge(cursor=i['cursor'], post_order=post_order))
-        return PostOrders(
-            dynamic_price_expiry=fields['dynamicPriceExpiry'],
-            page_info=PageInfo.from_dict(fields['orders']['pageInfo']),
-            post_order_edges=po_edges
-        )
+
+        try:
+            po_edges = []
+            post_order_edges_dict = fields['orders']['edges']
+            for i in post_order_edges_dict:
+                post_order = PostOrder.from_dict(i['node'])
+                po_edges.append(PostOrderEdge(cursor=i['cursor'], post_order=post_order))
+            return PostOrders(
+                dynamic_price_expiry=fields['dynamicPriceExpiry'],
+                page_info=PageInfo.from_dict(fields['orders']['pageInfo']),
+                post_order_edges=po_edges
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
 
 
 class PaymentEdge:
@@ -773,15 +840,23 @@ class PaymentConnection:
        Returns:
            A PaymentConnection object
        """
-        p_edges = []
-        payment_edges_dict = fields['edges']
-        for i in payment_edges_dict:
-            payment = Payment.from_dict(i['node'])
-            p_edges.append(PaymentEdge(cursor=i['cursor'], payment=payment))
-        return PaymentConnection(
-            page_info=PageInfo.from_dict(fields['pageInfo']),
-            payment_edges=p_edges
-        )
+
+        try:
+            p_edges = []
+            pg_info = PageInfo.from_dict(fields['pageInfo'])
+            payment_edges_dict = fields['edges']
+            for i in payment_edges_dict:
+                payment = Payment.from_dict(i['node'])
+                p_edges.append(PaymentEdge(cursor=i['cursor'], payment=payment))
+
+            return PaymentConnection(
+                page_info=pg_info,
+                payment_edges=p_edges
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+
+
 
 
 class Event:
@@ -824,15 +899,19 @@ class Event:
        Returns:
            An Event object
        """
-        event = Event(
-            hook_id=request_body['hook_id'],
-            hook_key=request_body['hook_key'],
-            hook_time=request_body['hook_time'],
-            hook_signature=request_body['hook_signature'],
-            event_type=EventType(request_body['payload']['event']),
-            data=request_body['payload']['data']
-        )
-        return event
+        try:
+            event = Event(
+                hook_id=request_body['hook_id'],
+                hook_key=request_body['hook_key'],
+                hook_time=request_body['hook_time'],
+                hook_signature=request_body['hook_signature'],
+                event_type=EventType(request_body['payload']['event']),
+                data=request_body['payload']['data']
+            )
+        except KeyError as err:
+            raise errors.MissingFieldException(err.args[0])
+        else:
+            return event
 
 
 if __name__ == '__main__':

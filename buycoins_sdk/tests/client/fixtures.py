@@ -281,7 +281,12 @@ send_success = {
             'status': 'confirmed',
             'transaction': {
                 'id': 'random id',
-                'address': 'random address',
+                'address': {
+                    'address': 'MNjTVmqy5a9mjUShT8XsWgJQFasgHpr1ML',
+                    'createdAt': 1612759118,
+                    'cryptocurrency': 'litecoin',
+                    'id': 'QWRkcmVzcy1iOWM1NWZiNy01ODc2LTQ2NjMtOTc0OS0zODIwZjI5MGZlZTk='
+                },
                 'amount': '1638920.82902',
                 'confirmed': True,
                 'createdAt': 1673839222,

@@ -8,5 +8,8 @@ env/
 .DS_store
 script.py
 server.py
-docs/build
-Buycoins_Python_SDK.egg-info
+docs/build/
+Buycoins_Python_SDK.egg-info/
+dist/
+build/
+buycoins_sdk.egg-info/

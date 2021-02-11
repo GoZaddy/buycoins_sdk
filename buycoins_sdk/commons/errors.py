@@ -12,7 +12,8 @@ __all__ = [
     'InsufficientBalanceToBuyException',
     'InsufficientBalanceToWithdrawException',
     'WithdrawalCannotBeCanceledException',
-    'BuycoinsHTTPException'
+    'BuycoinsHTTPException',
+    'MissingFieldException'
 ]
 
 
@@ -146,3 +147,19 @@ class WithdrawalCannotBeCanceledException(BuycoinsException):
 
         """
         super().__init__("This payment has been processed and can not be canceled")
+
+
+class MissingFieldException(BuycoinsException):
+    """MissingFieldException is raised when a native Python object representation of a GraphQL type is being
+            created with the from_dict method but there are missing fields in the dict passed
+
+        """
+
+    def __init__(self, missing_field: str):
+        """Create a new MissingFieldException
+
+        Args:
+            missing_field: the field missing from the dictionary passed to the from_dict method
+
+        """
+        super().__init__("Type could not be created due to missing field: "+missing_field)
