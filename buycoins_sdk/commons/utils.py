@@ -15,7 +15,7 @@ def is_valid_webhook_request(webhook_token: str, request_body: str, webhook_sign
         webhook_signature_header: the X-Webhook-Signature header from BuyCoins
 
     Returns:
-        a boolean stating whether the request is valid or not
+        a Boolean stating whether the request is valid or not
 
     """
     hmac_request_body = hmac.new(webhook_token.encode(), request_body.encode(), hashlib.sha1)
