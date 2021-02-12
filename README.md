@@ -13,7 +13,7 @@ This means that you can:
    * Perform P2P trading on the Buycoins platform
    * Get the latest prices of various cryptocurrencies in Naira and so on.
 
-You can find Buycoins SDK on PyPi [here](https://pypi.org/project/buycoins-sdk/0.0.1/).
+You can find Buycoins SDK on PyPi [here](https://pypi.org/project/buycoins-sdk/1.0.1/).
 
 ## Features
 Buycoins Python SDK comes with amazing features and benefits such as:
